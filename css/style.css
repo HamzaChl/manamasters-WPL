@@ -295,6 +295,10 @@ article {
 }
 
 .sectionLogin {
+  background-image: url("../assets/images/backgroundLogin.png");
+  background-position: center;
+  width: 300px;
+  height: 400px;
   background-image: url("/assets/images/backgroundLogin.png");
   background-position: right;
   background-size: cover;
