@@ -1,0 +1,183 @@
+/*
+Project container
+*/
+
+.project-banner {
+    text-align: center;
+    background-color: #3a485f;
+    border-radius: 20px;
+    padding: 30px;
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0, 0, 0, 0.762)
+      ),
+      url("../assets/images/back.jpg");
+    /* filter: blur(4px); */
+  }
+  
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
+  
+  .project-holder {
+    cursor: pointer;
+    background-color: var(--body-bg2);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+  }
+  
+  .project-holder:hover {
+    scale: 1.1;
+    outline: 5px solid white;
+    transition: ease-in 4ms;
+  }
+  
+  .project {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: end;
+  }
+  
+  .fortnite {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/fortnite.jpg);
+    border-radius: 10px;
+  }
+  .fifa {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/fifa.jpg);
+    border-radius: 10px;
+  }
+  .lego {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/lego.jpg);
+    border-radius: 10px;
+  }
+  .one-piece {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/one-piece.jpg);
+    border-radius: 10px;
+  }
+  .lotr {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/lotr.jpg);
+    border-radius: 10px;
+  }
+  
+  .jjk {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/jjk.jpg);
+    border-radius: 10px;
+  }
+  .mtg {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/mtg.jpg);
+    border-radius: 10px;
+  }
+  .pokemon {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/pokemon.jpg);
+    border-radius: 10px;
+  }
+  
+  .project > h4 {
+    font-size: 30px;
+    background: -webkit-linear-gradient(#fdba66, #fd6d71);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+  .project > p {
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .project-holder img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+  .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 40vw;
+    height: 40vh;
+    background-color: rgb(221, 221, 221);
+    overflow-y: hidden;
+    z-index: 1000;
+    top: 50%;
+    left: 30%;
+    transform: translate(0, -50%);
+    visibility: hidden;
+  }
+  
+  .alert > h3 {
+    font-size: 32px;
+    background: -webkit-linear-gradient(#fdba66, #fd6d71);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    margin-left: 30px;
+  }
+  
+  .alert {
+    background-color: white;
+    height: 35vh;
+    width: 35vw;
+    border-radius: 20px;
+    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
