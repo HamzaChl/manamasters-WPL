@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magic The Gathering</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="./scripts/script.js" defer></script>
+    <script src="./js/script.js" defer></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
   </head>
   <body>
@@ -34,7 +34,7 @@
       </section>
       <section class="card-finder">
         <h1>vind je kaart</h1>
-        <form id="form" action="" method="get">
+        <form class="search-form"id="search-id" action="" method="get">
           <div class="wrapper">
             <input type="text" placeholder="Enter a card name,type" />
             <button>
@@ -58,7 +58,7 @@
         <section class="card-layout">
           <div class="info-toggle" id="popup">
             <article class="wrapper-card">
-              <button onclick="closePopup()">X</button>
+              <button onclick="closePopup()"><h1>←  </h1></button>
               <img class="popup-img" src="" alt="" id="popupCardImg" />
               <p id="cardDetails"></p>
             </article>

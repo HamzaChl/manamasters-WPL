@@ -2,6 +2,8 @@
 
 :root {
   background-color: rgb(0, 0, 0);
+
+  /* background-image: url(/assets/images/background.jpg); */
   --orange: #ec4523;
 }
 
@@ -14,6 +16,7 @@ body {
   background-size: cover;
   overflow-x: hidden;
 }
+
 
 header {
   height: 13vh;
@@ -168,7 +171,7 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-form {
+.search-form {
   width: 100vw;
   display: flex;
   align-items: center;
@@ -203,6 +206,9 @@ form {
   position: absolute;
   top: 10%;
   right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 article {
@@ -222,7 +228,12 @@ article {
   align-items: center;
   background-size: cover;
   background-position: bottom;
-  background-color: rgba(0, 0, 0, 0.589);
+  background: rgba( 0, 0, 0, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .card-img {
@@ -230,13 +241,20 @@ article {
 }
 
 .card-holder {
-  background-color: rgba(206, 206, 206, 0.646);
+  
+  background: rgba( 0, 0, 0, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
   padding: 10px;
 }
 
 .card-name {
   margin-top: 8px;
   font-weight: bold;
+  color:white
 }
 
 /*
@@ -252,7 +270,7 @@ FOOTER
 */
 
 footer {
-  height: 40vh;
+  height: 50vh;
   border-top: 1px solid white;
   -webkit-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
   -moz-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
@@ -297,41 +315,38 @@ footer {
   .card-img {
     width: 70%;
   }
-  /* .info-toggle {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    padding: 50px;
-    box-sizing: border-box;
-    display: none;
-  } */
+
 }
 
 .info-toggle {
-  width: 100%;
   height: 100%;
-  position: absolute;
-  padding: 50px;
-  padding-right: 100px;
-  padding-left: 100px;
   display: none;
   z-index: 1000;
+  transition: transform .35s ease-out, opacity .25s ease-out, background-color .25s ease-out;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    
+    
 }
 
 .wrapper-card {
-  background-color: rgba(0, 0, 0, 0.915);
-  height: 100%;
-  border-radius: 30px;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   outline: 3px solid white;
   display: grid;
   grid-template-columns: 1fr;
-  -webkit-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
-  -moz-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
-  box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
   padding: 50px;
+  
+  background: rgba(0, 0, 0, 0.677);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .wrapper-card > button {
