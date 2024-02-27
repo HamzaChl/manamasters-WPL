@@ -1,3 +1,359 @@
+@import url("https://use.typekit.net/mie6jsp.css");
+
+:root {
+  background-color: rgb(0, 0, 0);
+  --orange: #ec4523;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  background-image: url(/assets/images/background.jpg);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+header {
+  height: 13vh;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+nav img {
+  height: 8vh;
+}
+
+ul {
+  display: flex;
+  gap: 30px;
+}
+
+ul li,
+a {
+  color: white;
+  text-decoration: none;
+  font-family: "dederon-sans-web", sans-serif;
+}
+
+ul li:hover,
+a:hover {
+  transition: all 300ms ease-in;
+  text-decoration: underline;
+}
+
+.right {
+  justify-content: right;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  background-image: url(../assets/profile-picture.jpg);
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-picture:hover {
+  transition: all 300ms ease-in;
+  scale: 1.2;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
+/*
+HERO
+*/
+
+.hero {
+  width: 100%;
+  height: 87vh;
+  background-image: linear-gradient(to bottom, transparent, #100f15a8),
+    url(/assets/images/homepagina-foto.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  
+  background-size: cover;
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  padding: 50px;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: white;
+  font-family: "dederon-sans-web", sans-serif;
+  font-size: 52px;
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: "dederon-sans-web", sans-serif;
+  opacity: 0.6;
+  color: white;
+}
+
+h5 {
+  margin-top: 40px;
+  font-size: 15px;
+  font-family: "dederon-sans-web", sans-serif;
+  opacity: 0.3;
+  color: white;
+}
+
+.active {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.card-finder {
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+/*
+CARD FINDER
+*/
+
+.card-finder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+input:focus {
+  outline: 2px solid white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+form {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svg-icon {
+  width: 25px;
+}
+
+/* Button on top of the Input */
+.wrapper {
+  width: 70%;
+  max-width: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.wrapper input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.wrapper button {
+  background: white;
+  border-radius: 50px;
+  aspect-ratio: 1;
+  height: 80%;
+
+  position: absolute;
+  top: 10%;
+  right: 5px;
+}
+
+article {
+  text-align: center;
+}
+
+.card-layout {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+.card-img {
+  border-radius: 10px;
+}
+
+.card-holder {
+  background-color: rgba(206, 206, 206, 0.646);
+  padding: 10px;
+}
+
+.card-name {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/*
+BUG ALS KAART GEHOVERD WORDT BLIJFT HET */
+
+.card-img:hover {
+  scale: 1.02;
+  transition: all 300ms ease-in;
+}
+
+/*
+FOOTER
+*/
+
+footer {
+  height: 40vh;
+  border-top: 1px solid white;
+  -webkit-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  -moz-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  display: grid;
+}
+
+.popup-img {
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .right a {
+    opacity: 0;
+    display: none;
+    transition: ease all 0.5s;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-shadow: 1px 1px 2px black;
+    transition: ease all 0.5s;
+  }
+
+  .nav {
+    opacity: 0;
+    display: none;
+    transition: ease all 0.5s;
+  }
+
+  .hero {
+    background-image: linear-gradient(to bottom, transparent, #100f15a8),
+      url(../assets/header.png);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card-holder {
+    width: 50%;
+    height: auto;
+  }
+  .card-img {
+    width: 70%;
+  }
+  /* .info-toggle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: none;
+  } */
+}
+
+.info-toggle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 50px;
+  padding-right: 100px;
+  padding-left: 100px;
+  display: none;
+  z-index: 1000;
+}
+
+.wrapper-card {
+  background-color: rgba(0, 0, 0, 0.915);
+  height: 100%;
+  border-radius: 30px;
+  outline: 3px solid white;
+  display: grid;
+  grid-template-columns: 1fr;
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  padding: 50px;
+}
+
+.wrapper-card > button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  justify-content: right;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#cardDetails {
+  color: white;
+}
+
+.popup-img {
+  scale: 1.3;
+}
+
+.rarity {
+  color: white;
+}
+
 /*
 Project container
 */
@@ -181,3 +537,359 @@ Project container
     flex-direction: column;
     gap: 30px;
   }
+=======
+@import url("https://use.typekit.net/mie6jsp.css");
+
+:root {
+  background-color: rgb(0, 0, 0);
+  --orange: #ec4523;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  background-image: url(/assets/images/background.jpg);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+header {
+  height: 13vh;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+nav img {
+  height: 8vh;
+}
+
+ul {
+  display: flex;
+  gap: 30px;
+}
+
+ul li,
+a {
+  color: white;
+  text-decoration: none;
+  font-family: "dederon-sans-web", sans-serif;
+}
+
+ul li:hover,
+a:hover {
+  transition: all 300ms ease-in;
+  text-decoration: underline;
+}
+
+.right {
+  justify-content: right;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  background-image: url(../assets/profile-picture.jpg);
+  background-size: contain;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profile-picture:hover {
+  transition: all 300ms ease-in;
+  scale: 1.2;
+  cursor: pointer;
+  border: 3px solid white;
+}
+
+/*
+HERO
+*/
+
+.hero {
+  width: 100%;
+  height: 87vh;
+  background-image: linear-gradient(to bottom, transparent, #100f15a8),
+    url(/assets/images/homepagina-foto.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  
+  background-size: cover;
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  padding: 50px;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: white;
+  font-family: "dederon-sans-web", sans-serif;
+  font-size: 52px;
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 20px;
+  font-family: "dederon-sans-web", sans-serif;
+  opacity: 0.6;
+  color: white;
+}
+
+h5 {
+  margin-top: 40px;
+  font-size: 15px;
+  font-family: "dederon-sans-web", sans-serif;
+  opacity: 0.3;
+  color: white;
+}
+
+.active {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.card-finder {
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+/*
+CARD FINDER
+*/
+
+.card-finder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+input:focus {
+  outline: 2px solid white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+form {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svg-icon {
+  width: 25px;
+}
+
+/* Button on top of the Input */
+.wrapper {
+  width: 70%;
+  max-width: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.wrapper input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.wrapper button {
+  background: white;
+  border-radius: 50px;
+  aspect-ratio: 1;
+  height: 80%;
+
+  position: absolute;
+  top: 10%;
+  right: 5px;
+}
+
+article {
+  text-align: center;
+}
+
+.card-layout {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+.card-img {
+  border-radius: 10px;
+}
+
+.card-holder {
+  background-color: rgba(206, 206, 206, 0.646);
+  padding: 10px;
+}
+
+.card-name {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/*
+BUG ALS KAART GEHOVERD WORDT BLIJFT HET */
+
+.card-img:hover {
+  scale: 1.02;
+  transition: all 300ms ease-in;
+}
+
+/*
+FOOTER
+*/
+
+footer {
+  height: 40vh;
+  border-top: 1px solid white;
+  -webkit-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  -moz-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
+  display: grid;
+}
+
+.popup-img {
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .right a {
+    opacity: 0;
+    display: none;
+    transition: ease all 0.5s;
+  }
+
+  h1 {
+    font-size: 40px;
+    text-shadow: 1px 1px 2px black;
+    transition: ease all 0.5s;
+  }
+
+  .nav {
+    opacity: 0;
+    display: none;
+    transition: ease all 0.5s;
+  }
+
+  .hero {
+    background-image: linear-gradient(to bottom, transparent, #100f15a8),
+      url(../assets/header.png);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card-holder {
+    width: 50%;
+    height: auto;
+  }
+  .card-img {
+    width: 70%;
+  }
+  /* .info-toggle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    display: none;
+  } */
+}
+
+.info-toggle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 50px;
+  padding-right: 100px;
+  padding-left: 100px;
+  display: none;
+  z-index: 1000;
+}
+
+.wrapper-card {
+  background-color: rgba(0, 0, 0, 0.915);
+  height: 100%;
+  border-radius: 30px;
+  outline: 3px solid white;
+  display: grid;
+  grid-template-columns: 1fr;
+  -webkit-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  -moz-box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  box-shadow: 0px -2px 23px 0px rgba(226, 72, 72, 0.53);
+  padding: 50px;
+}
+
+.wrapper-card > button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  justify-content: right;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#cardDetails {
+  color: white;
+}
+
+.popup-img {
+  scale: 1.3;
+}
+
+.rarity {
+  color: white;
+}
