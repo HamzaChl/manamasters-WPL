@@ -239,6 +239,22 @@ article {
   font-weight: bold;
 }
 
+#mainLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 55rem;
+};
+
+#sectionLogin {
+  background-image: url("/assets/images/backgroundLogin.png");
+  background-position: center;
+  width: 300px;
+  height: 400px;
+  border: white 1px solid
+};
+
 /*
 BUG ALS KAART GEHOVERD WORDT BLIJFT HET */
 
