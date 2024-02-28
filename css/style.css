@@ -38,7 +38,8 @@ nav {
 }
 
 nav img {
-  height: 8vh;
+  height: auto;
+  width: 200px;
 }
 
 ul {
@@ -88,7 +89,7 @@ HERO
   width: 100%;
   height: 87vh;
   background-image: linear-gradient(to bottom, transparent, #100f15a8),
-    url(../assets/images/homepagina-foto.png);
+    url(../assets/images/homepagina-foto\ gecompreseerd.png);
   background-repeat: no-repeat;
   background-position: right;
   
@@ -718,8 +719,12 @@ Media Queries
   }
 
   .hero {
-    background-image: linear-gradient(to bottom, transparent, #100f15a8),
-      url(../assets/header.png);
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+      url(../assets/images/homepagina-foto\ gecompreseerd.png);
+      background-position: center;
+  }
+  nav{
+    grid-template-columns: 2fr 1fr;
   }
 }
 
@@ -731,9 +736,13 @@ Media Queries
   footer{
     height: 28rem;
   }
+  
   nav img {
-    height: 3rem;
+    /* height: 3rem; */
+    
+    width: 200px;
   }
+  
 }
 
 @media screen and (max-width: 500px) {
@@ -745,10 +754,22 @@ Media Queries
 
 @media screen and (max-width: 450px) {
   .card-holder {
-    width: 50%;
+    padding-top: 40px;
+    padding-bottom: 40px;
     height: auto;
   }
+  .wrapper-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .card-img {
-    width: 70%;
+    width: 80%;
+
+  }
+  .popup-img{
+    margin-bottom: 80px;
+    margin-top: 40px;
+    width: 80%;
   }
 }
