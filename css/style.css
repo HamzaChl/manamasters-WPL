@@ -294,7 +294,7 @@ article {
     height: 55rem;
 }
 
-.sectionLogin {
+#sectionLogin {
   background-image: url("../assets/images/backgroundLogin.png");
   background-position: center;
   width: 300px;
