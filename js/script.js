@@ -25,6 +25,9 @@ const main = async () => {
   try {
     const response = await fetch(`https://api.magicthegathering.io/v1/cards`);
     const data = await response.json();
+    //const responses = await Promise.all(allRarities.map((oneRarity) => fetch(`https://api.magicthegathering.io/v1/cards?rarity=${oneRarity}`)));
+    //const data = await Promise.all(responses.map((responses) => responses.json()));
+    // lukt niet want teveel fetches server error zie andere oplossing voor de mythic te krijgen
     console.log(data.cards);
 
     const cardName = document.getElementsByClassName("card-name");
