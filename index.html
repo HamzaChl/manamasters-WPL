@@ -6,25 +6,105 @@
     <title>Magic The Gathering</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
   </head>
   <body>
     <header>
-        <nav id="navLogin">
-          <img src="assets/images/logo-magic.png" alt="">
-          <a href="landingpage.html"><button>Projects</button></a>
-        </nav>
-      </header>
-    <main id="mainLogin">
-        <h1 id="h1Login">Login</h1>
-        <section id="sectionLogin">
-        <section class="sectionLogin">
-            <form action="" method="get" id="loginForm">
-              <input type="text" name="Gebruikersnaamveld" id="Gebruikersnaamveld" placeholder="Gebruikersnaam">
-              <input type="text" name="Wachtwoordveld" id="Wachtwoordveld" placeholder="Wachtwoord">
-              <input type="submit" value="Login">
-            </form>
-            <h3>&copy; Afbeelding van pgngegg</h3>
+      <nav>
+        <ul>
+          <a href="#"><img src="./assets/images/logo-magic.png" alt="" /></a>
+        </ul>
+        <ul class="nav">
+          <a href=""><li class="active">Home</li></a>
+          <a href="./decks.html"><li>Decks</li></a>
+          <a href="./drawtest.html"><li>DrawTest</li></a>
+        </ul>
+        <ul class="right">
+          <a href=""><li>Mijn Profiel</li></a>
+          <div class="profile-picture"></div>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>Magic The Gathering</h1>
+        <h3>School project 1gradPro</h3>
+        <h5>Art gemaakt door Laxmonaut </h5>
+      </section>
+      <section class="card-finder">
+        <h1>vind je kaart</h1>
+        <form class="search-form"id="search-id" action="" method="get">
+          <div class="wrapper">
+            <input type="text" placeholder="Enter a card name,type" />
+            <button>
+              <svg
+                class="svg-icon search-icon"
+                aria-labelledby="title desc"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 19.9 19.7"
+              >
+                <title id="title">Zoek Icon</title>
+                <desc id="desc">zoekicoontje.</desc>
+                <g class="search-path" fill="none" stroke="#848F91">
+                  <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
+                  <circle cx="8" cy="8" r="7" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </form>
+        <div class="info-toggle" id="popup">
+          <article class="wrapper-card">
+            <button class="btn-popup" onclick="closePopup()"><h1>←  </h1></button>
+            <img class="popup-img" src="" alt="" id="popupCardImg" />
+            <p id="cardDetails"></p>
+          </article>
+        </div>
+        <section class="card-layout">
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
+          <article class="card-holder">
+            <img src="" alt="" class="card-img" />
+            <p class="card-name"></p>
+          </article>
         </section>
+      </section>
     </main>
     <footer>
       <section>
