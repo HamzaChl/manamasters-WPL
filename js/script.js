@@ -21,11 +21,18 @@ const closePopup = () => {
   document.getElementById("popup").style.display = "none";
 };
 
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape" || event.key === "Esc") {
+      closePopup();
+  }
+});
+
 const main = async () => {
   const randomPage = Math.floor(Math.random() * 310);
   try {
     const response = await fetch(`https://api.magicthegathering.io/v1/cards?page=${randomPage}`);
     const data = await response.json();
+    //GEFIXT
     //const responses = await Promise.all(allRarities.map((oneRarity) => fetch(`https://api.magicthegathering.io/v1/cards?rarity=${oneRarity}`)));
     //const data = await Promise.all(responses.map((responses) => responses.json()));
     // lukt niet want teveel fetches server error zie andere oplossing voor de mythic te krijgen
@@ -102,13 +109,8 @@ function getRarityLetter(rarity) {
   }
 }
 
-// ALS ER OP FORM GESUBMIT WORDT, PAGINA OMHOOG
+// SEARCH FUNCTIE
 
-// const form = document.getElementById("search-id");
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   console.log(form.value)
-// });
 const form = document.getElementById("search-form-id");
 
 form.addEventListener("submit", async (e) => {
@@ -124,8 +126,6 @@ form.addEventListener("submit", async (e) => {
         console.error(error);
     }
 });
-
-// SEARCH FUNCTIE
 
 function resetCardDisplay(results) {
     const cardName = document.getElementsByClassName("card-name");
