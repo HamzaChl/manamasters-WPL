@@ -1,7 +1,7 @@
 const lenis = new Lenis();
 
 lenis.on("scroll", (e) => {
-  console.log(e);
+  // console.log(e);
 });
 
 function raf(time) {
@@ -22,8 +22,9 @@ const closePopup = () => {
 };
 
 const main = async () => {
+  const randomPage = Math.floor(Math.random() * 310);
   try {
-    const response = await fetch(`https://api.magicthegathering.io/v1/cards`);
+    const response = await fetch(`https://api.magicthegathering.io/v1/cards?page=${randomPage}`);
     const data = await response.json();
     //const responses = await Promise.all(allRarities.map((oneRarity) => fetch(`https://api.magicthegathering.io/v1/cards?rarity=${oneRarity}`)));
     //const data = await Promise.all(responses.map((responses) => responses.json()));
@@ -100,7 +101,8 @@ function getRarityLetter(rarity) {
 
 // ALS ER OP FORM GESUBMIT WORDT, PAGINA OMHOOG
 
-const form = document.getElementById("form");
+const form = document.getElementById("search-id");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log(form.value)
 });

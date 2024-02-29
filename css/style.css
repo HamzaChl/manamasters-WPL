@@ -309,6 +309,8 @@ article {
 
 .card-img {
   border-radius: 10px;
+  max-width: 223px;
+  height: auto;
 }
 
 .card-holder {
