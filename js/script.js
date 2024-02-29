@@ -56,18 +56,18 @@ const main = async () => {
         cardIMG[i].style.outline = "1px solid white";
 
         if (data.cards[random].rarity === "Uncommon") {
-          cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(18, 80, 179, 0.6)";
+          cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(18, 80, 179, 0.5)";
           cardIMG[i].style.outline = "1px solid rgb(18, 80, 179)";
         } else if (data.cards[random].rarity === "Common") {
           cardIMG[i].style.boxShadow =
-            "0px 2px 6px 5px rgba(255, 255, 255, 0.6)";
+            "0px 2px 6px 5px rgba(255, 255, 255, 0.5)";
           cardIMG[i].style.outline = "1px solid rgb(255, 255, 255)";
         } else if (data.cards[random].rarity === "Rare") {
           cardIMG[i].style.boxShadow =
-            "0px 2px 6px 5px rgba(174, 186, 85, 0.7)";
+            "0px 2px 6px 5px rgba(174, 186, 85, 0.5)";
           cardIMG[i].style.outline = "1px solid rgb(174, 186, 85)";
         } else  {
-          cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(151, 0, 0, 0.9)";
+          cardIMG[i].style.boxShadow = "0px 2px 15px 5px rgba(151, 0, 0, 0.8)";
           cardIMG[i].style.outline = "1px solid rgb(151, 0, 0)";
           cardIMG[i].classList.add("wobble-hor-bottom");
         }
@@ -103,7 +103,7 @@ function getRarityLetter(rarity) {
     case "Rare":
       return "★";
     case "Mythic":
-      return "˗ˏˋ ★ ˎˊ˗";
+      return "❈";
     default:
       return "";
   }
