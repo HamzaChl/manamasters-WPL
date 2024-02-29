@@ -3,6 +3,7 @@
 :root {
   background-color: rgb(0, 0, 0);
   --orange: #ec4523;
+  --loadingcolor:green;
 }
 
 * {
@@ -711,6 +712,10 @@ footer {
 Project container
 */
 
+canvas {
+    display: block;
+  }
+  
 
 #loading-page-header{
 width: 100%;
@@ -723,7 +728,7 @@ height: 500px;
 }
 
 #loading-page-footer{
-    background-color:#3A485F;
+    background-color:var(--loadingcolor);
     height: 7rem;
     margin-top: 2rem;
 }
@@ -732,57 +737,27 @@ height: 500px;
 display: flex;
 justify-content: center;
 align-items: center;
+color: white;
 }
 
-.project-banner {
-    padding-top: 7rem;
+
+  #loading-page-main{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #3a485f;
-    background-image: linear-gradient(
-  to bottom,
-  transparent,
-  rgba(0, 0, 0, 0.762)
-),
-url("../assets/images/back.jpg");
-background-size: cover; 
-background-repeat: no-repeat ; 
-width: 100%;
-height: 100%;
- /* filter: blur(4px); */
   }
-
-  .project-banner h2{
-     font-size: 5rem;
-     color: orange;
-  }
-
-
-.project-banner h3 {
-    margin-top: 40px;
-    font-size: 20px;
-    font-family: "dederon-sans-web", sans-serif;
-    opacity: 0.3;
-    color: white;
-  }
-  
   
   .project-container {
     display: flex;
+    max-width: 1200px;
     flex-wrap: wrap;
-    margin: 5rem;
-    align-items: center;
     margin-top: 40px;
-    justify-content: center;
-    gap: 10rem;
+   justify-content: center;
+    gap: 2rem;
   }
   
   .project-holder {
     cursor: pointer;
-    background-color:  #3a485f;
+    background-color:  var(--loadingcolor);
     padding: 10px;
     border-radius: 10px;
     box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
