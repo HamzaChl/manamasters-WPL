@@ -696,6 +696,11 @@ Media Queries
   header {
     height: 20vh;
   }
+  .hero {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+      url(../assets/images/homepagina-foto\ gecompreseerd.png);
+      background-position: center;
+  }
 }
 
   
@@ -725,6 +730,21 @@ Media Queries
   }
   nav{
     grid-template-columns: 2fr 1fr;
+  }
+  
+  .wrapper-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-img {
+    width: 80%;
+
+  }
+  .popup-img{
+    margin-bottom: 80px;
+    margin-top: 40px;
+    width: 60%;
   }
 }
 
