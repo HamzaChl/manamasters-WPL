@@ -59,14 +59,17 @@ const main = async () => {
           cardIMG[i].style.boxShadow =
             "0px 2px 6px 5px rgba(174, 186, 85, 0.7)";
           cardIMG[i].style.outline = "1px solid rgb(174, 186, 85)";
-        } else {
+        } else  {
           cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(151, 0, 0, 0.9)";
           cardIMG[i].style.outline = "1px solid rgb(151, 0, 0)";
+          cardIMG[i].classList.add("wobble-hor-bottom");
         }
 
         cardHolder[i].addEventListener("click", () => {
+          cardIMG[i].classList.remove("wobble-hor-bottom");
+          let h1 = document.createElement("h1");
           openPopup(
-            `Card Name: ${data.cards[random].name}\nRarity: ${data.cards[random].rarity}`,
+            ` Card Name: ${data.cards[random].name}\n\nRarity: ${data.cards[random].rarity}\n\nText: ${data.cards[random].text}\n\nType: ${data.cards[random].type}`,
             data.cards[random].imageUrl
           );
         });
@@ -101,8 +104,68 @@ function getRarityLetter(rarity) {
 
 // ALS ER OP FORM GESUBMIT WORDT, PAGINA OMHOOG
 
-const form = document.getElementById("search-id");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log(form.value)
+// const form = document.getElementById("search-id");
+// form.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   console.log(form.value)
+// });
+const form = document.getElementById("search-form-id");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const searchTerm = document.getElementById("search").value.trim().toLowerCase();
+
+    try {
+        const response = await fetch(`https://api.magicthegathering.io/v1/cards?name=${searchTerm}`);
+        const searchData = await response.json();
+        resetCardDisplay(searchData.cards);
+    } catch (error) {
+        console.error(error);
+    }
 });
+
+// SEARCH FUNCTIE
+
+function resetCardDisplay(results) {
+    const cardName = document.getElementsByClassName("card-name");
+    const cardHolder = document.getElementsByClassName("card-holder");
+    const cardIMG = document.getElementsByClassName("card-img");
+
+    for (let i = 0; i < cardHolder.length; i++) {
+      const currentResult = results[i];
+  
+      if (currentResult && currentResult.imageUrl && currentResult.name) {
+          const rarityLetter = getRarityLetter(currentResult.rarity);
+  
+          cardIMG[i].src = currentResult.imageUrl;
+          cardName[i].innerHTML = `${currentResult.name} <span class="rarity">${rarityLetter}</span>`;
+          cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(0, 0, 0, 0.5)";
+          cardIMG[i].style.outline = "1px solid white";
+  
+          if (currentResult.rarity === "Uncommon") {
+              cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(18, 80, 179, 0.6)";
+              cardIMG[i].style.outline = "1px solid rgb(18, 80, 179)";
+          } else if (currentResult.rarity === "Common") {
+              cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(255, 255, 255, 0.6)";
+              cardIMG[i].style.outline = "1px solid rgb(255, 255, 255)";
+          } else if (currentResult.rarity === "Rare") {
+              cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(174, 186, 85, 0.7)";
+              cardIMG[i].style.outline = "1px solid rgb(174, 186, 85)";
+          } else {
+              cardIMG[i].style.boxShadow = "0px 2px 6px 5px rgba(151, 0, 0, 0.9)";
+              cardIMG[i].style.outline = "1px solid rgb(151, 0, 0)";
+              cardIMG[i].classList.add("wobble-hor-bottom");
+          }
+  
+          cardHolder[i].addEventListener("click", () => {
+              cardIMG[i].classList.remove("wobble-hor-bottom");
+              openPopup(
+                  ` Card Name: ${currentResult.name}\n\nRarity: ${currentResult.rarity}\n\nText: ${currentResult.text}\n\nType: ${currentResult.type}`,
+                  currentResult.imageUrl
+              );
+          });
+      }
+  }
+  
+}
