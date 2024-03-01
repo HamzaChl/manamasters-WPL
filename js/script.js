@@ -11,10 +11,18 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-const openPopup = (details, imageUrl) => {
-  document.getElementById("cardDetails").innerText = details;
+const openPopup = (name, rarity, text, type, imageUrl) => {
   document.getElementById("popupCardImg").src = imageUrl;
   document.getElementById("popup").style.display = "block";
+
+  
+  // Mettez à jour les paragraphes spécifiques avec les informations de la carte
+  document.getElementById("card-name").innerText = `${name}`;
+  document.getElementById("card-rarity").innerText = `${rarity}`;
+  document.getElementById("card-text").innerText = `${text}`;
+  document.getElementById("card-type").innerText = `${type}`;
+  
+
 };
 
 const closePopup = () => {
@@ -32,11 +40,6 @@ const main = async () => {
   try {
     const response = await fetch(`https://api.magicthegathering.io/v1/cards?page=${randomPage}`);
     const data = await response.json();
-    //GEFIXT
-    //const responses = await Promise.all(allRarities.map((oneRarity) => fetch(`https://api.magicthegathering.io/v1/cards?rarity=${oneRarity}`)));
-    //const data = await Promise.all(responses.map((responses) => responses.json()));
-    // lukt niet want teveel fetches server error zie andere oplossing voor de mythic te krijgen
-    console.log(data.cards);
 
     const cardName = document.getElementsByClassName("card-name");
     const cardHolder = document.getElementsByClassName("card-holder");
@@ -74,9 +77,11 @@ const main = async () => {
 
         cardHolder[i].addEventListener("click", () => {
           cardIMG[i].classList.remove("wobble-hor-bottom");
-          let h1 = document.createElement("h1");
           openPopup(
-            ` Card Name: ${data.cards[random].name}\n\nRarity: ${data.cards[random].rarity}\n\nText: ${data.cards[random].text}\n\nType: ${data.cards[random].type}`,
+            data.cards[random].name,
+            data.cards[random].rarity,
+            data.cards[random].text,
+            data.cards[random].type,
             data.cards[random].imageUrl
           );
         });
@@ -135,8 +140,10 @@ function resetCardDisplay(results) {
     for (let i = 0; i < cardHolder.length; i++) {
       const currentResult = results[i];
   
+      cardIMG[i].classList.remove("wobble-hor-bottom"); 
       if (currentResult && currentResult.imageUrl && currentResult.name) {
           const rarityLetter = getRarityLetter(currentResult.rarity);
+
   
           cardIMG[i].src = currentResult.imageUrl;
           cardName[i].innerHTML = `${currentResult.name} <span class="rarity">${rarityLetter}</span>`;
@@ -159,13 +166,16 @@ function resetCardDisplay(results) {
           }
   
           cardHolder[i].addEventListener("click", () => {
-              cardIMG[i].classList.remove("wobble-hor-bottom");
-              openPopup(
-                  ` Card Name: ${currentResult.name}\n\nRarity: ${currentResult.rarity}\n\nText: ${currentResult.text}\n\nType: ${currentResult.type}`,
-                  currentResult.imageUrl
-              );
+            cardIMG.classList.remove("wobble-hor-bottom");
+            openPopup(
+              currentResult.name,
+              currentResult.rarity,
+              currentResult.originalText,
+              currentResult.type,
+              currentResult.imageUrl
+            );
           });
       }
   }
-  
 }
+
