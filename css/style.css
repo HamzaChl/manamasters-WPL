@@ -3,7 +3,7 @@
 :root {
   background-color: rgb(0, 0, 0);
   --orange: #ec4523;
-  --loadingcolor:green;
+  --loadingcolor:white;
 }
 
 * {
@@ -719,16 +719,16 @@ canvas {
 
 #loading-page-header{
 width: 100%;
-height: 500px;
+height: 700px;
 }
 
 #loading-page{
-    background-color:white;
+    background-color:black;
     background-image: none;
 }
 
 #loading-page-footer{
-    background-color:var(--loadingcolor);
+    background-color:var(black);
     height: 7rem;
     margin-top: 2rem;
 }
@@ -750,17 +750,18 @@ color: white;
     display: flex;
     max-width: 1200px;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 14rem;
+    margin-bottom: 14rem;
    justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
   }
   
   .project-holder {
     cursor: pointer;
     background-color:  var(--loadingcolor);
-    padding: 10px;
+    padding: 1px;
     border-radius: 10px;
-    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+    
   }
   
   .project-holder:hover {
@@ -770,8 +771,8 @@ color: white;
   }
   
   .project {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     background-size: cover;
     display: flex;
     align-items: start;
