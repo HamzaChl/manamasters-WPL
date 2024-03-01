@@ -875,15 +875,16 @@ color: white;
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 40vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vh;
     background-color: rgb(221, 221, 221);
     overflow-y: hidden;
     z-index: 1000;
     top: 50%;
-    left: 30%;
+    left: 40%;
     transform: translate(0, -50%);
     visibility: hidden;
+    border-radius: 20px;
   }
   
   .alert > h3 {
