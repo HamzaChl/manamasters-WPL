@@ -771,8 +771,8 @@ color: white;
   }
   
   .project {
-    width: 400px;
-    height: 300px;
+    width: 300px;
+    height: 200px;
     background-size: cover;
     display: flex;
     align-items: start;
