@@ -110,8 +110,8 @@ h1 {
   font-size: 52px;
 }
 
-h3 {
-  margin-top: 40px;
+h3, #Registreer {
+  margin-top: 10px;
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
   opacity: 0.6;
@@ -472,9 +472,13 @@ article {
   transition-duration: 0.7s;
 }
 
-#sectionLogin > h3 {
-  padding-top: 1rem;
+#sectionLogin > h3{
   font-size: small;
+}
+
+#Registreer{
+  padding-top: 10px;
+  font-size: medium;
 }
 
 #Gebruikersnaamveld{
@@ -828,7 +832,7 @@ Media Queries
 
 @media screen and (max-width: 500px) {
 
-  footer > p, #Gebruikersnaamveld::placeholder, #Wachtwoordveld::placeholder, #sectionLogin > h3{
+  footer > p, #Gebruikersnaamveld::placeholder, #Wachtwoordveld::placeholder, #sectionLogin > h3, #Registreer{
     font-size: 10px;
   }
 }
