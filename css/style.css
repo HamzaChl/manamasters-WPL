@@ -69,7 +69,7 @@ a:hover {
   width: 50px;
   height: 50px;
   display: flex;
-  background-image: url(/assets/images/profile-picture.jpg);
+  background-image: url(../assets/images/profile-picture.jpg);
   background-size: contain;
   border-radius: 50%;
   cursor: pointer;
@@ -151,6 +151,8 @@ CARD FINDER
 
 .popup-img {
   border-radius: 10px;
+  border:.7px solid white;
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
 }
 
 button {
@@ -181,6 +183,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "dederon-sans-web", sans-serif;
 }
 .svg-icon {
   width: 25px;
@@ -231,6 +234,15 @@ Popups
   border-radius: 5px;
   padding-left: 30px;
   padding-right: 30px;
+}
+.add-deck{
+  background-color: white;
+  color: limegreen;
+  padding: 10px;
+  border-radius: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  
 }
 
 .wrapper-card > button {
@@ -448,7 +460,7 @@ article {
   border-radius: 10px;
   background-color: white;
   opacity: 0.8;
-  color: ##0B0E15;
+  color: #0B0E15;
   font-weight: bolder;
 }
 
