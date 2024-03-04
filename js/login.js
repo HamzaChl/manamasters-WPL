@@ -10,6 +10,6 @@ registerButton.addEventListener("click", function (e) {
     login = false;
 });
 
-loginButton..addEventListener("click", function (e) {
+loginButton.addEventListener("click", function (e) {
     e.preventDefault();
 });
