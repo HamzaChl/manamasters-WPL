@@ -166,7 +166,7 @@ function resetCardDisplay(results) {
           }
   
           cardHolder[i].addEventListener("click", () => {
-            cardIMG.classList.remove("wobble-hor-bottom");
+            //cardIMG.classList.remove("wobble-hor-bottom");
             openPopup(
               currentResult.name,
               currentResult.rarity,
