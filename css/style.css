@@ -826,6 +826,9 @@ Media Queries
 }
 
 @media screen and (max-width: 550px) {
+  .hero{
+    text-align: center;
+  }
   footer > section {
     flex-direction: column;
     gap: 1rem;
@@ -839,7 +842,19 @@ Media Queries
     
     width: 200px;
   }
+
+  .popup-img{
+    border-radius: 10px; 
+    margin-right: 0;
+  }
   
+.card-details-holder{
+max-width: 80vw;
+}
+.add-deck{
+  margin-top: 10px;
+}
+
 }
 
 @media screen and (max-width: 500px) {
