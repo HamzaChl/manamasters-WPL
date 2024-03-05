@@ -5,12 +5,13 @@
 
   /* background-image: url(/assets/images/background.jpg); */
   --orange: #ec4523;
-  --loadingcolor:white;
+  --loadingcolor: white;
 }
 
 * {
   box-sizing: border-box;
 }
+
 body {
   width: 100vw;
   background-image: url(../assets/images/background.jpg);
@@ -20,7 +21,8 @@ body {
 
 
 header {
-  height: 14vh;
+  min-height: 90px;
+  height: 12vh;
   border-bottom: 1px solid rgb(255, 255, 255);
   -webkit-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(255, 255, 255, 0.53);
@@ -32,15 +34,16 @@ header {
 nav {
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: .5fr 2fr 1fr;
   align-items: center;
   padding-right: 50px;
   padding-left: 50px;
+
 }
 
 nav img {
   height: auto;
-  width: 200px;
+  width: 150px;
 }
 
 ul {
@@ -53,12 +56,33 @@ a {
   color: white;
   text-decoration: none;
   font-family: "dederon-sans-web", sans-serif;
+  text-transform: uppercase;
 }
 
-ul li:hover,
+.my-account-nav:hover {
+  color: var(--orange);
+  text-decoration: none;
+}
+
+nav>ul li:hover,
 a:hover {
   transition: all 300ms ease-in;
-  text-decoration: underline;
+  color: var(--orange);
+}
+
+/* .login-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+} */
+
+.my-account-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px
 }
 
 .right {
@@ -75,6 +99,7 @@ a:hover {
   border-radius: 50%;
   cursor: pointer;
 }
+
 .profile-picture:hover {
   transition: all 300ms ease-in;
   scale: 1.2;
@@ -93,11 +118,11 @@ HERO
     url(../assets/images/homepagina-foto\ gecompreseerd.png);
   background-repeat: no-repeat;
   background-position: right;
-  
+
   background-size: cover;
   -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
-  box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
+  box-shadow: 0px -2px 23px 0px #bd773e6d;
   display: flex;
   justify-content: end;
   flex-direction: column;
@@ -111,7 +136,8 @@ h1 {
   font-size: 52px;
 }
 
-h3, #Registreer {
+h3,
+#Registreer {
   margin-top: 10px;
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
@@ -121,14 +147,15 @@ h3, #Registreer {
 
 .active {
   color: var(--orange);
-  color:#ec4523;
-  text-decoration: underline;
+  color: #ec4523;
+
 }
 
 .card-finder {
   min-height: 100vh;
   margin-bottom: 100px;
 }
+
 
 /*
 CARD FINDER
@@ -144,7 +171,7 @@ CARD FINDER
 
 .popup-img {
   border-radius: 10px;
-  border:.7px solid white;
+  border: .7px solid white;
   box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
 }
 
@@ -178,6 +205,7 @@ input::placeholder {
   justify-content: center;
   font-family: "dederon-sans-web", sans-serif;
 }
+
 .svg-icon {
   width: 25px;
 }
@@ -195,7 +223,7 @@ Popups
   top: 0;
   left: 0;
   right: 0;
-  bottom:0;
+  bottom: 0;
   z-index: 5;
   overflow: hidden;
 }
@@ -206,21 +234,21 @@ Popups
   overflow: auto;
   outline: 3px solid white;
   display: grid;
-  grid-template-areas: 
-  "button button"
-  "popup-wrapper popup-wrapper"
-  "popup-wrapper popup-wrapper"
+  grid-template-areas:
+    "button button"
+    "popup-wrapper popup-wrapper"
+    "popup-wrapper popup-wrapper"
   ;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.658);
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 6px );
-  -webkit-backdrop-filter: blur( 6px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding-top: 20px;
 }
 
-.select-deck{
+.select-deck {
   background-color: white;
   color: var(--orange);
   padding: 10px;
@@ -228,26 +256,29 @@ Popups
   padding-left: 30px;
   padding-right: 30px;
 }
-.add-deck{
+
+.add-deck {
   background-color: white;
   color: limegreen;
   padding: 10px;
   border-radius: 5px;
   padding-left: 30px;
   padding-right: 30px;
-  
+
 }
 
-.wrapper-card > button {
+.wrapper-card>button {
   height: 50px;
   width: 50px;
   border-radius: 50%;
   justify-content: right;
   margin-top: 10px;
-  margin-left: 10px;
+  margin-right: 20px;
+  justify-self: end;
+
 }
 
-.btn-popup{
+.btn-popup {
   grid-area: button;
   margin-bottom: 40px;
 }
@@ -271,38 +302,39 @@ Popups
   color: white;
 }
 
-h4{
-  color:white;
+h4 {
+  color: white;
   font-weight: bold;
   font-size: 20px;
 }
 
-.card-details-holder{
-  
+.card-details-holder {
+
   padding: 20px;
   text-align: left;
-  background: rgba( 30, 30, 30, 0.7 );
+  background: rgba(30, 30, 30, 0.7);
   box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.37);
-  backdrop-filter: blur( 14.5px );
-  -webkit-backdrop-filter: blur( 14.5px );
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: "dederon-sans-web", sans-serif;
   max-width: 60vw;
   min-width: 40vw;
 }
 
-.card-details-holder > p{
-  color:#c6c6c6;
+.card-details-holder>p {
+  color: #c6c6c6;
   font-size: 13px;
-  
+
 }
 
-.popup-wrapper{
+.popup-wrapper {
   display: flex;
   justify-content: space-evenly;
   padding: 40px;
-  align-items: center; grid-area: popup-wrapper;
+  align-items: center;
+  grid-area: popup-wrapper;
 }
 
 hr.solid {
@@ -357,12 +389,12 @@ article {
   align-items: center;
   background-size: cover;
   background-position: bottom;
-  background: rgba( 0, 0, 0, 0.3 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 6px );
-  -webkit-backdrop-filter: blur( 6px );
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .card-img {
@@ -375,19 +407,19 @@ article {
 
 .card-holder {
   width: 245px;
-  background: rgba( 0, 0, 0, 0.3 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 6px );
-  -webkit-backdrop-filter: blur( 6px );
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 10px;
 }
 
 .card-name {
   margin-top: 8px;
   font-weight: bold;
-  color:white
+  color: white
 }
 
 
@@ -398,7 +430,7 @@ article {
   justify-content: space-evenly;
 }
 
-#navLogin > a {
+#navLogin>a {
   border: white 1px solid;
   -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
@@ -412,11 +444,11 @@ article {
 
 
 #mainLogin {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 37rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 37rem;
 }
 
 #sectionLogin {
@@ -436,13 +468,16 @@ article {
   width: 50vw;
   font-family: "dederon-sans-web", sans-serif;
 }
+
 #loginForm {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 25vw;
 }
-#loginForm > input, #navLogin > a {
+
+#loginForm>input,
+#navLogin>a {
   padding: 15px;
   border-radius: 10px;
   background-color: white;
@@ -451,40 +486,42 @@ article {
   font-weight: bolder;
 }
 
-#loginForm > input[type = "submit"]{
+#loginForm>input[type="submit"] {
   text-align: center;
   background-color: var(--orange);
   border: 1px white solid;
   color: white;
   -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
-  box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);  
+  box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   border-radius: 10px;
   opacity: 1;
 }
 
-#loginForm > input[type = "submit"]:hover{
+#loginForm>input[type="submit"]:hover {
   border: 1px var(--orange) solid;
   -webkit-box-shadow: 0px -2px 23px 0px var(--orange);
   -moz-box-shadow: 0px -2px 23px 0px var(--orange);
-  box-shadow: 0px -2px 23px 0px var(--orange);  
+  box-shadow: 0px -2px 23px 0px var(--orange);
   transition-duration: 0.7s;
 }
 
-#sectionLogin > h3{
+#sectionLogin>h3 {
   font-size: small;
 }
 
-#Registreer{
+#Registreer {
   padding-top: 10px;
   font-size: medium;
 }
 
-#Gebruikersnaamveld{
-    margin-top: 2rem;
+#Gebruikersnaamveld {
+  margin-top: 2rem;
 }
 
-#Gebruikersnaamveld::placeholder, #Wachtwoordveld::placeholder, #navLogin > a button {
+#Gebruikersnaamveld::placeholder,
+#Wachtwoordveld::placeholder,
+#navLogin>a button {
   color: #0B0E15;
   opacity: 0.8;
   font-family: "dederon-sans-web", sans-serif;
@@ -514,7 +551,7 @@ footer {
   -webkit-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
   -moz-box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
   box-shadow: 0px -5px 23px 0px rgba(255, 255, 255, 0.49);
-   color: white;
+  color: white;
   font-family: "dederon-sans-web", sans-serif;
   padding-bottom: 2rem;
 }
@@ -523,25 +560,26 @@ footer {
   height: 12rem;
 }
 
-#footerLogin section{
+#footerLogin section {
   padding: 0;
   padding-top: 1rem;
 }
 
-footer > section {
+footer>section {
   display: flex;
   justify-content: space-around;
   padding: 3rem;
 }
 
-footer > p {
+footer>p {
   text-align: center;
 }
 
 .socialsFooter {
   text-align: center;
 }
-.socialsFooter > article > ul {
+
+.socialsFooter>article>ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -550,7 +588,7 @@ footer > p {
   font-size: small;
 }
 
-.socialsFooter > h2{
+.socialsFooter>h2 {
   padding-bottom: 1rem;
   font-weight: bolder;
 }
@@ -561,184 +599,173 @@ footer > p {
 @import url("https://use.typekit.net/mie6jsp.css");
 
 .project-banner {
-    text-align: center;
-    background-color: #3a485f;
-    border-radius: 20px;
-    padding: 30px;
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(0, 0, 0, 0.762)
-      ),
-      url("../assets/images/back.jpg");
-    /* filter: blur(4px); */
-  }
-  
-  .project-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-    margin-top: 40px;
-    justify-content: space-evenly;
-  }
-  
-  .project-holder {
-    cursor: pointer;
-    background-color: var(--body-bg2);
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-  }
-  
-  .project-holder:hover {
-    scale: 1.1;
-    outline: 5px solid white;
-    transition: ease-in 4ms;
-  }
-  
-  .project {
-    width: 300px;
-    height: 200px;
-    background-size: cover;
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    justify-content: end;
-  }
-  
-  .fortnite {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/fortnite.jpg);
-    border-radius: 10px;
-  }
-  .fifa {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/fifa.jpg);
-    border-radius: 10px;
-  }
-  .lego {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/lego.jpg);
-    border-radius: 10px;
-  }
-  .one-piece {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/one-piece.jpg);
-    border-radius: 10px;
-  }
-  .lotr {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/lotr.jpg);
-    border-radius: 10px;
-  }
-  
-  .jjk {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/jjk.jpg);
-    border-radius: 10px;
-  }
-  .mtg {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/mtg.jpg);
-    border-radius: 10px;
-  }
-  .pokemon {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/pokemon.jpg);
-    border-radius: 10px;
-  }
-  
-  .project > h4 {
-    font-size: 30px;
-    background: -webkit-linear-gradient(#fdba66, #fd6d71);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bolder;
-    margin-left: 10px;
-  }
-  .project > p {
-    color: white;
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .project-holder img {
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-  }
-  
-  .popup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    width: 40vw;
-    height: 40vh;
-    background-color: rgb(221, 221, 221);
-    overflow-y: hidden;
-    z-index: 1000;
-    top: 50%;
-    left: 30%;
-    transform: translate(0, -50%);
-    visibility: hidden;
-  }
-  
-  .alert > h3 {
-    font-size: 32px;
-    background: -webkit-linear-gradient(#fdba66, #fd6d71);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bolder;
-    margin-left: 30px;
-  }
-  
-  .alert {
-    background-color: white;
-    height: 35vh;
-    width: 35vw;
-    border-radius: 20px;
-    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-  }
+  text-align: center;
+  background-color: #3a485f;
+  border-radius: 20px;
+  padding: 30px;
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(0, 0, 0, 0.762)),
+    url("../assets/images/back.jpg");
+  /* filter: blur(4px); */
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+  justify-content: space-evenly;
+}
+
+.project-holder {
+  cursor: pointer;
+  background-color: var(--body-bg2);
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+}
+
+.project-holder:hover {
+  scale: 1.1;
+  outline: 5px solid white;
+  transition: ease-in 4ms;
+}
+
+.project {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.fortnite {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/fortnite.jpg);
+  border-radius: 10px;
+}
+
+.fifa {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/fifa.jpg);
+  border-radius: 10px;
+}
+
+.lego {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/lego.jpg);
+  border-radius: 10px;
+}
+
+.one-piece {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/one-piece.jpg);
+  border-radius: 10px;
+}
+
+.lotr {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/lotr.jpg);
+  border-radius: 10px;
+}
+
+.jjk {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/jjk.jpg);
+  border-radius: 10px;
+}
+
+.mtg {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/mtg.jpg);
+  border-radius: 10px;
+}
+
+.pokemon {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/pokemon.jpg);
+  border-radius: 10px;
+}
+
+.project>h4 {
+  font-size: 30px;
+  background: -webkit-linear-gradient(#fdba66, #fd6d71);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.project>p {
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.project-holder img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 40vw;
+  height: 40vh;
+  background-color: rgb(221, 221, 221);
+  overflow-y: hidden;
+  z-index: 1000;
+  top: 50%;
+  left: 30%;
+  transform: translate(0, -50%);
+  visibility: hidden;
+}
+
+.alert>h3 {
+  font-size: 32px;
+  background: -webkit-linear-gradient(#fdba66, #fd6d71);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  margin-left: 30px;
+}
+
+.alert {
+  background-color: white;
+  height: 35vh;
+  width: 35vw;
+  border-radius: 20px;
+  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
 
 /*
 Media Queries
@@ -749,29 +776,34 @@ Media Queries
     background-image: none;
     background-color: rgba(0, 0, 0, 0.658);
     box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.37);
-    backdrop-filter: blur( 6px );
-    -webkit-backdrop-filter: blur( 6px );  }
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
   #mainLogin {
     background-image: url("../assets/images/backgroundLogin.png");
-    background-position:bottom;
+    background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
   }
+
   #loginForm {
     margin: 0 auto 0;
     width: 35vw;
   }
+
   header {
     height: 20vh;
   }
+
   .hero {
     background-image: linear-gradient(to bottom, transparent, #100f15d2),
       url(../assets/images/homepagina-foto\ gecompreseerd.png);
-      background-position: center;
+    background-position: center;
   }
 }
 
-  
+
 @media screen and (max-width: 750px) {
   .right a {
     opacity: 0;
@@ -779,8 +811,8 @@ Media Queries
     transition: ease all 0.5s;
   }
 
-  .popup-wrapper{
-  flex-direction: column;
+  .popup-wrapper {
+    flex-direction: column;
   }
 
   h1 {
@@ -798,22 +830,25 @@ Media Queries
   .hero {
     background-image: linear-gradient(to bottom, transparent, #100f15d2),
       url(../assets/images/homepagina-foto\ gecompreseerd.png);
-      background-position: center;
+    background-position: center;
   }
-  nav{
+
+  nav {
     grid-template-columns: 2fr 1fr;
   }
-  
-  .wrapper-card{
+
+  .wrapper-card {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .card-img {
     width: 80%;
 
   }
-  .popup-img{
+
+  .popup-img {
     margin-bottom: 80px;
     margin-top: 40px;
     width: 60%;
@@ -821,40 +856,47 @@ Media Queries
 }
 
 @media screen and (max-width: 550px) {
-  .hero{
+  .hero {
     text-align: center;
   }
-  footer > section {
+
+  footer>section {
     flex-direction: column;
     gap: 1rem;
   }
-  footer{
+
+  footer {
     height: 28rem;
   }
-  
+
   nav img {
     /* height: 3rem; */
-    
+
     width: 200px;
   }
 
-  .popup-img{
-    border-radius: 10px; 
+  .popup-img {
+    border-radius: 10px;
     margin-right: 0;
   }
-  
-.card-details-holder{
-max-width: 80vw;
-}
-.add-deck{
-  margin-top: 10px;
-}
+
+  .card-details-holder {
+    max-width: 80vw;
+  }
+
+  .add-deck {
+    margin-top: 10px;
+  }
 
 }
 
 @media screen and (max-width: 500px) {
 
-  footer > p, #Gebruikersnaamveld::placeholder, #Wachtwoordveld::placeholder, #sectionLogin > h3, #Registreer{
+  footer>p,
+  #Gebruikersnaamveld::placeholder,
+  #Wachtwoordveld::placeholder,
+  #sectionLogin>h3,
+  #Registreer {
     font-size: 10px;
   }
 }
@@ -865,16 +907,19 @@ max-width: 80vw;
     padding-bottom: 40px;
     height: auto;
   }
-  .wrapper-card{
+
+  .wrapper-card {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .card-img {
     width: 80%;
 
   }
-  .popup-img{
+
+  .popup-img {
     margin-bottom: 80px;
     margin-top: 40px;
     width: 80%;
@@ -888,66 +933,80 @@ Animaties
 */
 
 .wobble-hor-bottom {
-	-webkit-animation: wobble-hor-bottom 2.0s 4s infinite both;
-	        animation: wobble-hor-bottom 2.0s 4s infinite both;
-	        
+  -webkit-animation: wobble-hor-bottom 2.0s 4s infinite both;
+  animation: wobble-hor-bottom 2.0s 4s infinite both;
+
 }
+
 @-webkit-keyframes wobble-hor-bottom {
+
   0%,
   100% {
     -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
     -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
   }
+
   15% {
     -webkit-transform: translateX(-30px) rotate(-6deg);
-            transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
   }
+
   30% {
     -webkit-transform: translateX(15px) rotate(6deg);
-            transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
   }
+
   45% {
     -webkit-transform: translateX(-15px) rotate(-3.6deg);
-            transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
   }
+
   60% {
     -webkit-transform: translateX(9px) rotate(2.4deg);
-            transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
   }
+
   75% {
     -webkit-transform: translateX(-6px) rotate(-1.2deg);
-            transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
   }
 }
+
 @keyframes wobble-hor-bottom {
+
   0%,
   100% {
     -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
     -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
   }
+
   15% {
     -webkit-transform: translateX(-30px) rotate(-6deg);
-            transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
   }
+
   30% {
     -webkit-transform: translateX(15px) rotate(6deg);
-            transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
   }
+
   45% {
     -webkit-transform: translateX(-15px) rotate(-3.6deg);
-            transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
   }
+
   60% {
     -webkit-transform: translateX(9px) rotate(2.4deg);
-            transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
   }
+
   75% {
     -webkit-transform: translateX(-6px) rotate(-1.2deg);
-            transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
   }
 }
 
@@ -964,202 +1023,194 @@ Project container
 */
 
 canvas {
-    display: block;
-  }
-  
-
-#loading-page-header{
-width: 100%;
-height: 700px;
-}
-
-#loading-page{
-    background-color:black;
-    background-image: none;
-}
-
-#loading-page-footer{
-    background-color:var(black);
-    height: 17rem;
-    margin-top: 2rem;
-}
-
-#loading-page-footer p{
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
+  display: block;
 }
 
 
-  #loading-page-main{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .project-container {
-    display: flex;
-    max-width: 1200px;
-    flex-wrap: wrap;
-    margin-top: 14rem;
-    margin-bottom: 14rem;
-   justify-content: center;
-    gap: 4rem;
-  }
-  
-  .project-holder {
-    cursor: pointer;
-    background-color:  var(--loadingcolor);
-    padding: 1px;
-    border-radius: 10px;
-    
-  }
-  
-  .project-holder:hover {
-    scale: 1.1;
-    outline: 5px solid white;
-    transition: ease-in 4ms;
-  }
-  
-  .project {
-    width: 300px;
-    height: 200px;
-    background-size: cover;
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    justify-content: end;
-  }
-  
-  .fortnite {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/fortnite.jpg);
-      background-size: cover;
-    border-radius: 10px;
-    
-  }
-  .fifa {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/fifa.jpg);
-      background-size: cover;
-    border-radius: 10px;
-   
-  }
-  .lego {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/lego.jpg);
-      background-size: cover;
-    border-radius: 10px;
-    
-  }
-  
-  .lotr {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/lotr.jpg);
-      background-size: cover;
-    border-radius: 10px;
-   
-  }
-  
-  
-  .mtg {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/mtg.jpg);
-      background-size: cover;
-    border-radius: 10px;
-  
-  }
-  .pokemon {
-    background-image: linear-gradient(
-        to bottom,
-        transparent,
-        rgba(3, 3, 3, 0.799)
-      ),
-      url(../assets/images/pokemon.jpg);
-      background-size: cover;
-    border-radius: 10px;
- 
-  }
-  
-  .project > h4 {
-    font-size: 30px;
-    background: -webkit-linear-gradient(#fdba66, #fd6d71);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bolder;
-    margin-left: 10px;
-  }
-  .project > p {
-    color: white;
-    margin-left: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .project-holder img {
-    width: 300px;
-    height: 200px;
-    border-radius: 10px;
-  }
-  
-  .popup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    width: 30vw;
-    height: 30vh;
-    background-color: rgb(221, 221, 221);
-    overflow-y: hidden;
-    z-index: 1000;
-    top: 50%;
-    left: 40%;
-    transform: translate(0, -50%);
-    visibility: hidden;
-    border-radius: 20px;
-  }
-  
-  .alert > h3 {
-    font-size: 32px;
-    background: -webkit-linear-gradient(#fdba66, #fd6d71);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bolder;
-    margin-left: 30px;
-  }
-  
-  .alert {
-    background-color: white;
-    height: 35vh;
-    width: 35vw;
-    border-radius: 20px;
-    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-  }
+#loading-page-header {
+  width: 100%;
+  height: 700px;
+}
+
+#loading-page {
+  background-color: black;
+  background-image: none;
+}
+
+#loading-page-footer {
+  background-color: var(black);
+  height: 17rem;
+  margin-top: 2rem;
+}
+
+#loading-page-footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+#loading-page-main {
+  display: flex;
+  justify-content: center;
+}
+
+.project-container {
+  display: flex;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  margin-top: 14rem;
+  margin-bottom: 14rem;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.project-holder {
+  cursor: pointer;
+  background-color: var(--loadingcolor);
+  padding: 1px;
+  border-radius: 10px;
+
+}
+
+.project-holder:hover {
+  scale: 1.1;
+  outline: 5px solid white;
+  transition: ease-in 4ms;
+}
+
+.project {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.fortnite {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/fortnite.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+.fifa {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/fifa.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+.lego {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/lego.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+.lotr {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/lotr.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+
+.mtg {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/mtg.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+.pokemon {
+  background-image: linear-gradient(to bottom,
+      transparent,
+      rgba(3, 3, 3, 0.799)),
+    url(../assets/images/pokemon.jpg);
+  background-size: cover;
+  border-radius: 10px;
+
+}
+
+.project>h4 {
+  font-size: 30px;
+  background: -webkit-linear-gradient(#fdba66, #fd6d71);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.project>p {
+  color: white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.project-holder img {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 30vw;
+  height: 30vh;
+  background-color: rgb(221, 221, 221);
+  overflow-y: hidden;
+  z-index: 1000;
+  top: 50%;
+  left: 40%;
+  transform: translate(0, -50%);
+  visibility: hidden;
+  border-radius: 20px;
+}
+
+.alert>h3 {
+  font-size: 32px;
+  background: -webkit-linear-gradient(#fdba66, #fd6d71);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+  margin-left: 30px;
+}
+
+.alert {
+  background-color: white;
+  height: 35vh;
+  width: 35vw;
+  border-radius: 20px;
+  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
 
 
 
-  /* ------------------------- eind van css code van loading page --------------------- */
+/* ------------------------- eind van css code van loading page --------------------- */
