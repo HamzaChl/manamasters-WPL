@@ -6,34 +6,36 @@
     <title>Magic The Gathering</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="./js/scroll.js"></script>
+    <script type="module" src="./js/login.js" defer></script>
   </head>
   <body>
     <header>
-        <nav>
-          <ul>
-            <a href="#"><img src="./src/assets/logo-magic.png" alt="" /></a>
-          </ul>
-          <ul class="nav">
-            <a href=""><li class="active">Home</li></a>
-            <a href=""><li>Decks</li></a>
-            <a href=""><li>DrawTest</li></a>
-          </ul>
-          <ul class="right">
-            <a href=""><li>My Profile</li></a>
-            <div class="profile-picture"></div>
-          </ul>
+        <nav id="navLogin">
+          <img src="assets/images/logo-magic.png" alt="">
+          <a href="landingpage.html"><button>Projects</button></a>
         </nav>
       </header>
-    <main>
-        
+    <main id="mainLogin">
+        <h1 id="h1Login">Login</h1>
+        <section id="sectionLogin">
+            <form action="" method="get" id="loginForm">
+              <input type="text" name="Gebruikersnaamveld" id="Gebruikersnaamveld" placeholder="Gebruikersnaam">
+              <input type="text" name="Wachtwoordveld" id="Wachtwoordveld" placeholder="Wachtwoord">
+              <input type="submit" value="Login" id="loginButton">
+            </form>
+            <a href=""><p id="Registreer">Registreer</p></a>
+            <h3>&copy; Afbeelding van pgngegg</h3>
+        </section>
     </main>
     <footer>
       <section>
         <section class="socialsFooter">
-          <img src="assets/images/ManaMasters-logos_white 2.png" alt="">
+          <a href="landingpage.html"><img src="assets/images/logo-magic.png" width="200px" alt=""></a>
         </section>
         <section class="socialsFooter">
-          <h3>MENU</h3>
+          <h2>MENU</h2>
           <article>
                 <ul>
                     <li><a href="index.html">HOME</a></li>
@@ -43,11 +45,11 @@
           </article>
         </section>
         <section class="socialsFooter">
-          <h3>BLIJF OP DE HOOGTE</h3>
+          <h2>BLIJF OP DE HOOGTE</h2>
           <article>
-            <img src="./assets/icons/facebook-icon.webp" alt="facebook" />
-            <img src="./assets/icons/twitter-icon.webp" alt="twitter" />
-            <img src="./assets/icons/instagram-icon.webp" alt="instagram" />
+            <a href="https://www.facebook.com/profile.php?id=61556757724357"><img src="./assets/icons/facebook-icon.webp" alt="facebook" /></a>
+            <a href="https://twitter.com/Manamasters77"><img src="./assets/icons/twitter-icon.webp" alt="twitter" /></a>
+            <a href="https://www.instagram.com/manamasters77/"><img src="./assets/icons/instagram-icon.webp" alt="instagram" /></a>
           </article>
         </section>
       </section>

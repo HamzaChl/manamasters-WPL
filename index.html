@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl-BE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magic The Gathering</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="./scripts/script.js" defer></script>
+    <script src="./js/script.js" defer></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="./js/scroll.js"></script>
   </head>
   <body>
     <header>
       <nav>
         <ul>
-          <a href="#"><img src="./assets/images/logo-magic.png" alt="" /></a>
+          <a href="index.html"><img src="./assets/images/logo-magic.png" alt="" /></a>
         </ul>
         <ul class="nav">
           <a href=""><li class="active">Home</li></a>
-          <a href=""><li>Decks</li></a>
-          <a href=""><li>DrawTest</li></a>
+          <a href="./decks.html"><li>Decks</li></a>
+          <a href="./drawtest.html"><li>DrawTest</li></a>
         </ul>
         <ul class="right">
           <a href=""><li>Mijn Profiel</li></a>
@@ -34,9 +35,9 @@
       </section>
       <section class="card-finder">
         <h1>vind je kaart</h1>
-        <form id="form" action="" method="get">
+        <form class="search-form" id="search-form-id" action="" method="get">
           <div class="wrapper">
-            <input type="text" placeholder="Enter a card name,type" />
+            <input type="text" id="search" placeholder="Voer een kaartnaam in, type" />
             <button>
               <svg
                 class="svg-icon search-icon"
@@ -55,19 +56,49 @@
             </button>
           </div>
         </form>
-        <section class="card-layout">
-          <div class="info-toggle" id="popup">
-            <article class="wrapper-card">
-              <button onclick="closePopup()">X</button>
-              <img class="popup-img" src="" alt="" id="popupCardImg" />
-              <p id="cardDetails"></p>
-            </article>
+        <div class="info-toggle" id="popup">
+          <article class="wrapper-card">
+            <button class="btn-popup" onclick="closePopup()"><h1>ⓧ</h1></button>
+            <div class="popup-wrapper">
+            <img class="popup-img" src="" alt="" id="popupCardImg" />
+            <figure class="card-details-holder">
+              <h4>Kaart naam </h4><br>
+              <p id="card-name"></p>
+              <br>
+              <hr class="solid">
+              <h4>Zeldzaamheid </h4><br>
+              <p id="card-rarity"></p>
+              <br>
+              <hr class="solid">
+              <h4>Eigenschappen </h4><br>
+              <p id="card-text"></p>
+              <br>
+              <hr class="solid">
+              <h4>Type </h4><br>
+              <p id="card-type"></p>
+              <br>
+              <hr class="solid">
+              <h4>Kaart toevoegen aan deck: </h4><br>
+                <select name="pets" class="select-deck"id="pet-select">
+                  <option value="">--Kies een deck--</option>
+                  <option value="deck01">Deck 01</option>
+                  <option value="deck02">Deck 02</option>
+                  <option value="deck03">Deck 03</option>
+                  <option value="deck04">Deck 04</option>
+                  <option value="deck05">Deck 05</option>
+                  
+                </select>    
+                <button class="add-deck" id="add-to-deck-btn">+</button>          
+            </figure>
           </div>
+          </article>
+        </div>
+        <section class="card-layout">
           <article class="card-holder">
-            <img src="" alt="" class="card-img" />
+            <img src="" alt="" class="card-img " />
             <p class="card-name"></p>
           </article>
-          <article class="card-holder">
+          <article class="card-holder temp">
             <img src="" alt="" class="card-img" />
             <p class="card-name"></p>
           </article>
@@ -106,6 +137,32 @@
         </section>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      <section>
+        <section class="socialsFooter">
+          <a href="index.html"><img src="assets/images/logo-magic.png" width="200px" alt=""></a>
+        </section>
+        <section class="socialsFooter">
+          <h2>MENU</h2>
+          <article>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="decks.html">DECKS</a></li>
+                    <li><a href="drawtest.html">DRAWTEST</a></li>
+                </ul>
+          </article>
+        </section>
+        <section class="socialsFooter">
+          <h2>BLIJF OP DE HOOGTE</h2>
+          <article>
+            <a href="https://www.facebook.com/profile.php?id=61556757724357"><img src="./assets/icons/facebook-icon.webp" alt="facebook" /></a>
+            <a href="https://twitter.com/Manamasters77"><img src="./assets/icons/twitter-icon.webp" alt="twitter" /></a>
+            <a href="https://www.instagram.com/manamasters77/"><img src="./assets/icons/instagram-icon.webp" alt="instagram" /></a>
+          </article>
+        </section>
+      </section>
+      <p>&copy; MANAMASTERS - All rights reserved - 2024</p>
+    </footer>
   </body>
 </html>
+
