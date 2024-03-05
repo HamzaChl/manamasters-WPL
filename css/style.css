@@ -148,8 +148,7 @@ h1 {
   font-size: 62px;
 }
 
-h3,
-#Registreer {
+h3{
   margin-top: 10px;
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
@@ -445,7 +444,7 @@ article {
   justify-content: space-evenly;
 }
 
-#navLogin>a {
+#decorationButton{
   border: white 1px solid;
   -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
@@ -455,15 +454,24 @@ article {
   width: 10rem;
 }
 
-/*main*/
+#registerButton{
+  width: 10rem;
+  border: white 1px solid;
+}
 
+#navLogin> section {
+  display: flex;
+  gap: 2rem;
+}
+
+/*main*/
 
 #mainLogin {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  height: 37rem;
+  height: 38rem;
 }
 
 #sectionLogin {
@@ -479,7 +487,7 @@ article {
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   border-radius: 10px;
-  height: 500px;
+  height: 450px;
   width: 50vw;
   font-family: "dederon-sans-web", sans-serif;
 }
@@ -492,7 +500,8 @@ article {
 }
 
 #loginForm>input,
-#navLogin>a {
+#registerButton,
+#decorationButton {
   padding: 15px;
   border-radius: 10px;
   background-color: white;
@@ -501,7 +510,7 @@ article {
   font-weight: bolder;
 }
 
-#loginForm>input[type="submit"] {
+#loginForm>input[type="submit"], #registerButton {
   text-align: center;
   background-color: var(--orange);
   border: 1px white solid;
@@ -513,7 +522,7 @@ article {
   opacity: 1;
 }
 
-#loginForm>input[type="submit"]:hover {
+#loginForm>input[type="submit"]:hover, #registerButton:hover   {
   border: 1px var(--orange) solid;
   -webkit-box-shadow: 0px -2px 23px 0px var(--orange);
   -moz-box-shadow: 0px -2px 23px 0px var(--orange);
@@ -523,12 +532,9 @@ article {
 
 #sectionLogin>h3 {
   font-size: small;
+  padding: 1rem;
 }
 
-#Registreer {
-  padding-top: 10px;
-  font-size: medium;
-}
 
 #Gebruikersnaamveld {
   margin-top: 2rem;
@@ -536,7 +542,7 @@ article {
 
 #Gebruikersnaamveld::placeholder,
 #Wachtwoordveld::placeholder,
-#navLogin>a button {
+#decorationButton {
   color: #0B0E15;
   opacity: 0.8;
   font-family: "dederon-sans-web", sans-serif;
@@ -910,8 +916,7 @@ Media Queries
   footer>p,
   #Gebruikersnaamveld::placeholder,
   #Wachtwoordveld::placeholder,
-  #sectionLogin>h3,
-  #Registreer {
+  #sectionLogin>h3{
     font-size: 10px;
   }
 }
