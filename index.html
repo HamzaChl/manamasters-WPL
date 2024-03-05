@@ -14,7 +14,9 @@
     <header>
       <nav>
         <ul>
-          <a href="index.html"><img src="./assets/images/logo-magic.png" alt="" /></a>
+          <a href="index.html"
+            ><img src="./assets/images/logo-magic.png" alt=""
+          /></a>
         </ul>
         <ul class="nav">
           <a href=""><li class="active">Home</li></a>
@@ -22,8 +24,37 @@
           <a href="./drawtest.html"><li>DrawTest</li></a>
         </ul>
         <ul class="right">
-          <a href=""><li>Mijn Profiel</li></a>
-          <div class="profile-picture"></div>
+          <a href=""
+            ><li class="my-account-nav">
+              <span class="login-icon"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="28"
+                  viewBox="0 0 13 14"
+                  class="css-KmZHE"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width=".69"
+                    transform="translate(1 1.5)"
+                  >
+                    <path
+                      d="M0.229166667,5.5 C0.229166667,7.3830874 1.23378179,9.12313192 2.86458331,10.0646756 C4.49538483,11.0062193 6.50461517,11.0062193 8.13541669,10.0646756 C9.76621821,9.12313192 10.7708333,7.3830874 10.7708333,5.5 C10.7708333,3.6169126 9.76621821,1.87686808 8.13541669,0.935324369 C6.50461517,-0.00621933876 4.49538483,-0.00621933876 2.86458331,0.935324369 C1.23378179,1.87686808 0.229166667,3.6169126 0.229166667,5.5 L0.229166667,5.5 Z"
+                    ></path>
+                    <path
+                      d="M1.81454167,9.26795833 C2.59718426,8.8141432 3.42970584,8.45240466 4.2955,8.18995833 C4.679125,8.04833333 4.72083333,7.16833333 4.44583333,6.86583333 C4.04891667,6.42904167 3.7125,5.91708333 3.7125,4.68141667 C3.66573357,4.18345483 3.83461805,3.68932676 4.1763871,3.32415968 C4.51815615,2.95899259 5.00003563,2.75780441 5.5,2.77154167 C5.99996437,2.75780441 6.48184385,2.95899259 6.8236129,3.32415968 C7.16538195,3.68932676 7.33426643,4.18345483 7.2875,4.68141667 C7.2875,5.91891667 6.95108333,6.42904167 6.55416667,6.86583333 C6.27916667,7.16833333 6.320875,8.04833333 6.7045,8.18995833 C7.57029416,8.45240466 8.40281574,8.8141432 9.18545833,9.26795833"
+                    ></path>
+                  </g>
+                </svg>
+              </span>
+              Mijn Profiel
+            </li></a
+          >
         </ul>
       </nav>
     </header>
@@ -31,13 +62,17 @@
       <section class="hero">
         <h1>Magic The Gathering</h1>
         <h3>School project 1gradPro</h3>
-        <h5>Art gemaakt door Laxmonaut </h5>
+        <h5>Art gemaakt door Laxmonaut</h5>
       </section>
       <section class="card-finder">
         <h1>vind je kaart</h1>
         <form class="search-form" id="search-form-id" action="" method="get">
           <div class="wrapper">
-            <input type="text" id="search" placeholder="Voer een kaartnaam in, type" />
+            <input
+              type="text"
+              id="search"
+              placeholder="Voer een kaartnaam in, type"
+            />
             <button>
               <svg
                 class="svg-icon search-icon"
@@ -60,42 +95,46 @@
           <article class="wrapper-card">
             <button class="btn-popup" onclick="closePopup()"><h1>ⓧ</h1></button>
             <div class="popup-wrapper">
-            <img class="popup-img" src="" alt="" id="popupCardImg" />
-            <figure class="card-details-holder">
-              <h4>Kaart naam </h4><br>
-              <p id="card-name"></p>
-              <br>
-              <hr class="solid">
-              <h4>Zeldzaamheid </h4><br>
-              <p id="card-rarity"></p>
-              <br>
-              <hr class="solid">
-              <h4>Eigenschappen </h4><br>
-              <p id="card-text"></p>
-              <br>
-              <hr class="solid">
-              <h4>Type </h4><br>
-              <p id="card-type"></p>
-              <br>
-              <hr class="solid">
-              <h4>Kaart toevoegen aan deck: </h4><br>
-                <select name="pets" class="select-deck"id="pet-select">
+              <img class="popup-img" src="" alt="" id="popupCardImg" />
+              <figure class="card-details-holder">
+                <h4>Kaart naam</h4>
+                <br />
+                <p id="card-name"></p>
+                <br />
+                <hr class="solid" />
+                <h4>Zeldzaamheid</h4>
+                <br />
+                <p id="card-rarity"></p>
+                <br />
+                <hr class="solid" />
+                <h4>Eigenschappen</h4>
+                <br />
+                <p id="card-text"></p>
+                <br />
+                <hr class="solid" />
+                <h4>Type</h4>
+                <br />
+                <p id="card-type"></p>
+                <br />
+                <hr class="solid" />
+                <h4>Kaart toevoegen aan deck:</h4>
+                <br />
+                <select name="pets" class="select-deck" id="pet-select">
                   <option value="">--Kies een deck--</option>
                   <option value="deck01">Deck 01</option>
                   <option value="deck02">Deck 02</option>
                   <option value="deck03">Deck 03</option>
                   <option value="deck04">Deck 04</option>
                   <option value="deck05">Deck 05</option>
-                  
-                </select>    
-                <button class="add-deck" id="add-to-deck-btn">+</button>          
-            </figure>
-          </div>
+                </select>
+                <button class="add-deck" id="add-to-deck-btn">+</button>
+              </figure>
+            </div>
           </article>
         </div>
         <section class="card-layout">
           <article class="card-holder">
-            <img src="" alt="" class="card-img " />
+            <img src="" alt="" class="card-img" />
             <p class="card-name"></p>
           </article>
           <article class="card-holder temp">
@@ -140,24 +179,32 @@
     <footer>
       <section>
         <section class="socialsFooter">
-          <a href="index.html"><img src="assets/images/logo-magic.png" width="200px" alt=""></a>
+          <a href="index.html"
+            ><img src="assets/images/logo-magic.png" width="200px" alt=""
+          /></a>
         </section>
         <section class="socialsFooter">
           <h2>MENU</h2>
           <article>
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="decks.html">DECKS</a></li>
-                    <li><a href="drawtest.html">DRAWTEST</a></li>
-                </ul>
+            <ul>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="decks.html">DECKS</a></li>
+              <li><a href="drawtest.html">DRAWTEST</a></li>
+            </ul>
           </article>
         </section>
         <section class="socialsFooter">
           <h2>BLIJF OP DE HOOGTE</h2>
           <article>
-            <a href="https://www.facebook.com/profile.php?id=61556757724357"><img src="./assets/icons/facebook-icon.webp" alt="facebook" /></a>
-            <a href="https://twitter.com/Manamasters77"><img src="./assets/icons/twitter-icon.webp" alt="twitter" /></a>
-            <a href="https://www.instagram.com/manamasters77/"><img src="./assets/icons/instagram-icon.webp" alt="instagram" /></a>
+            <a href="https://www.facebook.com/profile.php?id=61556757724357"
+              ><img src="./assets/icons/facebook-icon.webp" alt="facebook"
+            /></a>
+            <a href="https://twitter.com/Manamasters77"
+              ><img src="./assets/icons/twitter-icon.webp" alt="twitter"
+            /></a>
+            <a href="https://www.instagram.com/manamasters77/"
+              ><img src="./assets/icons/instagram-icon.webp" alt="instagram"
+            /></a>
           </article>
         </section>
       </section>
@@ -165,4 +212,3 @@
     </footer>
   </body>
 </html>
-
