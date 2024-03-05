@@ -5,6 +5,7 @@
 
   /* background-image: url(/assets/images/background.jpg); */
   --orange: #ec4523;
+  --loadingcolor:white;
 }
 
 * {
@@ -115,14 +116,6 @@ h3, #Registreer {
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
   opacity: 0.6;
-  color: white;
-}
-
-h5 {
-  margin-top: 40px;
-  font-size: 15px;
-  font-family: "dederon-sans-web", sans-serif;
-  opacity: 0.3;
   color: white;
 }
 
@@ -561,9 +554,8 @@ footer > p {
 
 /*footer*/
 
-/*
-Project container
-*/
+
+@import url("https://use.typekit.net/mie6jsp.css");
 
 .project-banner {
     text-align: center;
@@ -956,3 +948,215 @@ Animaties
   }
 }
 
+.rarity {
+  color: white;
+}
+
+
+
+/* ------------------------- css code van loading page --------------------- */
+
+/*
+Project container
+*/
+
+canvas {
+    display: block;
+  }
+  
+
+#loading-page-header{
+width: 100%;
+height: 700px;
+}
+
+#loading-page{
+    background-color:black;
+    background-image: none;
+}
+
+#loading-page-footer{
+    background-color:var(black);
+    height: 17rem;
+    margin-top: 2rem;
+}
+
+#loading-page-footer p{
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+}
+
+
+  #loading-page-main{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .project-container {
+    display: flex;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    margin-top: 14rem;
+    margin-bottom: 14rem;
+   justify-content: center;
+    gap: 4rem;
+  }
+  
+  .project-holder {
+    cursor: pointer;
+    background-color:  var(--loadingcolor);
+    padding: 1px;
+    border-radius: 10px;
+    
+  }
+  
+  .project-holder:hover {
+    scale: 1.1;
+    outline: 5px solid white;
+    transition: ease-in 4ms;
+  }
+  
+  .project {
+    width: 300px;
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: end;
+  }
+  
+  .fortnite {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/fortnite.jpg);
+      background-size: cover;
+    border-radius: 10px;
+    
+  }
+  .fifa {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/fifa.jpg);
+      background-size: cover;
+    border-radius: 10px;
+   
+  }
+  .lego {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/lego.jpg);
+      background-size: cover;
+    border-radius: 10px;
+    
+  }
+  
+  .lotr {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/lotr.jpg);
+      background-size: cover;
+    border-radius: 10px;
+   
+  }
+  
+  
+  .mtg {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/mtg.jpg);
+      background-size: cover;
+    border-radius: 10px;
+  
+  }
+  .pokemon {
+    background-image: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(3, 3, 3, 0.799)
+      ),
+      url(../assets/images/pokemon.jpg);
+      background-size: cover;
+    border-radius: 10px;
+ 
+  }
+  
+  .project > h4 {
+    font-size: 30px;
+    background: -webkit-linear-gradient(#fdba66, #fd6d71);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+  .project > p {
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .project-holder img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+  .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 30vw;
+    height: 30vh;
+    background-color: rgb(221, 221, 221);
+    overflow-y: hidden;
+    z-index: 1000;
+    top: 50%;
+    left: 40%;
+    transform: translate(0, -50%);
+    visibility: hidden;
+    border-radius: 20px;
+  }
+  
+  .alert > h3 {
+    font-size: 32px;
+    background: -webkit-linear-gradient(#fdba66, #fd6d71);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    margin-left: 30px;
+  }
+  
+  .alert {
+    background-color: white;
+    height: 35vh;
+    width: 35vw;
+    border-radius: 20px;
+    box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+
+
+  /* ------------------------- eind van css code van loading page --------------------- */
