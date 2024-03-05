@@ -44,6 +44,16 @@ nav {
 nav img {
   height: auto;
   width: 150px;
+
+}
+
+.shadow-filter {
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+
+}
+
+nav img:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 55, 0));
 }
 
 ul {
@@ -308,6 +318,7 @@ h4 {
   color: white;
   font-weight: bold;
   font-size: 20px;
+
 }
 
 .card-details-holder {
