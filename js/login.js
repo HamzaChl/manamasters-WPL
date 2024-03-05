@@ -1,4 +1,4 @@
-let registerButton = document.getElementById("Registreer");
+let registerButton = document.getElementById("registerButton");
 const loginButton = document.getElementById("loginButton");
 let login = true;
 registerButton.addEventListener("click", function (e) {
@@ -6,7 +6,7 @@ registerButton.addEventListener("click", function (e) {
     const h1Login = document.getElementById("h1Login");
     loginButton.value = "Registreer";
     h1Login.textContent = "Registreer"
-    registerButton.style.visibility = "hidden";
+    registerButton.textContent = "login";
     login = false;
 });
 
