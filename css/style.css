@@ -132,8 +132,9 @@ HERO
 
 h1 {
   color: white;
-  font-family: "dederon-sans-web", sans-serif;
-  font-size: 52px;
+  font-family: "superior-title", serif;
+
+  font-size: 62px;
 }
 
 h3,
@@ -302,6 +303,7 @@ Popups
   color: white;
 }
 
+
 h4 {
   color: white;
   font-weight: bold;
@@ -325,7 +327,7 @@ h4 {
 
 .card-details-holder>p {
   color: #c6c6c6;
-  font-size: 13px;
+  font-size: 16px;
 
 }
 
@@ -335,6 +337,7 @@ h4 {
   padding: 40px;
   align-items: center;
   grid-area: popup-wrapper;
+  margin-top: -10px;
 }
 
 hr.solid {
