@@ -70,12 +70,12 @@ a:hover {
   color: var(--orange);
 }
 
-/* .login-icon {
+.login-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-} */
+}
 
 .my-account-nav {
   display: flex;
