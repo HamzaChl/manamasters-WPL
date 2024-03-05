@@ -1,5 +1,0 @@
-import { Application } from '@splinetool/runtime';
-
-const backgroundDiv = document.getElementById('spline-background');
-const app = new Application(backgroundDiv);
-app.load('https://prod.spline.design/KP3OmWMRitybggRH/scene.splinecode');

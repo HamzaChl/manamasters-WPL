@@ -410,24 +410,18 @@ article {
 
 /*main*/
 
-#h1Login{
-    padding-top: 3rem
-}
-
 
 #mainLogin {
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 7rem;
-    height: 55rem;
+    justify-content: center;
+    height: 37rem;
 }
 
 #sectionLogin {
   background-image: url("../assets/images/backgroundLogin.png");
   background-position: center;
-  width: 300px;
-  height: 400px;
   background-image: url("../assets/images/backgroundLogin.png");
   background-position: right;
   background-size: cover;
@@ -438,7 +432,7 @@ article {
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   border-radius: 10px;
-  height: 400px;
+  height: 500px;
   width: 50vw;
   font-family: "dederon-sans-web", sans-serif;
 }
@@ -523,6 +517,15 @@ footer {
    color: white;
   font-family: "dederon-sans-web", sans-serif;
   padding-bottom: 2rem;
+}
+
+#footerLogin {
+  height: 12rem;
+}
+
+#footerLogin section{
+  padding: 0;
+  padding-top: 1rem;
 }
 
 footer > section {
