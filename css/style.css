@@ -871,6 +871,10 @@ Media Queries
     margin-top: 40px;
     width: 60%;
   }
+
+  footer > p {
+    padding-top: 1rem;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -878,18 +882,24 @@ Media Queries
     text-align: center;
   }
 
-  footer>section {
+  footer>section, #navLogin , #navLogin > section{
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
+  header {
+    height: 17rem;
+  }
   footer {
     height: 28rem;
   }
 
+  #footerLogin{
+    height: 22rem;
+  }
+
   nav img {
     /* height: 3rem; */
-
     width: 200px;
   }
 
@@ -906,6 +916,14 @@ Media Queries
     margin-top: 10px;
   }
 
+  
+  #sectionLogin{
+    width: 70vw;
+  }
+
+  #loginForm{
+    width: 45vw;
+  }
 }
 
 @media screen and (max-width: 500px) {

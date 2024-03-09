@@ -9,10 +9,12 @@ registerButton.addEventListener("click", function (e) {
         loginButton.value = "Registreer";
         h1Login.textContent = "Registreer"
         registerButton.textContent = "login";
+        document.title = "Magic The Gathering | Registreer"
     } else {
         loginButton.value = "Login";
         h1Login.textContent = "Login"
         registerButton.textContent = "Registreer";
+        document.title = "Magic The Gathering | Login";
     }
     login = false;
 });
