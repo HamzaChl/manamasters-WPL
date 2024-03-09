@@ -9,22 +9,26 @@
     <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/scroll.js"></script>
+    <script type="module" src="./js/popupdecksindividueel.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
         <ul>
           <a href="index.html"
-            ><img src="./assets/images/logo-magic.png" alt=""
+            ><img
+              src="./assets/images/logo-magic.png"
+              class="shadow-filter"
+              alt=""
           /></a>
         </ul>
         <ul class="nav">
-          <a href="./index.html"><li>Home</li></a>
-          <a href=""><li class="active">Decks</li></a>
+          <a href=""><li class="active">Home</li></a>
+          <a href="./decks.html"><li>Decks</li></a>
           <a href="./drawtest.html"><li>DrawTest</li></a>
         </ul>
         <ul class="right">
-          <a href=""
+          <a href="./login.html"
             ><li class="my-account-nav">
               <span class="login-icon"
                 ><svg
@@ -58,8 +62,80 @@
         </ul>
       </nav>
     </header>
-    <main>
-      <section class="decks"></section>
+    <div id="popupdecksIndividueel">
+      <img src="" alt="">
+      <section>
+        <p>Kaartnaam</p>
+        <img src="./assets/icons/plus.png" alt="">
+        <img src="./assets/icons/min.png" alt="">
+      </section>
+      <img src="./assets/icons/trash.png" alt="">
+      <img src="./assets/icons/vinkje.png" alt="">
+  </div>
+    <main id="mainDecksIndividueel">
+        <p><= go back</p>
+        <section id="mainDecksIndividueelTop">
+          <article id="deckPhotoAndText">
+            <img src="./assets/images/Group 32.png" alt="">
+            <article>
+              <h1>SuperDeck</h1>
+              <p>40 manacost</p>
+              <p>30 / 60 kaarten</p>
+              <p>0 landkaart(en)</p>
+            </article>
+          </article>
+          <button id="buttonDecksExport">Export</button>
+        </section>
+        <section id="sectionDeckCards">
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x3</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x2</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x3</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x4</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x1</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x3</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x1</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x3</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x4</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x1</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x2</p>
+          </article>
+          <article>
+            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
+            <p>x3</p>
+          </article>
+        </section>
     </main>
     <footer>
       <section>
