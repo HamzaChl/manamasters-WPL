@@ -6,7 +6,11 @@
     <title>Magic The Gathering | Drawtest</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/logofavicon.webp"
+      type="image/x-icon"
+    />
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/scroll.js"></script>
 
@@ -61,7 +65,28 @@
       </nav>
     </header>
     <main>
-      <section class="decks"></section>
+      <section class="decks-container">
+        <h1>Draw Test</h1>
+        <article id="add-deck">
+          <div class="left-part">
+            <select name="pets" class="select-deck" id="pet-select">
+              <option value="">--Kies een deck--</option>
+              <option value="deck01">Deck 01</option>
+              <option value="deck02">Deck 02</option>
+              <option value="deck03">Deck 03</option>
+              <option value="deck04">Deck 04</option>
+              <option value="deck05">Deck 05</option>
+            </select>
+            <input
+              type="text"
+              class="input-deck"
+              placeholder="Zoek een kaart naam, type, ..."
+            />
+          </div>
+          <button class="track-btn">track</button>
+          <h3>drawpercentage</h3>
+        </article>
+      </section>
     </main>
     <footer>
       <section>
