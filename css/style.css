@@ -14,7 +14,7 @@
 
 body {
   width: 100vw;
-  background-image: url(../assets/images/background.jpg);
+  background-image: url(../assets/images/background-2.png);
   background-size: cover;
   overflow-x: hidden;
   color: white;
@@ -159,6 +159,8 @@ h3 {
 .active {
   color: var(--orange);
   color: #ec4523;
+  /* filter: drop-shadow(0 0 0.75rem rgba(255, 55, 0, 0.447));
+  transition: all 300ms ease-out; */
 
 }
 
@@ -404,11 +406,13 @@ article {
   background-size: cover;
   background-position: bottom;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.782);
+  background-image: url(../assets/images/playmat.jpg);
+  background-size: cover;
 }
 
 .card-img {
@@ -417,6 +421,29 @@ article {
   height: auto;
 }
 
+
+.card-finder-text {
+  background-image: url(../assets/TextUI/kaart-zoeker.png);
+  height: 150px;
+  width: 500px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ui-hover:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 55, 0));
+  transition: all 300ms ease-out;
+}
+
+.drawtest-text {
+  background-image: url(../assets/TextUI/drawtest-ui2.png);
+  height: 150px;
+  width: 500px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 
 .card-holder {
