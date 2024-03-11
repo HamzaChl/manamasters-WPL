@@ -14,7 +14,7 @@
 
 body {
   width: 100vw;
-  background-image: url(../assets/images/background.jpg);
+  background-image: url(../assets/images/background-2.png);
   background-size: cover;
   overflow-x: hidden;
   color: white;
@@ -148,7 +148,7 @@ h1 {
   font-size: 62px;
 }
 
-h3{
+h3 {
   margin-top: 10px;
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
@@ -159,6 +159,8 @@ h3{
 .active {
   color: var(--orange);
   color: #ec4523;
+  /* filter: drop-shadow(0 0 0.75rem rgba(255, 55, 0, 0.447));
+  transition: all 300ms ease-out; */
 
 }
 
@@ -472,11 +474,13 @@ article {
   background-size: cover;
   background-position: bottom;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.782);
+  background-image: url(../assets/images/playmat.jpg);
+  background-size: cover;
 }
 
 .card-img {
@@ -485,6 +489,29 @@ article {
   height: auto;
 }
 
+
+.card-finder-text {
+  background-image: url(../assets/TextUI/kaart-zoeker.png);
+  height: 150px;
+  width: 500px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ui-hover:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 55, 0));
+  transition: all 300ms ease-out;
+}
+
+.drawtest-text {
+  background-image: url(../assets/TextUI/drawtest-ui2.png);
+  height: 150px;
+  width: 500px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 
 .card-holder {
@@ -510,19 +537,22 @@ article {
   margin: 4rem;
 }
 
-#mainDecksIndividueel > p{
+#mainDecksIndividueel>p {
   margin-left: 2.2rem;
   color: white;
   opacity: 0.8;
 }
 
-#sectionDeckCards, #deckPhotoAndText, #mainDecksIndividueelTop {
+#sectionDeckCards,
+#deckPhotoAndText,
+#mainDecksIndividueelTop {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-#deckPhotoAndText, #mainDecksIndividueelTop{
+#deckPhotoAndText,
+#mainDecksIndividueelTop {
   flex-direction: row;
 }
 
@@ -534,12 +564,12 @@ article {
   padding-top: 2rem;
 }
 
-#deckPhotoAndText{
+#deckPhotoAndText {
   gap: 4rem;
 }
 
 #mainDecksIndividueelTop {
-  align-items:start;
+  align-items: start;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgb(255, 255, 255);
 }
@@ -551,13 +581,21 @@ article {
 
 
 
-#sectionDeckCards > article > p, #deckPhotoAndText > article > p{
+#sectionDeckCards>article>p,
+#deckPhotoAndText>article>p {
   font-size: 1.5rem;
   font-weight: normal;
   font-family: 'superior-title';
   color: white;
 }
 
+#popupdecksIndividueel {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  background-color: red;
+}
 
 /*decksindividueel main einde*/
 
@@ -568,7 +606,8 @@ article {
   justify-content: space-evenly;
 }
 
-#decorationButton, #buttonDecksExport{
+#decorationButton,
+#buttonDecksExport {
   -webkit-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   -moz-box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
   box-shadow: 0px -2px 23px 0px rgba(231, 231, 231, 0.53);
@@ -576,16 +615,18 @@ article {
   text-align: center;
 }
 
-#registerButton, #decorationButton, #buttonDecksExport {
+#registerButton,
+#decorationButton,
+#buttonDecksExport {
   width: 10rem;
   border: white 1px solid;
 }
 
-#buttonDecksExport{
+#buttonDecksExport {
   width: 8rem;
 }
 
-#navLogin> section {
+#navLogin>section {
   display: flex;
   gap: 2rem;
 }
@@ -635,7 +676,8 @@ article {
   font-weight: bolder;
 }
 
-#loginForm>input[type="submit"], #registerButton {
+#loginForm>input[type="submit"],
+#registerButton {
   text-align: center;
   background-color: var(--orange);
   border: 1px white solid;
@@ -647,7 +689,8 @@ article {
   opacity: 1;
 }
 
-#loginForm>input[type="submit"]:hover, #registerButton:hover   {
+#loginForm>input[type="submit"]:hover,
+#registerButton:hover {
   border: 1px var(--orange) solid;
   -webkit-box-shadow: 0px -2px 23px 0px var(--orange);
   -moz-box-shadow: 0px -2px 23px 0px var(--orange);
@@ -948,7 +991,7 @@ Media Queries
     background-position: center;
   }
 
-  #deckPhotoAndText{
+  #deckPhotoAndText {
     gap: 0rem
   }
 
@@ -984,11 +1027,14 @@ Media Queries
 }
 
 @media screen and (max-width: 1085px) {
-  #sectionDeckCards, #deckPhotoAndText, #mainDecksIndividueelTop{
+
+  #sectionDeckCards,
+  #deckPhotoAndText,
+  #mainDecksIndividueelTop {
     justify-content: center;
   }
 
-  #mainDecksIndividueelTop{
+  #mainDecksIndividueelTop {
     flex-direction: row;
   }
 
@@ -1048,11 +1094,11 @@ Media Queries
     width: 60%;
   }
 
-  footer > p {
+  footer>p {
     padding-top: 1rem;
   }
 
-  #sectionDeckCards{
+  #sectionDeckCards {
     justify-content: center;
   }
 }
@@ -1062,7 +1108,9 @@ Media Queries
     text-align: center;
   }
 
-  footer>section, #navLogin , #navLogin > section{
+  footer>section,
+  #navLogin,
+  #navLogin>section {
     flex-direction: column;
     gap: 1.5rem;
   }
@@ -1070,11 +1118,12 @@ Media Queries
   header {
     height: 17rem;
   }
+
   footer {
     height: 28rem;
   }
 
-  #footerLogin{
+  #footerLogin {
     height: 22rem;
   }
 
@@ -1096,12 +1145,12 @@ Media Queries
     margin-top: 10px;
   }
 
-  
-  #sectionLogin{
+
+  #sectionLogin {
     width: 70vw;
   }
 
-  #loginForm{
+  #loginForm {
     width: 45vw;
   }
 }
@@ -1111,7 +1160,7 @@ Media Queries
   footer>p,
   #Gebruikersnaamveld::placeholder,
   #Wachtwoordveld::placeholder,
-  #sectionLogin>h3{
+  #sectionLogin>h3 {
     font-size: 10px;
   }
 }
@@ -1429,3 +1478,66 @@ canvas {
 
 
 /* ------------------------- eind van css code van loading page --------------------- */
+/* ------------------------- css code van DrawTest page --------------------- */
+.decks-container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.decks-container>h1 {
+  margin-top: 50px;
+}
+
+#add-deck {
+  padding: 40px;
+  display: flex;
+  width: 70vw;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: 100px;
+  margin-top: 50px;
+  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.37);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.left-part {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-deck {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  color: black;
+  padding: 10px;
+  text-align: left;
+  font-family: "dederon-sans-web", sans-serif;
+
+}
+
+.track-btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  color: black;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-family: "dederon-sans-web", sans-serif;
+
+}
+
+.input-deck::placeholder {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* ------------------------- eind van css code van DrawTest page --------------------- */
