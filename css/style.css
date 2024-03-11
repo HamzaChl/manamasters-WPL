@@ -225,7 +225,7 @@ input::placeholder {
 Popups
 */
 
-.info-toggle {
+.info-toggle ,#popupdecksIndividueel{
   display: none;
   /* height: 100vh; */
   width: 100vw;
@@ -239,7 +239,7 @@ Popups
   overflow: hidden;
 }
 
-.wrapper-card {
+.wrapper-card{
   height: 100vh;
   width: 100vw;
   overflow: auto;
@@ -250,6 +250,74 @@ Popups
     "popup-wrapper popup-wrapper"
     "popup-wrapper popup-wrapper"
   ;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.658);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 20px;
+}
+
+#popupdecksIndividueel > section{
+  height: 60vh;
+  width: 50vw;
+  outline: 3px solid white;
+  padding: 10px;
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+}
+
+#popupdecksIndividueel > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#popupdecksIndividueelPlusEnMin {
+  display: flex;
+  flex-direction: column;
+  gap: 22rem;
+}
+
+#popupdecksIndividueelPlusEnMin > article, #popupdecksIndividueelVinkEnVuil{
+  display: flex;
+  gap: 1rem;
+}
+
+
+#popupdecksIndividueelPlusEnMin > p{
+  font-size: 30px;
+}
+
+#popupdecksIndividueelVinkEnVuil{
+  margin-top: 25rem;
+}
+
+#popupdecksIndividueelVinkEnVuil > img, #popupdecksIndividueelPlusEnMin > article > img {
+  height: 50px;
+  width: 50px;
+}
+
+#picturePopUpIndividueel{
+  height: 90%;
+}
+
+#buttonClosePopUpIndividueel {
+  position: absolute;
+  right: 10rem;
+  top: 5rem;
+}
+
+#popupdecksIndividueel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  outline: 3px solid white;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.658);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -490,13 +558,6 @@ article {
   color: white;
 }
 
-#popupdecksIndividueel {
-  position: absolute;
-   width: 100vw;
-   height: 100vh;
-   opacity: 0.5;
-   background-color: red;
-}
 
 /*decksindividueel main einde*/
 
@@ -895,6 +956,31 @@ Media Queries
   #buttonDecksExport {
     margin-top: 3rem;
   }
+
+  
+  #popupdecksIndividueel > section {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  #popupdecksIndividueelVinkEnVuil {
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+  
+  #popupdecksIndividueelPlusEnMin {
+    gap: 4rem;
+  }
+
+  #picturePopUpIndividueel {
+    height: 300px;
+  }
+  
+  
 }
 
 @media screen and (max-width: 1085px) {
@@ -905,6 +991,11 @@ Media Queries
   #mainDecksIndividueelTop{
     flex-direction: row;
   }
+
+  #buttonClosePopUpIndividueel {
+    right: 5rem;
+    top: 2rem;
+}
 }
 
 @media screen and (max-width: 750px) {

@@ -7,9 +7,18 @@ for (const picture of pictures) {
         if (popup.style.visibility === "hidden") {
             popup.style.visibility = "visible";
             popup.style.height = "100vh";
-        } else if (popup.style.visibility === "visible"){
-            popup.style.visibility = "hidden";
-            popup.style.height = 0;
-        }
+        };
     });  
 };
+
+document.getElementById("buttonClosePopUpIndividueel").addEventListener("click", function (e) {
+    popup.style.visibility = "hidden";
+    popup.style.height = 0;  
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" || event.key === "Esc") {
+        popup.style.visibility = "hidden";
+        popup.style.height = 0;  
+    }
+  });
