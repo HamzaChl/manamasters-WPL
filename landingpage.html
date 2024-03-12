@@ -6,64 +6,66 @@
     <title>Projecten</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="css/font.css">
     <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/script.js" defer></script>
-    <script src="./js/scroll.js"></script>
-    <script src="./js/accesdenied.js" defer></script>
+    <script src="./js/scroll.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body id="loading-page">
-    <div id="popup" class="popup">
-      <section class="alert">
-        <h3>You cannot click on this project !</h3>
-        <button id="close">close</button>
+    <main class="container">
+      <section class="slide">
+          <article class="item" style="background-image: url(assets/images/fortnite.jpg);">
+              <div class="content">
+                  <h1 class="name">Fortnite</h1>
+                  <p class="des">Fortnite: Battle Royale - overleef, vecht, bouw.</p>
+                  <button>See More</button>
+              </div>
+          </article>
+          <article class="item" style="background-image: url(assets/images/fifa.jpg);">
+              <div class="content">
+                 <h1 class="name">Fifa</h1>
+                 <p class="des">FIFA is een populaire voetbalvideogame-serie ontwikkeld door EA Sports.</p>
+                  <button>See More</button>
+              </div>
+          </article>
+          <article class="item" style="background-image: url(assets/images/lotr.jpg);">
+              <div class="content">
+                <h1 class="name">Lord Of The Rings</h1>
+                <p class="des">Lord of the Rings: Epische fantasy van J.R.R. Tolkien, goed versus kwaad in Midden-aarde.</p>
+                  <button>See More</button>
+              </div>
+          </article>
+          <article class="item" style="background-image: url(assets/images/pokemon.jpg);">
+              <div class="content">
+                  <h1 class="name">Pokemon</h1>
+                  <p class="des">Pokémon: Vang, train, vecht en beleef avonturen!</p>
+                  <button>See More</button>
+              </div>
+          </article>
+          <article class="item" style="background-image: url(assets/images/lego.jpg);">
+              <div class="content">
+                 <h1 class="name">Lego Masters</h1>
+                 <p class="des">Lego Masters: Teams bouwen met Lego.</p>
+                  <button>See More</button>
+              </div>
+          </article>
+          <article class="item" style="background-image: url(assets/images/mtg.jpg);">
+              <div class="content">
+                <h1 class="name">Magic The Gathering</h1>
+                <p class="des">Magic: The Gathering: Kaartspel met spreuken en wezens.</p>
+                 <button>See More</button>
+              </div>
+          </article>
+
       </section>
-    </div>
-   <header id="loading-page-header">
-    <iframe src='https://my.spline.design/particleplanet-7a431e1542c32738edb2c513ad175800/' frameborder='0' width='100%' height='100%'></iframe>
-      </header>
-    <main id="loading-page-main">
-      <section class="project-container">
-        <article class="project-holder">
-          <div class="fortnite project">
-            <h4>Fortnite</h4>
-            <p>Fortnite project</p>
-          </div>
-        </article>
-        <article class="project-holder">
-          <div class="fifa project">
-            <h4>Fifa</h4>
-            <p>Fifa project</p>
-          </div>
-        </article>
-        <article class="project-holder">
-          <div class="lego project">
-            <h4>Lego</h4>
-            <p>Lego project</p>
-          </div>
-        </article>
-        <article class="project-holder">
-          <div class="lotr project">
-            <h4>Lord Of The Rings</h4>
-            <p>Lord Of The Rings project</p>
-          </div>
-        </article>
-        <article class="project-holder accepted">
-          <div class="mtg project">
-            <h4>Magic The Gathering</h4>
-            <p>Magic The Gathering project</p>
-          </div>
-        </article>
-        <article class="project-holder">
-          <div class="pokemon project">
-            <h4>Pokemon</h4>
-            <p>Pokemon project</p>
-          </div>
-        </article>
-      </section>
+
+      <div class="button">
+          <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
     </main>
-    <footer id="loading-page-footer">
-      <p>&copy; 2024 - All rights reserved - MANAMASTERS</p>
-      </footer>
   </body>
 </html>
