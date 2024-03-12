@@ -1139,10 +1139,31 @@ Media Queries
   #sectionDeckCards {
     justify-content: center;
   }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #add-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 550px) {
   .hero {
+    text-align: center;
+  }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -1191,6 +1212,15 @@ Media Queries
   #loginForm {
     width: 45vw;
   }
+
+  #add-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    gap: 30px;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1200,6 +1230,12 @@ Media Queries
   #Wachtwoordveld::placeholder,
   #sectionLogin>h3 {
     font-size: 10px;
+  }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
