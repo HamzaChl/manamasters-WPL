@@ -8,10 +8,6 @@
   --loadingcolor: white;
 }
 
-html {
-  /* scroll-behavior: smooth; */
-}
-
 * {
   box-sizing: border-box;
 }
@@ -127,10 +123,6 @@ a:hover {
 HERO
 */
 
-#search-form-id {
-  scroll-behavior: smooth;
-}
-
 .hero {
   width: 100%;
   height: 87vh;
@@ -146,18 +138,7 @@ HERO
   justify-content: end;
   flex-direction: column;
   padding: 50px;
-  /* margin-bottom: 40px; */
-}
-
-.scroll {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  margin-bottom: -3rem;
-}
-
-.scroll img {
-  width: 5vw;
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -165,10 +146,6 @@ h1 {
   font-family: "superior-title", serif;
 
   font-size: 62px;
-}
-
-.title {
-  text-align: center;
 }
 
 h3 {
@@ -250,8 +227,7 @@ input::placeholder {
 Popups
 */
 
-.info-toggle,
-#popupdecksIndividueel {
+.info-toggle {
   display: none;
   /* height: 100vh; */
   width: 100vw;
@@ -285,102 +261,13 @@ Popups
   padding-top: 20px;
 }
 
-#popupdecksIndividueel > section{
-  max-height: 90vh;
-  max-width: 90vw;
-  outline: 1px solid white;
-  padding: 10px;
-  backdrop-filter: blur(6px);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#popupdecksIndividueelImages {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#popupdecksIndividueelEigenschappen{
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 4rem;
-  max-width: 20vw;
-}
-
-#popupdecksIndividueelVinkEnVuil{
-  display: flex;
-  gap: 1rem;
-}
-
-
-#popupdecksIndividueelImages > p {
-  font-size: 30px;
-}
-
-#popupdecksIndividueelVinkEnVuil{
-  margin: 2rem;
-}
-
-#popupdecksIndividueelVinkEnVuil > img, #popupdecksIndividueelImages > article > img {
-  height: 50px;
-  width: 50px;
-}
-
-#picturePopUpIndividueel{
-  height: 90%;
-  margin: 4rem;
-}
-
-
-#popupdecksIndividueel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem ;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-  outline: 3px solid white;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.658);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding-top: 20px;
-}
-
 .select-deck {
   background-color: white;
-  color: rgba(0, 0, 0, 0.608);
+  color: var(--orange);
   padding: 10px;
   border-radius: 5px;
   padding-left: 30px;
   padding-right: 30px;
-}
-
-.infos {
-  max-width: 40vw;
-}
-
-.holder-comparaison {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-bottom: 100px;
-}
-
-.compar-img {
-  border-radius: 20px;
-  max-width: 20vw;
 }
 
 .add-deck {
@@ -437,26 +324,23 @@ h4 {
 }
 
 .card-details-holder {
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.782);
-  gap: 40px;
-  padding: 50px;
+
+  padding: 20px;
   text-align: left;
   background: rgba(30, 30, 30, 0.7);
   box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.37);
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: "dederon-sans-web", sans-serif;
-  max-width: 90vw;
-  min-width: 90vw;
-  justify-content: space-around;
-  align-items: center;
+  max-width: 60vw;
+  min-width: 40vw;
 }
 
-.card-details-holder>.infos>p {
+.card-details-holder>p {
   color: #c6c6c6;
-  font-size: 14px;
+  font-size: 16px;
 
 }
 
@@ -470,7 +354,7 @@ h4 {
 }
 
 hr.solid {
-  border-top: 1px solid #bbb;
+  border-top: 3px solid #bbb;
   margin-bottom: 10px;
 }
 
@@ -484,7 +368,7 @@ hr.solid {
 
 .wrapper input {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.782);
+  border: 2px solid white;
   border-radius: 50px;
   padding: 1rem 2rem;
   width: 100%;
@@ -527,7 +411,7 @@ article {
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.782);
-  /* background-image: url(../assets/images/playmat.jpg); */
+  background-image: url(../assets/images/playmat.jpg);
   background-size: cover;
 }
 
@@ -565,7 +449,7 @@ article {
 .card-holder {
   width: 245px;
   background: rgba(0, 0, 0, 0.3);
-  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
@@ -635,6 +519,14 @@ article {
   font-weight: normal;
   font-family: 'superior-title';
   color: white;
+}
+
+#popupdecksIndividueel {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  background-color: red;
 }
 
 /*decksindividueel main einde*/
@@ -996,6 +888,266 @@ footer>p {
   gap: 30px;
 }
 
+
+/* ------------------------- css code van loading page --------------------- */
+
+/*
+Project container
+*/
+
+
+#loading-page{
+  background: #eaeaea;
+  overflow: hidden;
+}
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  box-shadow: 0 30px 50px #dbdbdb;
+}
+
+.container .slide .item{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  box-shadow: 0 30px 50px #505050;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2){
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.content h1{
+  font-size: 30px;
+  background: -webkit-linear-gradient(#fdba66, #fd6d71);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+.slide .item:nth-child(3){
+  left: 50%;
+}
+.slide .item:nth-child(4){
+  left: calc(50% + 220px);
+}
+.slide .item:nth-child(5){
+  left: calc(50% + 440px);
+}
+
+/* here n = 0, 1, 2, 3,... */
+.slide .item:nth-child(n + 6){
+  left: calc(50% + 660px);
+  opacity: 0;
+}
+
+.item .content{
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  width: 400px;
+  
+  text-align: left;
+  color: white;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+}
+
+.content{
+  font-size: 1.5rem;
+}
+
+
+.slide .item:nth-child(2) .content{
+  display: block;
+}
+
+
+.content .name{
+  font-size: 4rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .des{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content button{
+  padding: 10px 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.6s 1 forwards;
+  border: solid 2px black;
+  border-radius: 20px;
+}
+
+.button{
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+}
+
+.button button{
+  width: 40px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  border: 1px solid white;
+  transition: 0.3s;
+  background-color: black;
+}
+
+.button button:hover{
+  background: red;
+  color:white
+}
+
+
+/*-------------------- decks css -------------------*/
+
+#decks-main{
+display: flex;
+justify-content: center;
+flex-direction: column;
+gap: 2rem;
+align-items: center;
+
+}
+
+#decks-main h1 {
+ text-align: center;
+ margin-top: 3rem;
+ font-family: dragon;
+}
+
+
+#decks-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 7rem;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+
+.project {
+  width: 450px;
+  height: 300px;
+  background-size: cover;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: end;
+  padding: 20px;
+}
+
+.deck1 {
+  background-image: linear-gradient(to bottom, transparent, #100f15d2),
+     url(../assets/images/deck1.png);
+    background-size: cover;
+    border-radius: 10px;
+  
+  }
+  
+  .deck2 {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2), 
+        url(../assets/images/deck2.png);
+    background-size: cover;
+    border-radius: 10px;
+  
+  }
+  
+  .deck3 {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+       
+        url(../assets/images/deck3.png);
+    background-size: cover;
+    border-radius: 10px;
+  
+  }
+  
+  .deck4 {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+      url(../assets/images/deck4.png);
+    background-size: cover;
+    border-radius: 10px;
+  
+  }
+  
+  
+  .deck5 {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+      url(../assets/images/deck5.png);
+    background-size: cover;
+    border-radius: 10px;
+  
+  }
+  
+  .deck6 {
+    background-image: linear-gradient(to bottom, transparent, #100f15d2),
+      url(../assets/images/deck6.png);
+    background-size: cover;
+    border-radius: 10px;
+  }
+
+  .project h2 {
+    font-size: 30px;
+    background-clip: text;
+    color: white;
+    margin-left: 10px;
+   
+    margin-left: 1rem;
+  }
+  
+  .decks-holder img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .decks-holder:hover{
+    transition: transform 0.7s ease;
+    transform: scale(1.05);
+  }
+
+  .decks-holder:not(:hover) {
+    transition: transform 0.5s ease; 
+  }
+
+  /*-------------------- decks css ends here -------------------*/
+
+
 /*
 Media Queries
 */
@@ -1043,7 +1195,7 @@ Media Queries
 
 @media screen and (max-width: 1085px) {
 
-    #sectionDeckCards,
+  #sectionDeckCards,
   #deckPhotoAndText,
   #mainDecksIndividueelTop {
     justify-content: center;
@@ -1052,37 +1204,6 @@ Media Queries
   #mainDecksIndividueelTop {
     flex-direction: row;
   }
-
-
-#popupdecksIndividueel > section {
-  display: flex;
-  flex-direction: column;
-  align-items: normal;
-  max-height: none;
-}
-
-#popupdecksIndividueelVinkEnVuil {
-  margin: 0;
-  gap: 1.5rem;
-}
-
-#popupdecksIndividueel{
-  padding-top: 30rem;
-  padding-bottom: 5rem;
-}
-#popupdecksIndividueelImages {
-  gap: 2rem;
-}
-
-#picturePopUpIndividueel {
-  height: 300px;
-  margin: 0;
-  margin: 2rem 4rem 0 4rem;
-}
-
-#popupdecksIndividueelEigenschappen{
-  margin: 2rem;
-}
 }
 
 @media screen and (max-width: 750px) {
@@ -1142,31 +1263,10 @@ Media Queries
   #sectionDeckCards {
     justify-content: center;
   }
-
-  .card-details-holder {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #add-deck {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 550px) {
   .hero {
-    text-align: center;
-  }
-
-  .card-details-holder {
-    display: flex;
-    flex-direction: column;
     text-align: center;
   }
 
@@ -1215,15 +1315,6 @@ Media Queries
   #loginForm {
     width: 45vw;
   }
-
-  #add-deck {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: normal;
-    gap: 30px;
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1233,12 +1324,6 @@ Media Queries
   #Wachtwoordveld::placeholder,
   #sectionLogin>h3 {
     font-size: 10px;
-  }
-
-  .card-details-holder {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
   }
 }
 
@@ -1355,391 +1440,20 @@ Animaties
   color: white;
 }
 
-.bounce-top {
-  -webkit-animation: bounce-top 1.9s infinite both;
-  animation: bounce-top 1.9s infinite both;
-}
 
-@-webkit-keyframes bounce-top {
-  0% {
-    -webkit-transform: translateY(-45px);
-    transform: translateY(-45px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-    opacity: 1;
+
+@keyframes animate {
+  from{
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
   }
 
-  24% {
-    opacity: 1;
-  }
-
-  40% {
-    -webkit-transform: translateY(-24px);
-    transform: translateY(-24px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  65% {
-    -webkit-transform: translateY(-12px);
-    transform: translateY(-12px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  82% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  93% {
-    -webkit-transform: translateY(-4px);
-    transform: translateY(-4px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  25%,
-  55%,
-  75%,
-  87% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-
-  100% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-    opacity: 1;
-  }
-}
-
-@keyframes bounce-top {
-  0% {
-    -webkit-transform: translateY(-45px);
-    transform: translateY(-45px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-    opacity: 1;
-  }
-
-  24% {
-    opacity: 1;
-  }
-
-  40% {
-    -webkit-transform: translateY(-24px);
-    transform: translateY(-24px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  65% {
-    -webkit-transform: translateY(-12px);
-    transform: translateY(-12px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  82% {
-    -webkit-transform: translateY(-6px);
-    transform: translateY(-6px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  93% {
-    -webkit-transform: translateY(-4px);
-    transform: translateY(-4px);
-    -webkit-animation-timing-function: ease-in;
-    animation-timing-function: ease-in;
-  }
-
-  25%,
-  55%,
-  75%,
-  87% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-  }
-
-  100% {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-    animation-timing-function: ease-out;
-    opacity: 1;
+  to{
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
   }
 }
 
 
-
-/* ------------------------- css code van loading page --------------------- */
-
-/*
-Project container
-*/
-
-canvas {
-  display: block;
-}
-
-
-#loading-page-header {
-  width: 100%;
-  height: 700px;
-}
-
-#loading-page {
-  background-color: black;
-  background-image: none;
-}
-
-#loading-page-footer {
-  background-color: var(black);
-  height: 17rem;
-  margin-top: 2rem;
-}
-
-#loading-page-footer p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-
-#loading-page-main {
-  display: flex;
-  justify-content: center;
-}
-
-.project-container {
-  display: flex;
-  max-width: 1200px;
-  flex-wrap: wrap;
-  margin-top: 14rem;
-  margin-bottom: 14rem;
-  justify-content: center;
-  gap: 4rem;
-}
-
-.project-holder {
-  cursor: pointer;
-  background-color: var(--loadingcolor);
-  padding: 1px;
-  border-radius: 10px;
-
-}
-
-.project-holder:hover {
-  scale: 1.1;
-  outline: 5px solid white;
-  transition: ease-in 4ms;
-}
-
-.project {
-  width: 300px;
-  height: 200px;
-  background-size: cover;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.fortnite {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fortnite.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.fifa {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fifa.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.lego {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lego.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.lotr {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lotr.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-
-.mtg {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/mtg.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.pokemon {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/pokemon.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.project>h4 {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 10px;
-}
-
-.project>p {
-  color: white;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-
-.project-holder img {
-  width: 300px;
-  height: 200px;
-  border-radius: 10px;
-}
-
-.popup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 30vw;
-  height: 30vh;
-  background-color: rgb(221, 221, 221);
-  overflow-y: hidden;
-  z-index: 1000;
-  top: 50%;
-  left: 40%;
-  transform: translate(0, -50%);
-  visibility: hidden;
-  border-radius: 20px;
-}
-
-.alert>h3 {
-  font-size: 32px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 30px;
-}
-
-.alert {
-  background-color: white;
-  height: 35vh;
-  width: 35vw;
-  border-radius: 20px;
-  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 30px;
-}
-
-
-
-/* ------------------------- eind van css code van loading page --------------------- */
-/* ------------------------- css code van DrawTest page --------------------- */
-.decks-container {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.decks-container>h1 {
-  margin-top: 50px;
-}
-
-#add-deck {
-  padding: 40px;
-  display: flex;
-  width: 70vw;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin-bottom: 100px;
-  margin-top: 50px;
-  background: rgba(30, 30, 30, 0.7);
-  box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.37);
-  backdrop-filter: blur(14.5px);
-  -webkit-backdrop-filter: blur(14.5px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.782);
-}
-
-.left-part {
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  flex-direction: column;
-  gap: 20px;
-}
-
-.input-deck {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  color: black;
-  padding: 10px;
-  text-align: left;
-  font-family: "dederon-sans-web", sans-serif;
-
-}
-
-.track-btn {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  color: black;
-  padding: 10px;
-  padding-left: 50px;
-  padding-right: 50px;
-  font-family: "dederon-sans-web", sans-serif;
-
-}
-
-.input-deck::placeholder {
-  color: rgba(0, 0, 0, 0.55);
-}
-
-/* ------------------------- eind van css code van DrawTest page --------------------- */
