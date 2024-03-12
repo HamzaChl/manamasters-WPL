@@ -1,7 +1,6 @@
 const lenis = new Lenis();
 
-lenis.on("scroll", (e) => {
-});
+lenis.on("scroll", (e) => {});
 
 function raf(time) {
   lenis.raf(time);
@@ -9,3 +8,12 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+const scrolldown = document.getElementById("scroll-down");
+
+scrolldown.addEventListener("click", () => {
+  document.documentElement.style.scrollBehavior = "smooth";
+  setTimeout(() => {
+    document.documentElement.style.scrollBehavior = "auto";
+  }, 200);
+});

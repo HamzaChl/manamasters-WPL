@@ -14,7 +14,8 @@
     <!-- <script src="./js/script.js" defer></script> -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/apicall.js"></script>
-    <script src="./js/scroll.js"></script>
+    <!-- <script type="module" src="./js//scroll.js" defer></script> -->
+    <script src="./js/scroll.js" defer></script>
   </head>
   <body>
     <header>
@@ -69,11 +70,13 @@
     </header>
     <main>
       <section class="hero">
-        <h1>Magic The Gathering</h1>
+        <h1 class="title">Vind je kaart</h1>
         <h3>Art gemaakt door Laxmonaut</h3>
+        <a href="#search-form-id" id="scroll-down"><div class="scroll"><img class=" bounce-top" src="./assets/images/scrolldown.webp" alt=""></div></a>
       </section>
       <section class="card-finder">
-        <div class="card-finder-text ui-hover">
+        <!-- <div class="card-finder-text ui-hover"> -->
+          <!-- <h1>Vind je kaart</h1> -->
           <!-- <img src="./assets/TextUI/kaarzoeker.png" alt="" /> -->
         </div>
         <form class="search-form" id="search-form-id" action="" method="get">
@@ -105,39 +108,42 @@
           <article class="wrapper-card">
             <button class="btn-popup" onclick="closePopup()"><h1>ⓧ</h1></button>
             <div class="popup-wrapper">
-              <img class="popup-img" src="" alt="" id="popupCardImg" />
               <figure class="card-details-holder">
-                <h4>kaart naam</h4>
-                <br />
-                <p id="card-name"></p>
-                <br />
-                <hr class="solid" />
-                <h4>zeldzaamheid</h4>
-                <br />
-                <p id="card-rarity"></p>
-                <br />
-                <hr class="solid" />
-                <h4>eigenschappen</h4>
-                <br />
-                <p id="card-text"></p>
-                <br />
-                <hr class="solid" />
-                <h4>type</h4>
-                <br />
-                <p id="card-type"></p>
-                <br />
-                <hr class="solid" />
-                <h4>kaart toevoegen aan deck</h4>
-                <br />
-                <select name="pets" class="select-deck" id="pet-select">
-                  <option value="">--Kies een deck--</option>
-                  <option value="deck01">Deck 01</option>
-                  <option value="deck02">Deck 02</option>
-                  <option value="deck03">Deck 03</option>
-                  <option value="deck04">Deck 04</option>
-                  <option value="deck05">Deck 05</option>
-                </select>
-                <button class="add-deck" id="add-to-deck-btn">+</button>
+                <img class="popup-img" src="" alt="" id="popupCardImg" />
+                <div class="infos">
+                  <h4>kaart naam</h4>
+                  <br />
+                  <p id="card-name"></p>
+                  <br />
+                  <hr class="solid" />
+                  <h4>zeldzaamheid</h4>
+                  <br />
+                  <p id="card-rarity"></p>
+                  <br />
+                  <hr class="solid" />
+                  <h4>eigenschappen</h4>
+                  <br />
+                  <p id="card-text"></p>
+                  <br />
+                  <hr class="solid" />
+                  <h4>type</h4>
+                  <br />
+                  <p id="card-type"></p>
+                  <br />
+                  <hr class="solid" />
+                  <h4>kaart toevoegen aan deck</h4>
+                  <br />
+                  <select name="pets" class="select-deck" id="pet-select">
+                    <option value="">--Kies een deck--</option>
+                    <option value="deck01">Deck 01</option>
+                    <option value="deck02">Deck 02</option>
+                    <option value="deck03">Deck 03</option>
+                    <option value="deck04">Deck 04</option>
+                    <option value="deck05">Deck 05</option>
+                  </select>
+                  <button class="add-deck" id="add-to-deck-btn">+</button>
+                </div>
+                
               </figure>
             </div>
           </article>
