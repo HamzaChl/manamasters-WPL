@@ -368,6 +368,19 @@ Popups
   max-width: 40vw;
 }
 
+.holder-comparaison {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+
+.compar-img {
+  border-radius: 20px;
+  max-width: 20vw;
+}
+
 .add-deck {
   background-color: white;
   color: limegreen;
@@ -1654,7 +1667,7 @@ canvas {
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.782);
 }
 
 .left-part {
