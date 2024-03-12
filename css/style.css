@@ -8,6 +8,10 @@
   --loadingcolor: white;
 }
 
+html {
+  /* scroll-behavior: smooth; */
+}
+
 * {
   box-sizing: border-box;
 }
@@ -123,6 +127,10 @@ a:hover {
 HERO
 */
 
+#search-form-id {
+  scroll-behavior: smooth;
+}
+
 .hero {
   width: 100%;
   height: 87vh;
@@ -138,7 +146,18 @@ HERO
   justify-content: end;
   flex-direction: column;
   padding: 50px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+}
+
+.scroll {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-bottom: -3rem;
+}
+
+.scroll img {
+  width: 5vw;
 }
 
 h1 {
@@ -146,6 +165,10 @@ h1 {
   font-family: "superior-title", serif;
 
   font-size: 62px;
+}
+
+.title {
+  text-align: center;
 }
 
 h3 {
@@ -227,7 +250,8 @@ input::placeholder {
 Popups
 */
 
-.info-toggle ,#popupdecksIndividueel{
+.info-toggle,
+#popupdecksIndividueel {
   display: none;
   /* height: 100vh; */
   width: 100vw;
@@ -241,7 +265,7 @@ Popups
   overflow: hidden;
 }
 
-.wrapper-card{
+.wrapper-card {
   height: 100vh;
   width: 100vw;
   overflow: auto;
@@ -261,68 +285,63 @@ Popups
   padding-top: 20px;
 }
 
-#popupdecksIndividueel > section{
-  max-height: 90vh;
-  max-width: 90vw;
-  outline: 1px solid white;
+#popupdecksIndividueel>section {
+  height: 60vh;
+  width: 50vw;
+  outline: 3px solid white;
   padding: 10px;
   backdrop-filter: blur(6px);
   border-radius: 20px;
 }
 
-#popupdecksIndividueel > section {
+#popupdecksIndividueel>section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
-#popupdecksIndividueelImages {
+#popupdecksIndividueelPlusEnMin {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 22rem;
 }
 
-#popupdecksIndividueelEigenschappen{
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin: 4rem;
-  max-width: 20vw;
-}
-
-#popupdecksIndividueelPlusEnMin, #popupdecksIndividueelVinkEnVuil{
+#popupdecksIndividueelPlusEnMin>article,
+#popupdecksIndividueelVinkEnVuil {
   display: flex;
   gap: 1rem;
 }
 
 
-#popupdecksIndividueelImages > p{
+#popupdecksIndividueelPlusEnMin>p {
   font-size: 30px;
 }
 
-#popupdecksIndividueelVinkEnVuil{
-  margin: 2rem;
+#popupdecksIndividueelVinkEnVuil {
+  margin-top: 25rem;
 }
 
-#popupdecksIndividueelVinkEnVuil > img, #popupdecksIndividueelImages > article > img {
+#popupdecksIndividueelVinkEnVuil>img,
+#popupdecksIndividueelPlusEnMin>article>img {
   height: 50px;
   width: 50px;
 }
 
-#picturePopUpIndividueel{
+#picturePopUpIndividueel {
   height: 90%;
-  margin: 4rem;
 }
 
+#buttonClosePopUpIndividueel {
+  position: absolute;
+  right: 10rem;
+  top: 5rem;
+}
 
 #popupdecksIndividueel {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 2rem ;
   height: 100vh;
   width: 100vw;
   overflow: auto;
@@ -338,11 +357,28 @@ Popups
 
 .select-deck {
   background-color: white;
-  color: var(--orange);
+  color: rgba(0, 0, 0, 0.608);
   padding: 10px;
   border-radius: 5px;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.infos {
+  max-width: 40vw;
+}
+
+.holder-comparaison {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+
+.compar-img {
+  border-radius: 20px;
+  max-width: 20vw;
 }
 
 .add-deck {
@@ -399,23 +435,26 @@ h4 {
 }
 
 .card-details-holder {
-
-  padding: 20px;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.782);
+  gap: 40px;
+  padding: 50px;
   text-align: left;
   background: rgba(30, 30, 30, 0.7);
   box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.37);
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
   font-family: "dederon-sans-web", sans-serif;
-  max-width: 60vw;
-  min-width: 40vw;
+  max-width: 90vw;
+  min-width: 90vw;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.card-details-holder>p {
+.card-details-holder>.infos>p {
   color: #c6c6c6;
-  font-size: 16px;
+  font-size: 14px;
 
 }
 
@@ -443,7 +482,7 @@ hr.solid {
 
 .wrapper input {
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.782);
   border-radius: 50px;
   padding: 1rem 2rem;
   width: 100%;
@@ -486,7 +525,7 @@ article {
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.782);
-  background-image: url(../assets/images/playmat.jpg);
+  /* background-image: url(../assets/images/playmat.jpg); */
   background-size: cover;
 }
 
@@ -524,7 +563,7 @@ article {
 .card-holder {
   width: 245px;
   background: rgba(0, 0, 0, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
@@ -998,6 +1037,31 @@ Media Queries
   #buttonDecksExport {
     margin-top: 3rem;
   }
+
+
+  #popupdecksIndividueel>section {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  #popupdecksIndividueelVinkEnVuil {
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+
+  #popupdecksIndividueelPlusEnMin {
+    gap: 4rem;
+  }
+
+  #picturePopUpIndividueel {
+    height: 300px;
+  }
+
+
 }
 
 @media screen and (max-width: 1085px) {
@@ -1012,37 +1076,10 @@ Media Queries
     flex-direction: row;
   }
 
-
-#popupdecksIndividueel > section {
-  display: flex;
-  flex-direction: column;
-  align-items: normal;
-  max-height: none;
-}
-
-#popupdecksIndividueelVinkEnVuil {
-  margin: 0;
-  gap: 1.5rem;
-}
-
-#popupdecksIndividueel{
-  padding-top: 30rem;
-  padding-bottom: 5rem;
-}
-#popupdecksIndividueelImages {
-  gap: 2rem;
-}
-
-#picturePopUpIndividueel {
-  height: 300px;
-  margin: 0;
-  margin: 2rem 4rem 0 4rem;
-}
-
-#popupdecksIndividueelEigenschappen{
-  margin: 2rem;
-}
-
+  #buttonClosePopUpIndividueel {
+    right: 5rem;
+    top: 2rem;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -1102,10 +1139,31 @@ Media Queries
   #sectionDeckCards {
     justify-content: center;
   }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #add-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 550px) {
   .hero {
+    text-align: center;
+  }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
     text-align: center;
   }
 
@@ -1154,6 +1212,15 @@ Media Queries
   #loginForm {
     width: 45vw;
   }
+
+  #add-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    gap: 30px;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1163,6 +1230,12 @@ Media Queries
   #Wachtwoordveld::placeholder,
   #sectionLogin>h3 {
     font-size: 10px;
+  }
+
+  .card-details-holder {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -1277,6 +1350,131 @@ Animaties
 
 .rarity {
   color: white;
+}
+
+.bounce-top {
+  -webkit-animation: bounce-top 1.9s infinite both;
+  animation: bounce-top 1.9s infinite both;
+}
+
+@-webkit-keyframes bounce-top {
+  0% {
+    -webkit-transform: translateY(-45px);
+    transform: translateY(-45px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  65% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  82% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  93% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-top {
+  0% {
+    -webkit-transform: translateY(-45px);
+    transform: translateY(-45px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  40% {
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  65% {
+    -webkit-transform: translateY(-12px);
+    transform: translateY(-12px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  82% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  93% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
 }
 
 
@@ -1505,7 +1703,7 @@ canvas {
   backdrop-filter: blur(14.5px);
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.782);
 }
 
 .left-part {
