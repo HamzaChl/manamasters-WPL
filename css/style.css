@@ -585,6 +585,13 @@ article {
   margin: 4rem;
 }
 
+#decksGaTerug {
+  font-size: 14px;
+  text-transform: lowercase;
+  font-weight: 1px;
+
+}
+
 #mainDecksIndividueel>p {
   margin-left: 2.2rem;
   color: white;
