@@ -2,3 +2,13 @@
     font-family: dragon;
     src: url("../assets/fonts/EG_Dragon_Caps.ttf");
 }
+
+@font-face {
+    font-family: loadingpage;
+    src: url("../assets/fonts/Whocats.ttf");
+}
+
+@font-face {
+    font-family: popup;
+    src: url("../assets/fonts/PERFORMANCE.ttf");
+}
