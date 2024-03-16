@@ -1235,6 +1235,14 @@ Media Queries
   #buttonClosePopUpIndividueel {
     left: 0;
   }
+
+  .holder-comparaison {
+    flex-direction: column;
+  }
+
+  .compar-img {
+    min-width: 40vw;
+  }
 }
 
 @media screen and (max-width: 750px) {
