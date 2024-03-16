@@ -13,11 +13,10 @@
     />
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/scroll.js"></script>
-
-    <!-- <script type="module" src="./js/fetchAPI.js" defer></script> -->
+    <script src="./js/menu.js" defer></script>
   </head>
-  <body class="white">
-    <header>
+  <body>
+    <header class="desktop-version">
       <nav>
         <ul>
           <a href="index.html"
@@ -28,9 +27,9 @@
           /></a>
         </ul>
         <ul class="nav">
-          <a href="./index.html"><li>Home</li></a>
+          <a href=""><li class="active">Home</li></a>
           <a href="./decks.html"><li>Decks</li></a>
-          <a href="./drawtest.html"><li class="active">DrawTest</li></a>
+          <a href="./drawtest.html"><li>DrawTest</li></a>
         </ul>
         <ul class="right">
           <a href="./login.html"
@@ -67,10 +66,44 @@
         </ul>
       </nav>
     </header>
+    <header class="mobile-version">
+      <nav class="header-menu">
+        <a href="index.html"
+          ><img
+            src="./assets/images/logo-magic.png"
+            class="shadow-filter"
+            alt=""
+        /></a>
+        <img
+          src="./assets/images/ham-menu.png"
+          class="menu-icon"
+          id="hamburger"
+          alt=""
+        />
+      </nav>
+    </header>
+    <header class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <section class="mobile-item" onclick="location.href='./index.html'">
+          <a href="./index.html" class="active">home</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./decks.html'">
+          <a href="./decks.html">decks</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./drawtest.html'">
+          <a href="./drawtest.html">drawtest</a>
+        </section>
+        <section class="mobile-item" onclick="location.href='./login.html'">
+          <a href="./login.html">logout</a>
+        </section>
+      </nav>
+    </header>
     <main>
       <section class="decks-container">
         <h1 class="ui-hover">Draw Test</h1>
-        <article id="add-deck">
+        <article id="add-deck" class="add-deck">
           <div class="left-part">
             <select name="pets" class="select-deck" id="pet-select">
               <option value="">--Kies een deck--</option>
