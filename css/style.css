@@ -305,6 +305,11 @@ Popups
   align-items: center;
 }
 
+#buttonClosePopUpIndividueel{
+  position: relative;
+  left: 30rem;
+}
+
 #popupdecksIndividueelEigenschappen {
   display: flex;
   flex-direction: column;
@@ -1093,6 +1098,9 @@ Media Queries
   #popupdecksIndividueelEigenschappen {
     margin: 2rem;
   }
+  #buttonClosePopUpIndividueel{
+  left: 0;
+}
 }
 
 @media screen and (max-width: 750px) {
