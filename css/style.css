@@ -1150,7 +1150,7 @@ Media Queries
   }
 
   header {
-    /* height: 20vh; */
+    height: 100px;
   }
 
   .hero {
@@ -1332,7 +1332,7 @@ Media Queries
   }
 
   header {
-    height: 17rem;
+    height: 150px;
   }
 
   footer {
