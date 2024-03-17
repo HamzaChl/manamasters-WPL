@@ -1170,6 +1170,12 @@ Media Queries
 
 }
 
+@media screen and (min-width: 1085px) {
+  .mobile-nav {
+    display: hidden;
+  }
+}
+
 @media screen and (max-width: 1085px) {
 
   .mobile-version {

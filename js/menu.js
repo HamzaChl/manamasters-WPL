@@ -8,3 +8,9 @@ hamenu.addEventListener("click", () => {
     menu.style.display = "block";
   }
 });
+
+const media = matchMedia("(min-width:1085px)");
+
+media.addEventListener("change", () => {
+  menu.style.display = "none";
+});
