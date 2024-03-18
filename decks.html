@@ -6,17 +6,25 @@
     <title>Magic The Gathering | Decks</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="css/font.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/logofavicon.webp"
+      type="image/x-icon"
+    />
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/scroll.js"></script>
+    <script src="./js/menu.js" defer></script>
   </head>
   <body>
-    <header>
+    <header class="desktop-version">
       <nav>
         <ul>
           <a href="index.html"
-            ><img src="./assets/images/logo-magic.png" alt=""
+            ><img
+              src="./assets/images/logo-magic.png"
+              class="shadow-filter"
+              alt=""
           /></a>
         </ul>
         <ul class="nav">
@@ -25,7 +33,7 @@
           <a href="./drawtest.html"><li>DrawTest</li></a>
         </ul>
         <ul class="right">
-          <a href=""
+          <a href="./login.html"
             ><li class="my-account-nav">
               <span class="login-icon"
                 ><svg
@@ -59,39 +67,85 @@
         </ul>
       </nav>
     </header>
+    <header class="mobile-version">
+      <nav class="header-menu">
+        <a href="index.html"
+          ><img
+            src="./assets/images/logo-magic.png"
+            class="shadow-filter"
+            alt=""
+        /></a>
+        <img
+          src="./assets/images/ham-menu.png"
+          class="menu-icon"
+          id="hamburger"
+          alt=""
+        />
+      </nav>
+    </header>
+    <header class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <section class="mobile-item" onclick="location.href='./index.html'">
+          <a href="./index.html">home</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./decks.html'">
+          <a href="./decks.html" class="active">decks</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./drawtest.html'">
+          <a href="./drawtest.html">drawtest</a>
+        </section>
+        <section class="mobile-item" onclick="location.href='./login.html'">
+          <a href="./login.html">logout</a>
+        </section>
+      </nav>
+    </header>
     <main id="decks-main">
-      <h1> Decks</h1>
+      <h1>Decks</h1>
       <section id="decks-container">
-        <article class="decks-holder">
-          <div class="deck1 project">
-            <h2>Deck 01</h2>
-          </div>
-        </article>
-        <article class="decks-holder">
-          <div class="deck2 project">
-            <h2>Deck 02</h2>
-          </div>
-        </article>
-        <article class="decks-holder">
-          <div class="deck3 project">
-            <h2>Deck 03</h2>
-          </div>
-        </article>
-        <article class="decks-holder">
-          <div class="deck4 project">
-            <h2>Deck 04</h2>
-          </div>
-        </article>
-        <article class="decks-holder">
-          <div class="deck5 project">
-            <h2>Deck 05</h2>
-          </div>
-        </article>
-        <article class="decks-holder">
-          <div class="deck6 project">
-            <h2>Deck 06</h2>
-          </div>
-        </article>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck1 project">
+              <h2>Deck 01</h2>
+            </div>
+          </article>
+        </a>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck2 project">
+              <h2>Deck 02</h2>
+            </div>
+          </article>
+        </a>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck3 project">
+              <h2>Deck 03</h2>
+            </div>
+          </article>
+        </a>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck4 project">
+              <h2>Deck 04</h2>
+            </div>
+          </article>
+        </a>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck5 project">
+              <h2>Deck 05</h2>
+            </div>
+          </article>
+        </a>
+        <a href="decksindividueel.html">
+          <article class="decks-holder">
+            <div class="deck6 project">
+              <h2>Deck 06</h2>
+            </div>
+          </article>
+        </a>
       </section>
     </main>
     <footer>

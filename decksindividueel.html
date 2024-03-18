@@ -6,13 +6,18 @@
     <title>Magic The Gathering | Decks</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/logofavicon.webp"
+      type="image/x-icon"
+    />
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/scroll.js"></script>
     <script type="module" src="./js/popupdecksindividueel.js" defer></script>
+    <script src="./js/menu.js" defer></script>
   </head>
   <body>
-    <header>
+    <header class="desktop-version">
       <nav>
         <ul>
           <a href="index.html"
@@ -62,104 +67,190 @@
         </ul>
       </nav>
     </header>
+    <header class="mobile-version">
+      <nav class="header-menu">
+        <a href="index.html"
+          ><img
+            src="./assets/images/logo-magic.png"
+            class="shadow-filter"
+            alt=""
+        /></a>
+        <img
+          src="./assets/images/ham-menu.png"
+          class="menu-icon"
+          id="hamburger"
+          alt=""
+        />
+      </nav>
+    </header>
+    <header class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <section class="mobile-item" onclick="location.href='./index.html'">
+          <a href="./index.html">home</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./decks.html'">
+          <a href="./decks.html" class="active">decks</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./drawtest.html'">
+          <a href="./drawtest.html">drawtest</a>
+        </section>
+        <section class="mobile-item" onclick="location.href='./login.html'">
+          <a href="./login.html">logout</a>
+        </section>
+      </nav>
+    </header>
     <div id="popupdecksIndividueel">
       <button id="buttonClosePopUpIndividueel"><h1>ⓧ</h1></button>
       <section>
-       <article id="popupdecksIndividueelImages">
-        <img src="./assets/images/Group 19.png" id="picturePopUpIndividueel" alt="">
-        <article id="popupdecksIndividueelVinkEnVuil">
-          <img src="./assets/icons/min.png" alt="">
-          <img src="./assets/icons/plus.png" alt="">
-          <img src="./assets/icons/trash.png" alt="">
-          <img src="./assets/icons/vinkje.png" alt=""> 
+        <article id="popupdecksIndividueelImages">
+          <img
+            src="./assets/images/Group 19.png"
+            id="picturePopUpIndividueel"
+            alt=""
+          />
+          <article id="popupdecksIndividueelVinkEnVuil">
+            <img src="./assets/icons/min.png" alt="" />
+            <img src="./assets/icons/plus.png" alt="" />
+            <img src="./assets/icons/trash.png" alt="" />
+            <img src="./assets/icons/vinkje.png" alt="" />
+          </article>
         </article>
-       </article>
-       <article id="popupdecksIndividueelEigenschappen">
-        <h4>KAARTNAAM</h4>
-        <br />
-        <p id="card-name">Archangel Avacyn</p>
-        <br />
-        <hr class="solid"/>
-        <h4>zeldzaamheid</h4>
-        <br />
-        <p id="card-rarity">common</p>
-        <br />
-        <hr class="solid" />
-        <h4>eigenschappen</h4>
-        <br />
-        <p id="card-text">Flying, vigilance </p>
-        <br />
-        <hr class="solid" />
-        <h4>type</h4>
-        <br />
-        <p id="card-type">Flash</p>
-      </article>
+        <article id="popupdecksIndividueelEigenschappen">
+          <h4>KAARTNAAM</h4>
+          <br />
+          <p id="card-name">Archangel Avacyn</p>
+          <br />
+          <hr class="solid" />
+          <h4>zeldzaamheid</h4>
+          <br />
+          <p id="card-rarity">common</p>
+          <br />
+          <hr class="solid" />
+          <h4>eigenschappen</h4>
+          <br />
+          <p id="card-text">Flying, vigilance</p>
+          <br />
+          <hr class="solid" />
+          <h4>type</h4>
+          <br />
+          <p id="card-type">Flash</p>
+        </article>
       </section>
-  </div>
+    </div>
     <main id="mainDecksIndividueel">
-        <p><= go back</p>
-        <section id="mainDecksIndividueelTop">
-          <article id="deckPhotoAndText">
-            <img src="./assets/images/Group 32.png" alt="">
-            <article>
-              <h1>SuperDeck</h1>
-              <p>40 manacost</p>
-              <p>30 / 60 kaarten</p>
-              <p>0 landkaart(en)</p>
-            </article>
-          </article>
-          <button id="buttonDecksExport">Export</button>
-        </section>
-        <section id="sectionDeckCards">
+      <p><a href="decks.html" id="decksGaTerug"><= ga terug</a></p>
+      <section id="mainDecksIndividueelTop">
+        <article id="deckPhotoAndText">
+          <img src="./assets/images/Group 32.png" alt="" />
           <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x3</p>
+            <h1>SuperDeck</h1>
+            <p>40 manacost</p>
+            <p>30 / 60 kaarten</p>
+            <p>0 landkaart(en)</p>
           </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x2</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x3</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x4</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x1</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x3</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x1</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x3</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x4</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x1</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x2</p>
-          </article>
-          <article>
-            <img src="./assets/images/Group 19.png" class="picturesDecksIndividueel" alt="">
-            <p>x3</p>
-          </article>
-        </section>
+        </article>
+        <button id="buttonDecksExport">Export</button>
+      </section>
+      <section id="sectionDeckCards">
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x3</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x2</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x3</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x4</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x1</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x3</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x1</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x3</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x4</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x1</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x2</p>
+        </article>
+        <article>
+          <img
+            src="./assets/images/Group 19.png"
+            class="picturesDecksIndividueel"
+            alt=""
+          />
+          <p>x3</p>
+        </article>
+      </section>
     </main>
     <footer>
       <section>
@@ -197,4 +288,3 @@
     </footer>
   </body>
 </html>
- 

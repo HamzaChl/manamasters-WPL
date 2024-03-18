@@ -12,14 +12,14 @@
       href="./assets/icons/logofavicon.webp"
       type="image/x-icon"
     />
-    <!-- <script src="./js/script.js" defer></script> -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="./js/apicall.js"></script>
     <!-- <script type="module" src="./js//scroll.js" defer></script> -->
     <script src="./js/scroll.js" defer></script>
+    <script src="./js/menu.js" defer></script>
   </head>
   <body>
-    <header>
+    <header class="desktop-version">
       <nav>
         <ul>
           <a href="index.html"
@@ -67,6 +67,35 @@
             </li></a
           >
         </ul>
+      </nav>
+    </header>
+    <header class="mobile-version">
+      <nav class="header-menu">
+        <a href="index.html"
+        ><img
+          src="./assets/images/logo-magic.png"
+          class="shadow-filter"
+          alt=""
+      /></a>
+      <img src="./assets/images/ham-menu.png" class="menu-icon" id="hamburger" alt="">
+      </nav>
+    </header>
+    <header class="mobile-menu" id="mobile-menu">
+      <nav class="mobile-nav">
+        <section class="mobile-item" onclick="location.href='./index.html'">
+          <a href="./index.html" class="active">home</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./decks.html'">
+          <a href="./decks.html">decks</a>
+        </section>
+
+        <section class="mobile-item" onclick="location.href='./drawtest.html'">
+          <a href="./drawtest.html">drawtest</a>
+        </section>
+        <section class="mobile-item" onclick="location.href='./login.html'">
+          <a href="./login.html">logout</a>
+        </section>
       </nav>
     </header>
     <main>
