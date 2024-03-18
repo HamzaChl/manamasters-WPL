@@ -1335,6 +1335,9 @@ Media Queries
     height: 150px;
   }
 
+  #headerLogin {
+    height: 20rem;
+  }
   footer {
     height: 28rem;
   }
