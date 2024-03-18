@@ -160,22 +160,22 @@ HERO
   width: 5vw;
 }
 
-h1 {
+/* h1 {
   color: white;
   font-family: "superior-title", serif;
 
   font-size: 62px;
-}
+} */
 
 .title {
   text-align: center;
+  font-family: dragon;
 }
 
 h3 {
   margin-top: 10px;
   font-size: 20px;
   font-family: "dederon-sans-web", sans-serif;
-  opacity: 0.6;
   color: white;
 }
 
@@ -559,6 +559,10 @@ article {
   transition: all 300ms ease-out;
 }
 
+.ui-hover{
+  font-family: dragon;
+}
+
 .drawtest-text {
   background-image: url(../assets/TextUI/drawtest-ui2.png);
   height: 150px;
@@ -822,14 +826,15 @@ footer>p {
   text-align: center;
 }
 
-.socialsFooter>article>ul {
+
+/* .socialsFooter>article>ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0;
   font-size: small;
-}
+} */
 
 .socialsFooter>h2 {
   padding-bottom: 1rem;
@@ -841,174 +846,7 @@ footer>p {
 
 @import url("https://use.typekit.net/mie6jsp.css");
 
-.project-banner {
-  text-align: center;
-  background-color: #3a485f;
-  border-radius: 20px;
-  padding: 30px;
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(0, 0, 0, 0.762)),
-    url("../assets/images/back.jpg");
-  /* filter: blur(4px); */
-}
 
-.project-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: center;
-  margin-top: 40px;
-  justify-content: space-evenly;
-}
-
-.project-holder {
-  cursor: pointer;
-  background-color: var(--body-bg2);
-  width: fit-content;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-}
-
-.project-holder:hover {
-  scale: 1.1;
-  outline: 5px solid white;
-  transition: ease-in 4ms;
-}
-
-.project {
-  width: 300px;
-  height: 200px;
-  background-size: cover;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.fortnite {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fortnite.jpg);
-  border-radius: 10px;
-}
-
-.fifa {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fifa.jpg);
-  border-radius: 10px;
-}
-
-.lego {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lego.jpg);
-  border-radius: 10px;
-}
-
-.one-piece {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/one-piece.jpg);
-  border-radius: 10px;
-}
-
-.lotr {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lotr.jpg);
-  border-radius: 10px;
-}
-
-.jjk {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/jjk.jpg);
-  border-radius: 10px;
-}
-
-.mtg {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/mtg.jpg);
-  border-radius: 10px;
-}
-
-.pokemon {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/pokemon.jpg);
-  border-radius: 10px;
-}
-
-.project>h4 {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 10px;
-}
-
-.project>p {
-  color: white;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-
-.project-holder img {
-  width: 300px;
-  height: 200px;
-  border-radius: 10px;
-}
-
-.popup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 40vw;
-  height: 40vh;
-  background-color: rgb(221, 221, 221);
-  overflow-y: hidden;
-  z-index: 1000;
-  top: 50%;
-  left: 30%;
-  transform: translate(0, -50%);
-  visibility: hidden;
-}
-
-.alert>h3 {
-  font-size: 32px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 30px;
-}
-
-.alert {
-  background-color: white;
-  height: 35vh;
-  width: 35vw;
-  border-radius: 20px;
-  box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.41);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 30px;
-}
 
 /*
 
@@ -1641,168 +1479,71 @@ Animaties
 
 /* ------------------------- css code van loading page --------------------- */
 
-/*
-Project container
-*/
+/* ----------intro animation css---------- */
+
+.intro{
+  position: fixed;
+  z-index: 1;
+  left:0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: 1s;
+}
+
+.logo-header{
+  position: absolute;
+  top: 40%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color: white;
+}
+
+.logo{
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  opacity: 0;
+  animation:  dance 1s infinite alternate;
+}
+
+@keyframes dance {
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-20px);
+  }
+}
+
+.logo.active{
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out 0-5s;
+}
+
+.logo.fade{
+  bottom: 150px;
+  opacity: 0;
+  transition: ease-in-out 0-5s;
+}
+
 
 canvas {
   display: block;
 }
 
-
-#loading-page-header {
-  width: 100%;
-  height: 700px;
-}
-
-#loading-page {
-  background-color: black;
-  background-image: none;
-}
-
-#loading-page-footer {
-  background-color: var(black);
-  height: 17rem;
-  margin-top: 2rem;
-}
-
-#loading-page-footer p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-
-#loading-page-main {
-  display: flex;
-  justify-content: center;
-}
-
-.project-container {
-  display: flex;
-  max-width: 1200px;
-  flex-wrap: wrap;
-  margin-top: 14rem;
-  margin-bottom: 14rem;
-  justify-content: center;
-  gap: 4rem;
-}
-
-.project-holder {
-  cursor: pointer;
-  background-color: var(--loadingcolor);
-  padding: 1px;
-  border-radius: 10px;
-
-}
-
-.project-holder:hover {
-  scale: 1.1;
-  outline: 5px solid white;
-  transition: ease-in 4ms;
-}
-
-.project {
-  width: 300px;
-  height: 200px;
-  background-size: cover;
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.fortnite {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fortnite.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.fifa {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/fifa.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.lego {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lego.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.lotr {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/lotr.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-
-.mtg {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/mtg.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.pokemon {
-  background-image: linear-gradient(to bottom,
-      transparent,
-      rgba(3, 3, 3, 0.799)),
-    url(../assets/images/pokemon.jpg);
-  background-size: cover;
-  border-radius: 10px;
-
-}
-
-.project>h4 {
-  font-size: 30px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 10px;
-}
-
-.project>p {
-  color: white;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-
-.project-holder img {
-  width: 300px;
-  height: 200px;
-  border-radius: 10px;
-}
-
+/* ----------- popup---------- css  */
 .popup {
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
-  width: 30vw;
-  height: 30vh;
-  background-color: rgb(221, 221, 221);
+  width: 300px;
+  height:200px;
+  background-color: white;
+  border: solid black 2px;
   overflow-y: hidden;
   z-index: 1000;
   top: 50%;
@@ -1812,17 +1553,17 @@ canvas {
   border-radius: 20px;
 }
 
-.alert>h3 {
-  font-size: 32px;
-  background: -webkit-linear-gradient(#fdba66, #fd6d71);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bolder;
-  margin-left: 30px;
+.alert  h3 {
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  font-family: loadingpage;
+  margin-top: 1.5rem;
+  margin-bottom: -1rem;
 }
 
+
 .alert {
-  background-color: white;
   height: 35vh;
   width: 35vw;
   border-radius: 20px;
@@ -1834,17 +1575,45 @@ canvas {
   gap: 30px;
 }
 
+.alert button{
+  padding: 10px 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  animation: animate 1s ease-in-out 0.6s 1 forwards;
+  border: 1px solid black;
+  transition: 0.6s;
+  background-color: black;
+  border-radius: 18px;
+}
+
+.alert button:hover{
+  background: white;
+  color: black;
+ 
+}
+
+
+/* -----------loading page main css--------- */
 
 
 /* ------------------------- eind van css code van loading page --------------------- */
 
 
-/* ------------------------- css code van loading page --------------------- */
 
-/*
-Project container
-*/
+@keyframes animate {
+  from{
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+  }
 
+  to{
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
+  }
+}
 
 #loading-page {
   background: #eaeaea;
@@ -1874,6 +1643,7 @@ Project container
   background-size: cover;
   display: inline-block;
   transition: 0.5s;
+ 
 }
 
 .slide .item:nth-child(1),
@@ -1887,6 +1657,26 @@ Project container
 }
 
 
+.content .name{
+  animation: animate 1s ease-in-out 1 forwards;
+  color: black;
+  text-align: center;
+  font-size: 3rem;
+  font-family: loadingpage;
+  margin-top: 1.5rem;
+}
+
+
+.content p{
+  font-size: 1.5rem;
+  color: black;
+  font-weight: bolder;
+}
+
+
+
+
+.slide .item:nth-child(3){
 .content h1 {
   font-size: 30px;
   background: -webkit-linear-gradient(#fdba66, #fd6d71);
@@ -1907,6 +1697,8 @@ Project container
   left: calc(50% + 440px);
 }
 
+.slide .item:nth-child(n + 6){
+
 /* here n = 0, 1, 2, 3,... */
 .slide .item:nth-child(n + 6) {
   left: calc(50% + 660px);
@@ -1917,24 +1709,26 @@ Project container
   position: absolute;
   top: 50%;
   left: 100px;
-  width: 400px;
-
+  width: 300px;
+  height: 300px;
   text-align: left;
   color: white;
   transform: translate(0, -50%);
   font-family: system-ui;
   display: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
 }
 
 .content {
   font-size: 1.5rem;
 }
 
-
 .slide .item:nth-child(2) .content {
   display: block;
 }
-
 
 .content .name {
   font-size: 4rem;
@@ -1946,7 +1740,6 @@ Project container
 .content .des {
   margin-top: 10px;
   margin-bottom: 20px;
-  opacity: 0;
   animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 
@@ -1955,10 +1748,16 @@ Project container
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  opacity: 0;
   animation: animate 1s ease-in-out 0.6s 1 forwards;
-  border: solid 2px black;
-  border-radius: 20px;
+  border: 1px solid black;
+  transition: 0.6s;
+  background-color: black;
+  border-radius: 18px;
+}
+
+.content button:hover{
+  background: white;
+  color: black;
 }
 
 .button {
@@ -1971,20 +1770,26 @@ Project container
 .button button {
   width: 40px;
   height: 35px;
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
   margin: 0 5px;
-  border: 1px solid white;
-  transition: 0.3s;
+  border: 1px solid black;
+  transition: 0.6s;
   background-color: black;
 }
 
+
+.button button:hover{
+  background: white;
+  color: black;
+  }
 .button button:hover {
   background: red;
   color: white
 }
 
+/* ------------------------- Loading page css ends here--------------------- */
 
 /*-------------------- decks css -------------------*/
 
@@ -2097,5 +1902,23 @@ Project container
 .decks-holder:not(:hover) {
   transition: transform 0.5s ease;
 }
+  
+  /*-------------------- decks css ends here -------------------*/
 
+  @media only screen and (max-width: 900px) {
+    
+    .container{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .container .slide .item{
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .loading-page{
+      overflow-x: hidden;
+    }
+    
+  }
 /*-------------------- decks css ends here -------------------*/

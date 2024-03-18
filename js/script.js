@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const projectHolders = document.querySelectorAll(
-    ".project-holder:not(.accepted)"
+    ".content:not(.accepted)"
   );
 
   projectHolders.forEach(function (projectHolder) {
@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// loading page buttons
+
+let next = document.querySelector('.next')
+let prev = document.querySelector('.prev')
 let next = document.querySelector(".next");
 let prev = document.querySelector(".prev");
 
@@ -29,6 +33,42 @@ prev.addEventListener("click", function () {
   document.querySelector(".slide").prepend(items[items.length - 1]);
 });
 
+prev.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').prepend(items[items.length - 1]) 
+})
+
+// intro Animation
+
+ let intro = document.querySelector('.intro');
+ let logo = document.querySelector('.logo-header');
+ let logoSpan = document.querySelectorAll('.logo');
+
+ window.addEventListener('DOMContentLoaded', ()=>{
+
+   setTimeout(()=>{
+     logoSpan.forEach((span, idx)=>{
+       setTimeout(()=>{
+        span.classList.add('active');
+      }, (idx + 1) *400)
+    });
+
+     setTimeout(()=>{
+      logoSpan.forEach((span, idx)=>{
+         setTimeout(()=>{
+           span.classList.remove('active');
+           span.classList.add('active');
+         }, (idx + 2) * 500)
+       })
+     },2000);
+
+       setTimeout(()=>{
+         intro.style.top = '-100vh';
+            
+           },2300)
+
+         })
+   })
 requestAnimationFrame(raf);
 let menu = document.getElementById("mobile-menu");
 let hamenu = document.getElementById("hamburger");
