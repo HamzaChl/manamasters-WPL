@@ -44,7 +44,7 @@ const main = async () => {
   const randomPage = Math.floor(Math.random() * 100);
   let i = 0;
   let attempts = 0;
-  const maxAttempts = 100; // Stel hier het maximale aantal pogingen in
+  const maxAttempts = 500; // Stel hier het maximale aantal pogingen in
 
   try {
     const response = await fetch(
