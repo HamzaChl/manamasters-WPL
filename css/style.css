@@ -1486,6 +1486,11 @@ Media Queries
     -webkit-backdrop-filter: blur(6px);
   }
 
+  .slide .item:nth-child(5){
+    width: 0%;
+    height: 0%;
+    }
+
   #mainLogin {
     background-image: url("../assets/images/backgroundLogin.png");
     background-position: bottom;
