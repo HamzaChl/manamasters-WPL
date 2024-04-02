@@ -85,12 +85,6 @@ nav > ul li:hover {
 .icons{
   gap: 1rem;
 }
-.first> img{
-  margin-left: 1.7rem;
-}
-.last > img{
-  margin-left: 2.3rem;
-}
 .my-account-nav {
   display: flex;
   align-items: center;
@@ -518,7 +512,7 @@ figcaption {
 #sectionDeckCards img {
   width: 220px;
 }
-#deckPhotoAndText > article > p,
+#deckPhotoAndText > article >  .icons > p,
 #sectionDeckCards > article > p {
   font-size: 1.5rem;
   font-weight: 400;
