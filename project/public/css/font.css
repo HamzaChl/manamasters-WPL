@@ -12,3 +12,8 @@
     font-family: popup;
     src: url("../assets/fonts/PERFORMANCE.ttf");
 }
+
+@font-face {
+    font-family: natural;
+    src: url("../assets/fonts/LEMONMILK-Bold.otf");
+}

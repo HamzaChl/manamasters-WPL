@@ -4,14 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projecten</title>
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="css/font.css">
-    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-    <script src="./js/script.js" defer></script>
-    <script src="./js/scroll.js" defer></script>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/font.css">
+    <link rel="shortcut icon" href="/assets/icons/logofavicon.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+      const projectHolders = document.querySelectorAll(
+        ".content:not(.accepted)"
+      );
+
+      projectHolders.forEach(function (projectHolder) {
+        projectHolder.addEventListener("click", function () {
+          document.getElementById("popup").style.visibility = "visible";
+          document.getElementById("popup").style.opacity = "1";
+        });
+      });
+
+      document.getElementById("close").addEventListener("click", function () {
+        document.getElementById("popup").style.visibility = "hidden";
+        document.getElementById("popup").style.opacity = "0";
+      });
+    });
+
+    // loading page buttons
+
+
+
+    function next() {
+      let items = document.querySelectorAll('.item')
+      document.querySelector('.slide').prepend(items[items.length - 1]) 
+    };
+   
+    function prev() {
+      let items = document.querySelectorAll('.item')
+      document.querySelector('.slide').appendChild(items[0])
+    };
+
+    </script>
   </head>
   <body id="loading-page">
     <div id="popup" class="popup">
@@ -61,13 +92,13 @@
               <div class="content accepted">
                 <h1 class="name">Magic The Gathering</h1>
                 <p class="des">Magic: The Gathering: Kaartspel met spreuken en wezens.</p>
-                <a href="./login.html"><button>START</button></a>
+                <a href="/MagicTheGathering/login"><button>START</button></a>
               </div>
           </article>
       </section>
       <div class="button">
-          <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-          <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+          <button id="prev" onclick="prev()"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="next" onclick="next()"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </main>
   </body>

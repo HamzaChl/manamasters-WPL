@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic The Gathering | Login</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <script src="./js/scroll.js"></script>
+    <!-- <script type="module" src="./js/login.js" defer></script> -->
+  </head>
+  <body>
+    <header id="headerLogin">
+        <nav id="navLogin">
+          <img src="/assets/images/logo.webp" alt="">
+          <section>
+            <a href="/projects" id="decorationButton"><button>Projects</button></a>
+            <a href="/MagicTheGathering/Registreer"><button id="registerButton">REGISTREER</button></a>
+          </section>
+        </nav>
+      </header>
+    <main id="mainLogin">
+      <section id="sectionLogin">
+          <h1 id="h1Login">Login</h1>
+            <form action="" method="get" id="loginForm">
+              <input type="text" name="Gebruikersnaamveld" id="Gebruikersnaamveld" placeholder="Gebruikersnaam">
+              <input type="text" name="Wachtwoordveld" id="Wachtwoordveld" placeholder="Wachtwoord">
+              <input type="submit" value="Login" id="loginButton">
+            </form>
+            <h3>&copy; Afbeelding van pgngegg</h3>
+        </section>
+<%- include("partials/footer.ejs") %>

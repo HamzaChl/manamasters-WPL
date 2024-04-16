@@ -136,28 +136,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
   main();
 });
 
-// SEARCH FUNCTION
+// // SEARCH FUNCTION
 
-const form = document.getElementById("search-form-id");
+// const form = document.getElementById("search-form-id");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+// form.addEventListener("submit", async (e) => {
+//   e.preventDefault();
 
-  const searchTerm = document
-    .getElementById("search")
-    .value.trim()
-    .toLowerCase();
+//   const searchTerm = document
+//     .getElementById("search")
+//     .value.trim()
+//     .toLowerCase();
 
-  try {
-    const response = await fetch(
-      `https://api.magicthegathering.io/v1/cards?name=${searchTerm}`
-    );
-    const searchData = await response.json();
-    resetCardDisplay(searchData.cards);
-  } catch (error) {
-    console.error(error);
-  }
-});
+//   try {
+//     const response = await fetch(
+//       `https://api.magicthegathering.io/v1/cards?name=${searchTerm}`
+//     );
+//     const searchData = await response.json();
+//     resetCardDisplay(searchData.cards);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 function resetCardDisplay(results) {
   const cardName = document.getElementsByClassName("card-name");
