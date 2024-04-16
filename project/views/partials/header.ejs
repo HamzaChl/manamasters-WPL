@@ -43,6 +43,29 @@
         media.addEventListener("change", () => {
           document.getElementById("mobile-menu").style.display = "none";
         });
+
+        // popup deck individueel
+
+      document.addEventListener("DOMContentLoaded", function() {
+        function OpenDecksIndividueel() {
+        if (document.getElementById("popupdecksIndividueel").style.visibility === "hidden") {
+            document.getElementById("popupdecksIndividueel").style.visibility = "visible";
+            document.getElementById("popupdecksIndividueel").style.height = "100vh";
+        };
+      }
+      function buttonClosePopUpIndividueel() {
+        document.getElementById("popupdecksIndividueel").style.visibility = "hidden";
+          document.getElementById("popupdecksIndividueel").style.height = 0;
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+          document.getElementById("popupdecksIndividueel").style.visibility = "hidden";
+          document.getElementById("popupdecksIndividueel").style.height = 0;
+        }
+      });
+});
+          
+           
     </script>
 
   </head>
@@ -111,17 +134,17 @@
     <header class="mobile-menu" id="mobile-menu">
       <nav class="mobile-nav">
         <section class="mobile-item" onclick="location.href='/MagicTheGathering/home'">
-          <a href="/MagicTheGathering/home" class="active">home</a>
+          <a href="/MagicTheGathering/home" <% if(active === "Home") { %> class="active" <% } %> >home</a>
         </section>
 
-        <section class="mobile-item" onclick="location.href='/decks.html'">
-          <a href="/MagicTheGathering/decks">decks</a>
+        <section class="mobile-item" onclick="location.href='/MagicTheGathering/decks'">
+          <a href="/MagicTheGathering/decks" <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %> >decks</a>
         </section>
 
-        <section class="mobile-item" onclick="location.href='/drawtest.html'">
-          <a href="/MagicTheGathering/drawtest">drawtest</a>
+        <section class="mobile-item" onclick="location.href='/MagicTheGathering/drawtest'">
+          <a href="/MagicTheGathering/drawtest" <% if(active === "Drawtest  ") { %> class="active" <% } %> >drawtest</a>
         </section>
-        <section class="mobile-item" onclick="location.href='/login.html'">
+        <section class="mobile-item" onclick="location.href='/MagicTheGathering/login'">
           <a href="/MagicTheGathering/login">logout</a>
         </section>
       </nav>

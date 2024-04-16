@@ -262,10 +262,11 @@ input::placeholder {
   width: 40px;
 }
 #picturePopUpIndividueel {
-  height: 90%;
+  height: 310px;
   margin: 4rem;
 }
 #popupdecksIndividueel {
+  visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -453,7 +454,9 @@ article {
   color: #fff;
 }
 #mainDecksIndividueel {
-  margin: 4rem;
+  padding-top: 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 #decksGaTerug {
   font-size: 14px;
@@ -684,7 +687,7 @@ footer h4 {
   font-size: small;
 }
 .socialsFooter > h2 {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   font-weight: bolder;
 }
 .menu-icon {
@@ -747,6 +750,12 @@ footer h4 {
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.782);
+}
+#exportButton {
+  border: white 1px solid;
+  border-radius: 10px;
+  padding: 1rem;
+  font-weight: 500;
 }
 #draw-button {
   display: flex;
@@ -1089,6 +1098,12 @@ footer h4 {
   #exportButton {
     margin-top: 3rem;
   }
+  #exportButton {
+    border: white 1px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    font-weight: 500;
+  }
 }
 @media screen and (min-width: 1085px) {
   .mobile-nav {
@@ -1219,6 +1234,13 @@ footer h4 {
   }
   #decks-main {
     padding: 2rem;
+  }
+  .project {
+    display: flex;
+    align-items: center;
+  }
+  .project h2 {
+      font-size: 3rem;
   }
 }
 @media screen and (max-width: 750px) {
