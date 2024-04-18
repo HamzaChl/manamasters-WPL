@@ -1,4 +1,8 @@
 import express from "express";
+import { uri, client, collection } from "..";
+import { Card } from "../types";
+import { CollationOptions, Collection } from "mongodb";
+import { randomBytes } from "crypto";
 
 export default function mtgRouter() {
     const router = express.Router();
@@ -7,9 +11,19 @@ export default function mtgRouter() {
         res.render("login");
     });
 
-    router.get("/home", (req, res) => {
+    router.get("/home", async (req, res) => {
+        let randomResults: any[] = []; // any aanpassen naar juiste interface wil niet werken
+        try {
+            await client.connect();          
+            randomResults = await collection.aggregate([{ $sample: { size: 10 } }]).toArray();
+        } catch (error: any) {
+            console.log(error);
+        } finally {
+            await client.close();
+        };
         res.render("home", {
-            active: "Home"
+            active: "Home",
+            cards: randomResults,
         });
     });
 

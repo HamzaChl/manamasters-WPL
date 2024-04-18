@@ -10,3 +10,4 @@ export function errorHandler(status: number, message: string) {
         })
     };
 };
+

@@ -77,46 +77,12 @@
           </article>
         </div>
         <section class="card-layout">
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder temp">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
-          <article class="card-holder">
-            <img src="" alt="" class="card-img" />
-            <p class="card-name"></p>
-          </article>
+          <% for (const card of cards) { %>
+            <article class="card-holder">
+              <img src="<%=card.imageUrl%>" alt="<%=card.name%>" class="card-img" />
+              <p class="card-name"><%=card.name%></p>
+            </article>
+          <% } %>
         </section>
       </section>
 <%- include("partials/footer.ejs") %>
