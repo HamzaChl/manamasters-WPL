@@ -21,8 +21,17 @@ async function exit() {
     };
 }
 
-export async function get10Cards(): Promise<Card[]> {
-    return await collection.aggregate<Card>([{ $sample: { size: 10 } }]).toArray();
+export async function get10Cards(searchValue?: string ): Promise<Card[]> {
+    if (searchValue) {
+        await collection.dropIndex("*");
+        await collection.createIndex({name: "text", text: "text"});
+        return await collection.aggregate<Card>([
+            { $match: { $text: {$search: searchValue } } },
+            { $sample: { size: 10 } }
+        ]).toArray();
+    } else {
+        return await collection.aggregate<Card>([{ $sample: { size: 10 } }]).toArray();
+    }
 };
 
 export async function connect() {

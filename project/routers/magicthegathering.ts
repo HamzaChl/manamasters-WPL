@@ -12,7 +12,8 @@ export default function mtgRouter() {
     });
 
     router.get("/home", async (req, res) => {
-        let randomResults: Card[] = await get10Cards(); 
+        const searchValue: string | undefined = typeof req.query.search === "string" ? req.query.search : undefined;
+        let randomResults: Card[] = await get10Cards(searchValue); 
         res.render("home", {
             active: "Home",
             cards: randomResults,
