@@ -2,14 +2,11 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import mtgRouter from "./routers/magicthegathering";
-import { Collection, MongoClient } from "mongodb";
-import { Card, CardData } from "./types";
 import { errorHandler } from "./middleware/middleware";
 import { error } from "console";
+import { connect } from "./database";
 
-export const uri = "mongodb+srv://school:school@mycluster.rj0zjqu.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster";
-export const client = new MongoClient(uri);
-export const collection: Collection<Card> =  client.db("tijdelijk").collection<Card>("mtg");
+
 
 dotenv.config();
 
@@ -43,14 +40,6 @@ app.use(errorHandler(404, "The page you were trying to find does not exists"))
 
 
 app.listen(app.get("port"), async () => {
+    await connect();
     console.log("Server started on http://localhost:" + app.get('port'));
-    try {
-        await client.connect();
-        const random = Math.floor(Math.random() * 56125) -10;
-        const allCards =  await collection.find({}).toArray();
-    } catch (error: any) {
-        console.log(error);
-    } finally {
-        await client.close();
-    };
 });

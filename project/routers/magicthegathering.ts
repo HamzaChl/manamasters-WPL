@@ -1,5 +1,5 @@
 import express from "express";
-import { uri, client, collection } from "..";
+import {  get10Cards } from "../database";
 import { Card } from "../types";
 import { CollationOptions, Collection } from "mongodb";
 import { randomBytes } from "crypto";
@@ -12,15 +12,7 @@ export default function mtgRouter() {
     });
 
     router.get("/home", async (req, res) => {
-        let randomResults: any[] = []; // any aanpassen naar juiste interface wil niet werken
-        try {
-            await client.connect();          
-            randomResults = await collection.aggregate([{ $sample: { size: 10 } }]).toArray();
-        } catch (error: any) {
-            console.log(error);
-        } finally {
-            await client.close();
-        };
+        let randomResults: Card[] = await get10Cards(); 
         res.render("home", {
             active: "Home",
             cards: randomResults,
@@ -45,7 +37,6 @@ export default function mtgRouter() {
             active: "Drawtest"
         });
     });
-    
-    
+
     return router;
 };

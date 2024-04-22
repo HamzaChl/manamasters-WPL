@@ -7,12 +7,13 @@
       </section>
       <section class="card-finder">
         </div>
-        <form class="search-form" id="search-form-id" action="" method="get">
+        <form class="search-form" id="search-form-id" action="/MagicTheGathering/home" method="get">
           <div class="wrapper">
             <input
               type="text"
               id="search"
-              placeholder="Voer een kaartnaam in, type"
+              name="search"
+              placeholder="Zoek volgens naam of beschrijving"
             />
             <button>
               <svg
@@ -77,10 +78,33 @@
           </article>
         </div>
         <section class="card-layout">
+          <% let counter = 0; %>
           <% for (const card of cards) { %>
-            <article class="card-holder">
-              <img src="<%=card.imageUrl%>" alt="<%=card.name%>" class="card-img" />
-              <p class="card-name"><%=card.name%></p>
+            <article class="card-holder" id="<%=counter%>">
+            <% counter++; %>
+              <img src="<%=card.imageUrl%>" alt="<%=card.name%>" class="card-img <% if(card.rarity === "Mythic") { %> wobble-hor-bottom <%} %>" 
+              <% if (card.rarity === "Common") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(255, 255, 255, 0.5); outline: 1px solid rgb(255, 255, 255);"
+              <% } else if (card.rarity === "Uncommon") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(18, 80, 179, 0.5); outline: 1px solid rgb(18, 80, 179);"
+              <% } else if (card.rarity === "Rare") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(174, 186, 85, 0.5); outline: 1px solid rgb(174, 186, 85);"
+              <% } else if (card.rarity === "Mythic") { %>
+                style="box-shadow: 0px 2px 15px 5px rgba(151, 0, 0, 0.8); outline: 1px solid rgb(151, 0, 0);"
+              <% } %>
+               />
+              <p class="card-name">
+                <% if (card.rarity === "Common") { %>
+                  ●
+                <% } else if (card.rarity === "Uncommon") { %>
+                  ♦
+                <% } else if (card.rarity === "Rare") { %>
+                  ★
+                <% } else if (card.rarity === "Mythic") { %>
+                  ❈
+                <% } %>
+                <%=card.name%>
+              </p>
             </article>
           <% } %>
         </section>

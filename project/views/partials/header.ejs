@@ -60,7 +60,46 @@
         }
       });
           
-           
+      const openPopup = ( imageUrl) => {
+      const popupCardImg = document.getElementById("popupCardImg");
+      const popup = document.getElementById("popup");
+
+      if (rarity === "Uncommon") {
+        document.getElementById("card-rarity").style.color =
+          "rgba(18, 80, 179, 0.6)";
+        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(18, 80, 179, 0.6)";
+      } else if (rarity === "Common") {
+        document.getElementById("card-rarity").style.color =
+          "rgba(255, 255, 255, 0.6)";
+        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(255, 255, 255, 0.6)";
+      } else if (rarity === "Rare") {
+        document.getElementById("card-rarity").style.color =
+          "rgba(174, 186, 85, 0.7)";
+        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(174, 186, 85, 0.7)";
+      } else {
+        document.getElementById("card-rarity").style.color = "rgba(151, 0, 0, 0.9)";
+        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(151, 0, 0, 0.9)";
+      }
+
+      popupCardImg.src = imageUrl;
+      popup.style.display = "block";
+
+      // document.getElementById("card-name").innerText = `${name}`;
+      // document.getElementById("card-rarity").innerText = `${rarity}`;
+      // document.getElementById("card-text").innerText = `${text}`;
+      // document.getElementById("card-type").innerText = `${type}`;
+    };
+
+      document.addEventListener("DOMContentLoaded", ( ) => {
+        const popupCardImg = document.getElementById("popupCardImg");
+
+        document.querySelectorAll('.card-holder').forEach(element => {
+        element.addEventListener("click", function () {
+        
+          openPopup( element.firstElementChild.src);
+        });
+      });
+      })
     </script>
 
   </head>
