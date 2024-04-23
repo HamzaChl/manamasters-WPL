@@ -32,12 +32,12 @@
 
 
 
-    function next() {
+    function prev() {
       let items = document.querySelectorAll('.item')
       document.querySelector('.slide').prepend(items[items.length - 1]) 
     };
    
-    function prev() {
+    function next() {
       let items = document.querySelectorAll('.item')
       document.querySelector('.slide').appendChild(items[0])
     };

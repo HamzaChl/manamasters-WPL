@@ -55,7 +55,9 @@
       }
 
       function ClosePopUp() {
-        document.getElementById("popup").style.display = "none";
+        for (let i = 0; i < 10; i++) {
+          document.getElementById(`popup${i}`).style.display = "none";
+        };
       };
       
       
@@ -67,17 +69,15 @@
 
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape" || event.key === "Esc") {
-          ClosePopUp("popup");
+          ClosePopUp();
         }
       });
           
-      const openPopup = ( imageUrl) => {
+      const openPopup = (id) => {
       const popupCardImg = document.getElementById("popupCardImg");
-      const popup = document.getElementById("popup");
-
-      popupCardImg.src = imageUrl;
+      const popup = document.getElementById(`popup${id}`);
+    
       popup.style.display = "block";
-
       }
 
       document.addEventListener("DOMContentLoaded", ( ) => {
@@ -86,7 +86,7 @@
         document.querySelectorAll('.card-holder').forEach(element => {
         element.addEventListener("click", function () {
         
-          openPopup( element.firstElementChild.src);
+          openPopup(element.id);
         });
       });
       })

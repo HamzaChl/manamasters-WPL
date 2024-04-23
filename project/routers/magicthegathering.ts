@@ -1,8 +1,6 @@
 import express from "express";
 import {  get10Cards } from "../database";
 import { Card } from "../types";
-import { CollationOptions, Collection } from "mongodb";
-import { randomBytes } from "crypto";
 
 export default function mtgRouter() {
     const router = express.Router();
