@@ -5,9 +5,8 @@
         <h3>Art gemaakt door Laxmonaut</h3>
         <a href="#search-form-id" onclick="scrollBehaviorChange()"><div class="scroll"><img class=" bounce-top" src="/assets/images/scrolldown.webp" alt="scrolldown"></div></a>
       </section>
-<%- include("partials/legende.ejs") %>
       <section class="card-finder">
-        </div>
+</div>
         <form class="search-form" id="search-form-id" action="/MagicTheGathering/home" method="get">
           <div class="wrapper">
             <input
@@ -34,6 +33,8 @@
             </button>
           </div>
         </form>
+<%- include("partials/legende.ejs") %>
+
         <% let counter = 0; %>
         <% for (const card of cards) {%>
           <div class="info-toggle" id="popup<%=counter%>">
