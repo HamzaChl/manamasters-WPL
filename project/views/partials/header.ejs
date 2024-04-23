@@ -53,10 +53,21 @@
         document.getElementById("popupdecksIndividueel").style.visibility = "hidden";
           document.getElementById("popupdecksIndividueel").style.height = 0;
       }
+
+      function ClosePopUp() {
+        document.getElementById("popup").style.display = "none";
+      };
+      
+      
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape" || event.key === "Esc") {
-          document.getElementById("popupdecksIndividueel").style.visibility = "hidden";
-          document.getElementById("popupdecksIndividueel").style.height = 0;
+          ClosePopUp("popupdecksIndividueel");
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" || event.key === "Esc") {
+          ClosePopUp("popup");
         }
       });
           
@@ -64,31 +75,10 @@
       const popupCardImg = document.getElementById("popupCardImg");
       const popup = document.getElementById("popup");
 
-      if (rarity === "Uncommon") {
-        document.getElementById("card-rarity").style.color =
-          "rgba(18, 80, 179, 0.6)";
-        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(18, 80, 179, 0.6)";
-      } else if (rarity === "Common") {
-        document.getElementById("card-rarity").style.color =
-          "rgba(255, 255, 255, 0.6)";
-        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(255, 255, 255, 0.6)";
-      } else if (rarity === "Rare") {
-        document.getElementById("card-rarity").style.color =
-          "rgba(174, 186, 85, 0.7)";
-        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(174, 186, 85, 0.7)";
-      } else {
-        document.getElementById("card-rarity").style.color = "rgba(151, 0, 0, 0.9)";
-        popupCardImg.style.boxShadow = "0px 2px 6px 5px rgba(151, 0, 0, 0.9)";
-      }
-
       popupCardImg.src = imageUrl;
       popup.style.display = "block";
 
-      // document.getElementById("card-name").innerText = `${name}`;
-      // document.getElementById("card-rarity").innerText = `${rarity}`;
-      // document.getElementById("card-text").innerText = `${text}`;
-      // document.getElementById("card-type").innerText = `${type}`;
-    };
+      }
 
       document.addEventListener("DOMContentLoaded", ( ) => {
         const popupCardImg = document.getElementById("popupCardImg");
