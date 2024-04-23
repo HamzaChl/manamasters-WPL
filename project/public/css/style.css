@@ -522,6 +522,21 @@ figcaption {
   font-family: superior-title;
   color: #fff;
 }
+.legende {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-legende {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
 #navLogin {
   display: flex;
   justify-content: space-evenly;
