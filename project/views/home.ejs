@@ -2,7 +2,7 @@
     <main>
       <section class="hero">
         <h1 class="title ui-hover">Vind je kaart</h1>
-        <h3>Art gemaakt door Laxmonaut</h3>
+        <h3 style="font-family: natural; font-size: 1rem;">Art gemaakt door Laxmonaut</h3>
         <a href="#search-form-id" onclick="scrollBehaviorChange()"><div class="scroll"><img class=" bounce-top" src="/assets/images/scrolldown.webp" alt="scrolldown"></div></a>
       </section>
       <section class="card-finder">
@@ -13,18 +13,12 @@
               type="text"
               id="search"
               name="search"
-              placeholder="Zoek volgens naam of beschrijving"
+              placeholder="Zoek volgens naam of beschrijving" style="font-family:natural; font-size: 1rem;"
             />
             <button>
-              <svg
-                class="svg-icon search-icon"
-                aria-labelledby="title desc"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 19.9 19.7"
-              >
+             <img src="/assets/images/wizardicon.png" width="50px" alt="wizardicon">
                 <title id="title">Zoek Icon</title>
-                <desc id="desc">zoekicoontje.</desc>
+                <desc id="desc"></desc>
                 <g class="search-path" fill="none" stroke="#848F91">
                   <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
                   <circle cx="8" cy="8" r="7" />
@@ -33,7 +27,7 @@
             </button>
           </div>
         </form>
-<%- include("partials/legende.ejs") %>
+
 
         <% let counter = 0; %>
         <% for (const card of cards) {%>
@@ -43,6 +37,7 @@
               <button class="btn-popup" onclick="ClosePopUp()"><span style="font-size: 3rem;">ⓧ</span></button>
               <div class="popup-wrapper">
                 <section class="card-details-holder">
+                  
                   <img class="popup-img" src="<%=card.imageUrl%>" alt="<%=card.name%>" id="popupCardImg" 
                   <% if (card.rarity === "Common") { %>
                     style="box-shadow: 0px 2px 6px 5px rgba(255, 255, 255, 0.6);"
@@ -64,15 +59,26 @@
                     <br>
                     <p id="card-rarity"
                     <% if (card.rarity === "Common") { %>
-                      style="color: rgba(255, 255, 255, 0.6);"
-                    <% } else if (card.rarity === "Uncommon") { %>
-                      style="color: rgba(18, 80, 179, 0.6);"
-                    <% } else if (card.rarity === "Rare") { %>
-                      style="color: rgba(174, 186, 85, 0.7);"
+                    style="color: rgba(255, 255, 255, 0.6);" 
+                    <% } else if (card.rarity === "Uncommon" ) { %>
+                    style="color: rgba(18, 80, 179, 0.6);" 
+                    <% } else if (card.rarity === "Rare" ) { %>
+                    style="color: rgba(174, 186, 85, 0.7);" 
                     <% } else if (card.rarity === "Mythic") { %>
-                      style="color: rgba(151, 0, 0, 0.9);"
+                     style="color: rgba(151, 0, 0, 0.9);" 
                     <% } %>
-                    > <%=card.rarity%> </p>
+                 >
+                    <%=card.rarity%>
+                   <% if (card.rarity === "Common") { %>
+                    <img src="/assets/images/rarity1.webp" width="20px" alt="Common">
+                    <% } else if (card.rarity === "Uncommon") { %>
+                    <img src="/assets/images/rarity 2.png" width="20px" alt="Uncommon">
+                    <% } else if (card.rarity === "Rare") { %>
+                      <img src="/assets/images/rarity 3.png" width="20px" alt="Rare">
+                    <% } else if (card.rarity === "Mythic") { %>
+                    <img src="/assets/images/rarity 4.png" width="20px" alt="Mythic">
+                    <% } %>
+                  </p>
                     <br>
                     <hr class="solid" />
                     <h4>eigenschappen</h4>
@@ -94,6 +100,7 @@
                       <option value="deck03">Deck 03</option>
                       <option value="deck04">Deck 04</option>
                       <option value="deck05">Deck 05</option>
+                      <option value="deck06">Deck 06</option>
                     </select>
                     <button class="add-deck" id="add-to-deck-btn">+</button>
                   </div>
@@ -103,6 +110,7 @@
           </div>
         <% }; %>
         <section class="card-layout">
+          <%- include("partials/legende.ejs") %>
           <% if(cards.length > 0) { %>
             <% let counter = 0; %>
             <% for (const card of cards) { %>
@@ -121,13 +129,13 @@
                  />
                 <p class="card-name">
                   <% if (card.rarity === "Common") { %>
-                    ●
+                    <img src="/assets/images/rarity1.webp" width="20px" alt="Common">
                   <% } else if (card.rarity === "Uncommon") { %>
-                    ♦
+                    <img src="/assets/images/rarity 2.png" width="20px" alt="Uncommon">
                   <% } else if (card.rarity === "Rare") { %>
-                    ★
+                    <img src="/assets/images/rarity 3.png" width="20px" alt="Rare">
                   <% } else if (card.rarity === "Mythic") { %>
-                    ❈
+                    <img src="/assets/images/rarity 4.png" width="20px" alt="Mythic">
                   <% } %>
                   <%=card.name%>
                 </p>

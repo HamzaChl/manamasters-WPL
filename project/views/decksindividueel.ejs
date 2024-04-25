@@ -39,34 +39,41 @@
       </section>
     </div>
     <main id="mainDecksIndividueel">
-      <p><a href="/MagicTheGathering/decks" id="decksGaTerug"><= ga terug</a></p>
-      <section id="mainDecksIndividueelTop">
-        <article id="deckPhotoAndText">
-          <figure>
-            <img  style="background-image: linear-gradient(to bottom, transparent, #100f15d2),
-            url(/assets/images/deck1.webp);">
-            <figcaption>Deck 1</figcaption>
-          </figure>
-          <article>
-              <h1>SuperDeck</h1>
-              <article class="icons first">
-                <img src="/assets/icons/mana.webp" alt="mana" style="width: 30px; height: 30px;">
-                <p>40 mana</p>
-              </article>
-              <article class="icons">
-                <img src="/assets/icons/card.webp" alt="card" style="width: 30px; height: 30px;">
-                <p>30 / 60 kaarten</p>
-              </article>
-              <article class="icons last">
-                <img src="/assets/icons/tree.webp" alt="tree" style="width: 30px; height: 30px;">
-                <p>0 landkaart(en)</p>
-              </article>
-          </article>
-        </article>
-        <button id="exportButton">EXPORT</button>
+      <section id="buttonrow">
+        <p> <a href="/MagicTheGathering/decks" id="decksGaTerug"><img src="/assets/icons/arrowleft.png" width="30px"  alt="arow back"> GO BACK</a></p>
+        <h1 style="font-size: 2rem; font-family: natural;">SuperDeck</h1>
+            <button onclick="exportDeck()" id="exportButton"> EXPORT<img src="/assets/icons/arrowright.png" style="width: 30px; height: 30px;" alt="cardsize"></button>
       </section>
-      <section id="sectionDeckCards">
-        <article>
+      <section id="sectionDeckCards" class="card-layout">
+        <article id="deckPhotoAndText">
+            <figure>
+              <img  style="background-image: linear-gradient(to bottom, transparent, #100f15d2),
+              url(/assets/images/deck1.webp);">
+              <figcaption>Deck 1</figcaption>
+            </figure>
+          </article>
+           <div id="iconsrow">
+      <article class="icons first">
+        <p><img src="/assets/icons/mana.webp" alt="mana" style="width: 30px; height: 30px;">
+       mana: 40</p>
+       <p><img src="/assets/icons/spelsicon.png" alt="spels" style="width: 30px; height: 30px;">
+        spells: 0</p>
+      </article>
+      <article class="icons">
+        <p><img src="/assets/icons/card.webp" alt="card" style="width: 30px; height: 30px;">
+        min 60 kaarten</p>
+        <p><img src="/assets/icons/cardsize.png" style="width: 30px; height: 30px;" alt="cardsize">
+       Deck groote: 0 </p>
+      </article>
+      <article class="icons last">
+        <p><img src="/assets/icons/tree.webp" alt="tree" style="width: 30px; height: 30px;">
+        landkaarten: 0</p>
+        <p><img src="/assets/icons/element.png" style="width: 30px; height: 30px;" alt="cardsize">
+       elements: 0</p>
+      </article>
+     </div>
+        <%- include("partials/legende.ejs") %>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -75,7 +82,7 @@
           />
           <p>x3</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -84,7 +91,7 @@
           />
           <p>x2</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -93,7 +100,7 @@
           />
           <p>x3</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -102,7 +109,7 @@
           />
           <p>x4</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -111,7 +118,7 @@
           />
           <p>x1</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -120,7 +127,7 @@
           />
           <p>x3</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -129,7 +136,7 @@
           />
           <p>x1</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -138,7 +145,7 @@
           />
           <p>x3</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -147,7 +154,7 @@
           />
           <p>x4</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -156,7 +163,7 @@
           />
           <p>x1</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
@@ -165,7 +172,7 @@
           />
           <p>x2</p>
         </article>
-        <article>
+        <article class="youcard">
           <img
             src="/assets/images/cardindividueel.webp"
             class="picturesDecksIndividueel"
