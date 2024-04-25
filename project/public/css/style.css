@@ -541,6 +541,13 @@ gap: 1rem;
   margin-bottom: 1rem;
 }
 
+#exportButton:hover{
+color: var(--orange);
+}
+
+#decksGaTerug:hover{
+  color: var(--orange);
+}
 
 figcaption {
   margin: -3rem 0 0 2rem;
