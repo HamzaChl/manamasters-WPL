@@ -526,7 +526,7 @@ gap: 1rem;
 }
 
 #deckPhotoAndText > figure > img {
-  width: 500px;
+  width: 400px;
   height: 250px;
   border-radius: 10px;
   background-size: cover;
@@ -538,6 +538,7 @@ gap: 1rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 
@@ -611,6 +612,10 @@ gap: 3rem;
   align-items: center;
   justify-content: center;
   gap: 70px;
+}
+
+.sub-legende img{
+  width: 30px;
 }
 
 #navLogin {
