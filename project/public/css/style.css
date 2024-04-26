@@ -488,6 +488,11 @@ article {
   max-width: 1300px;
   margin: 0 auto;
 }
+
+#mainDecksIndividueel h1{
+  text-align: center;
+}
+
 #decksGaTerug {
   display: flex;
   align-items: center;
@@ -618,7 +623,7 @@ gap: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: 3rem;
 }
 
 .sub-legende img{
@@ -958,18 +963,19 @@ footer h4 {
   background: red;
   color: #fff;
 }
-@keyframes animate {
-  from {
-    opacity: 0;
-    transform: translate(0, 100px);
-    filter: blur(33px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0);
-    filter: blur(0);
-  }
+
+#manaicon2{
+  width: 200px;
+  margin-left: 7rem;
 }
+
+#secondrare, 
+#firstrare{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
 #loading-page {
   background: #eaeaea;
   overflow: hidden;
@@ -1055,14 +1061,12 @@ footer h4 {
 .content .des {
   margin-top: 10px;
   margin-bottom: 20px;
-  animation: animate 1s ease-in-out 0.3s 1 forwards;
 }
 .content button {
   padding: 10px 10px;
   font-size: 1rem;
   border: none;
   cursor: pointer;
-  animation: animate 1s ease-in-out 0.6s 1 forwards;
   border: 1px solid #000;
   transition: 0.6s;
   background-color: #000;
@@ -1211,16 +1215,8 @@ footer h4 {
       url("../assets/images/homepagina-sfeerfoto.webp");
     background-position: center;
   }
-  #exportButton {
-    margin-top: 3rem;
-  }
-  #exportButton {
-    border: white 1px solid;
-    border-radius: 10px;
-    padding: 1rem;
-    font-weight: 500;
-  }
-}
+  
+ 
 @media screen and (min-width: 1085px) {
   .mobile-nav {
     display: hidden;
@@ -1294,6 +1290,22 @@ footer h4 {
   .item p {
     font-size: unset;
   }
+
+  #buttonrow{
+    margin-top: 2rem;
+   margin-bottom: 2rem;
+  }
+
+  #manaicon2{
+    margin-left: 0;
+  }
+
+
+
+#secondrare{
+  gap: 5rem;
+}
+
   .container {
     width: 100%;
     height: 100%;
@@ -1303,7 +1315,6 @@ footer h4 {
     height: 0%;
   }
   .content .name {
-    animation: animate 1s ease-in-out 1 forwards;
     color: #fff;
     text-align: center;
     font-size: 3.5rem;
@@ -1372,6 +1383,11 @@ footer h4 {
   .item .content {
     left: 28%;
   }
+  #deckPhotoAndText > figure > img{
+    width: 500px;
+    margin-right: 0rem;
+  }
+  
   .content .name {
     margin-bottom: 25rem;
   }
@@ -1421,7 +1437,10 @@ footer h4 {
   .content .name {
     margin-bottom: 23rem;
   }
+ 
 }
+
+
 @media screen and (max-width: 550px) {
   .hero {
     text-align: center;
@@ -1443,6 +1462,13 @@ footer h4 {
     flex-direction: column;
     gap: 1.5rem;
   }
+  .sub-legende{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+ 
   header {
     height: 150px;
   }
