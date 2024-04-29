@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic The Gathering | <%=word%></title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+  </head>
+  <body>
+    <header id="headerLogin">
+        <nav id="navLogin">
+          <img src="/assets/images/logo.webp" alt="">
+          <section>
+            <a href="/projects" id="decorationButton"><button>Projects</button></a>
+            <% if (word === "login") { %>
+            <a href="/MagicTheGathering/registreer">
+            <% } else { %>
+            <a href="/MagicTheGathering/login">
+            <% }; %>
+                <button id="registerButton">
+                  <% if (word === "login") { %>
+                    REGISTREER
+                  <% } else { %>
+                    LOGIN
+                  <% }; %>
+                </button>
+            </a>
+          </section>
+        </nav>
+      </header>
+    <main id="mainLogin">
+      <% if(error) { %>
+        <div style="position: absolute; background-color: rgba(0, 0, 0, 0.363); width: 100vw; height: 120vh; display: flex; justify-content: center; align-items: center;">
+            <section style="width: 22%; z-index: 1 ; height: 25%; background-color: rgb(231, 219, 219);display: flex; justify-content: center; align-items: center; flex-direction: column; border-radius: 10px;">
+                <p><%=error%></p> 
+                <a href="/MagicTheGathering/<%=word%>" >Sluiten</a>
+            </section>
+        </div >
+    <% }; %>

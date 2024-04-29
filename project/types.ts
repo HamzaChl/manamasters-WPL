@@ -33,3 +33,9 @@ export interface Card {
 export interface CardData {
     cards: Card[];
 }
+
+
+export interface User {
+    username: string;
+    password: string;
+}
