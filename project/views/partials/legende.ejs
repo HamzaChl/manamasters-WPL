@@ -22,7 +22,8 @@
       </article>
     </div>
   </section>
-  <a class="refresh" href="/MagicTheGathering/refresh"
+  <% if (active != "Deck") { %>
+    <a class="refresh" href="/MagicTheGathering/refresh"
     ><svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
@@ -37,4 +38,5 @@
       ></path>
     </svg>
   </a>
+  <% }; %>
 </section>

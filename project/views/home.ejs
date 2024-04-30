@@ -8,7 +8,7 @@
       <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
     </svg>
       <p><%=limit60%></p> 
-      <a class="login-error-close" href="/MagicTheGathering/<%=word%>" >Sluiten</a>
+      <a class="login-error-close" href="/MagicTheGathering/home#search-form-id" >Sluiten</a>
   </section>
   <% } %>
 
@@ -107,7 +107,6 @@
                     <br>
                    <form action="/MagicTheGathering/home" method="post">
                       <select name="deck" class="select-deck" id="pet-select">
-                        <option value="" selected hidden>--Kies een deck--</option>
                         <option value="1">Deck 01</option>
                         <option value="2">Deck 02</option>
                         <option value="3">Deck 03</option>
