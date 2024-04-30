@@ -20,19 +20,19 @@ mongoStore.on("error", (error) => {
 declare module 'express-session' {
     export interface SessionData {
         username?: string;
-        cards: Card[];
+        cards?: Card[];
     }
 }
 
 export default session({
     secret: process.env.SESSION_SECRET ?? "my-super-secret-secret",
     store: mongoStore,
-    resave: false,
+    resave: true,
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "lax",
         secure: false,
     }
 });

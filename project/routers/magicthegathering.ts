@@ -87,13 +87,14 @@ export default function mtgRouter() {
             randomResults = await get10Cards(searchValue);             
         } else {
             if (req.session.cards) {
-                randomResults = req.session.cards!;                
+                randomResults = req.session.cards;                
             } else {
                 req.session.cards = await get10Cards();
+                randomResults = req.session.cards;
             }
         };
-        console.log(req.session.username);
-        
+;
+
         res.render("home", {
             active: "Home",
             cards: randomResults,

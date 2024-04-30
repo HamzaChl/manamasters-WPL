@@ -47,5 +47,6 @@ app.use(errorHandler(404, "De pagina die je probeerde te vinden bestaat niet."))
 
 app.listen(app.get("port"), async () => {
     await connect();
+    
     console.log("Server started on http://localhost:" + app.get('port'));
 });
