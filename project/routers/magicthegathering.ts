@@ -95,7 +95,7 @@ export default function mtgRouter() {
     });
 
     router.get("/error", (req, res) => {
-        if (req.session.username) {
+        if (!req.session.username) {
             res.redirect("/projects");
             return;
         };

@@ -28,10 +28,10 @@ export default session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60,
+        maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true,
-        sameSite: true,
-        secure: true,
+        sameSite: "strict",
+        secure: false,
     }
 });
 
