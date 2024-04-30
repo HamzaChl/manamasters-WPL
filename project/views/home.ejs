@@ -1,4 +1,18 @@
 <%- include("partials/header.ejs") %>
+
+<% if(limit60) { %>
+<div class="login-error">
+  <section class="login-error-container" >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
+      <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
+      <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
+    </svg>
+      <p><%=limit60%></p> 
+      <a class="login-error-close" href="/MagicTheGathering/<%=word%>" >Sluiten</a>
+  </section>
+  <% } %>
+
+</div>
     <main>
       <section class="hero">
         <h1 class="title ui-hover">Vind je kaart</h1>
@@ -27,8 +41,6 @@
             </button>
           </div>
         </form>
-
-
         <% let counter = 0; %>
         <% for (const card of cards) {%>
           <div class="info-toggle" id="popup<%=counter%>">
