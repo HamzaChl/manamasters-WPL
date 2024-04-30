@@ -43,8 +43,17 @@ export default function mtgRouter() {
     router.post("/registreer", async (req, res) => {
         const formRegister: User = req.body;
         formRegister.username = formRegister.username.toLowerCase();
+        const user: WithId<User> | null = await findUser(formRegister);
         let error: string | undefined = undefined;
-        if (formRegister.username.length < 5) {
+
+        if (user) {
+            error = "Gebruikersnaam bestaat al. Gelieve in te loggen.";
+            res.render("login", {
+                error: error,
+                word: "login"
+            });
+        }
+        else if (formRegister.username.length < 5) {
             error = "Gelieve een geldige gebruikersnaam in te geven (Ps. te kort)";
             res.render("registreer", {
                 error: error,
