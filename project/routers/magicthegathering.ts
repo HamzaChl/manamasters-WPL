@@ -93,7 +93,7 @@ export default function mtgRouter() {
        const error: string | undefined = await insertCardInDeck(response, user!);
        if (error) {
             res.render("home", {
-                error: error
+                limit60: error
             });
             return;
        };
