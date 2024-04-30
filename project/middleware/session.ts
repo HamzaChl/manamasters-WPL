@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import session from "express-session";
 import mongoDbSession from "connect-mongodb-session";
+import { Card } from "../types";
 
 
 dotenv.config();
@@ -19,6 +20,7 @@ mongoStore.on("error", (error) => {
 declare module 'express-session' {
     export interface SessionData {
         username?: string;
+        cards: Card[];
     }
 }
 

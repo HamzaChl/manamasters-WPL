@@ -1,7 +1,7 @@
 import express, { request, response } from "express";
 import {  addUser, findUser, findUserName, get10Cards, insertCardInDeck } from "../database";
 import { AddDeck, Card, User } from "../types";
-import  { requireLogin } from "../middleware/middleware";
+import  { continueLogin, requireLogin } from "../middleware/middleware";
 import bcrypt from 'bcrypt';
 import { WithId } from "mongodb";
 import { log } from "console";
@@ -11,7 +11,13 @@ import { log } from "console";
 export default function mtgRouter() {
     const router = express.Router();
 
-    router.get("/login", (req, res) => {
+
+    router.get("/refresh", requireLogin , async(req, res) => {
+        req.session.cards = await get10Cards();
+        res.redirect("/MagicTheGathering/home#search-form-id");
+    });
+
+    router.get("/login", continueLogin ,(req, res) => {
         
         res.render("login", {
             word: "login"
@@ -19,13 +25,13 @@ export default function mtgRouter() {
     });
 
     
-    router.get("/registreer", (req, res) => {
+    router.get("/registreer", continueLogin, (req, res) => {
         res.render("registreer", {
             word: "registreer"
         });
     });
 
-    router.post("/login", async (req, res) => {
+    router.post("/login", continueLogin , async (req, res) => {
         const formRegister: User = req.body;
         formRegister.username = formRegister.username.toLowerCase();        
         const user: WithId<User> | null = await findUser(formRegister);
@@ -41,7 +47,7 @@ export default function mtgRouter() {
         };
     });
 
-    router.post("/registreer", async (req, res) => {
+    router.post("/registreer", continueLogin ,async (req, res) => {
         const formRegister: User = req.body;
         formRegister.username = formRegister.username.toLowerCase();
         const user: WithId<User> | null = await findUserName(formRegister);
@@ -76,7 +82,16 @@ export default function mtgRouter() {
 
     router.get("/home", requireLogin ,async (req, res) => {
         const searchValue: string | undefined = typeof req.query.search === "string" ? req.query.search : undefined;
-        let randomResults: Card[] = await get10Cards(searchValue); 
+        let randomResults: Card[] = [];
+        if (searchValue) {
+            randomResults = await get10Cards(searchValue);             
+        } else {
+            if (req.session.cards) {
+                randomResults = req.session.cards!;                
+            } else {
+                req.session.cards = await get10Cards();
+            }
+        };
         console.log(req.session.username);
         
         res.render("home", {
@@ -97,7 +112,7 @@ export default function mtgRouter() {
             });
             return;
        };
-       res.redirect("/MagicTheGathering/home");
+       res.redirect("/MagicTheGathering/home#search-form-id");
     });
 
 

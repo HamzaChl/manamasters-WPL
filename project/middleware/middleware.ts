@@ -9,6 +9,16 @@ export function requireLogin(req: Request, res: Response, next: NextFunction) {
     };
 };
 
+
+export function continueLogin(req: Request, res: Response, next: NextFunction) {
+    if (req.session.username) {
+        res.redirect(`/MagicTheGathering/home`);
+    } else {
+        next();
+    };
+};
+
+
 export function errorHandler(status: number, message: string) {
     return ( req: Request, res: Response, next: NextFunction) => {
         
