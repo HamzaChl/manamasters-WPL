@@ -88,8 +88,12 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
       };
       await collecionDecks.insertOne(deck);
       return undefined;
-    }
-  }
+    };
+  };
+};
+
+export async function getDeck(deckNumber: string, username: string) {
+  return await collecionDecks.findOne({$and: [{id: deckNumber}, {username: username}]});
 }
 
 async function exit() {

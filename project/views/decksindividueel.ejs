@@ -50,18 +50,29 @@
         <article id="deckPhotoAndText">
             <figure>
               <img  style="background-image: linear-gradient(to bottom, transparent, #100f15d2),
-              url(/assets/images/deck1.webp);">
-              <figcaption>Deck 1</figcaption>
+              url(/assets/images/deck<%=id%>.webp);">
+              <figcaption>Deck <%=id%></figcaption>
             </figure>
           </article>
            <div id="iconsrow">
       <article class="icons first">
         <p><img src="/assets/icons/mana.webp" alt="mana" style="width: 30px; height: 30px;">
-       mana: 40</p>
+       mana:   
+       <% if (deck) { %>
+        <!-- <% deck.cards[0].manaCost %> AANPASSEN -->
+      <%} else { %>
+        0
+      <% }; %></p>
       </article>
       <article class="icons">
         <p><img src="/assets/icons/cardsize.png" alt="card" style="width: 30px; height: 30px;">
-       kaarten:  0 / 60 </p>
+       kaarten:  
+       <% if (deck) { %>
+        <%=deck.cards.length%>
+      <%} else { %>
+        0
+      <% }; %>
+       / 60 </p>
       </article>
       <article class="icons last">
         <p><img src="/assets/icons/tree.webp" alt="tree" style="width: 30px; height: 30px;">

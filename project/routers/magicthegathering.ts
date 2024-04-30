@@ -1,6 +1,6 @@
 import express, { request, response } from "express";
-import {  addUser, findUser, findUserName, get10Cards, insertCardInDeck } from "../database";
-import { AddDeck, Card, User } from "../types";
+import {  addUser, findUser, findUserName, get10Cards, getDeck, insertCardInDeck } from "../database";
+import { AddDeck, Card, Deck, User } from "../types";
 import  { continueLogin, requireLogin } from "../middleware/middleware";
 import bcrypt from 'bcrypt';
 import { WithId } from "mongodb";
@@ -84,7 +84,8 @@ export default function mtgRouter() {
         const searchValue: string | undefined = typeof req.query.search === "string" ? req.query.search : undefined;
         let randomResults: Card[] = [];
         if (searchValue) {
-            randomResults = await get10Cards(searchValue);             
+            randomResults = await get10Cards(searchValue);   
+                      
         } else {
             if (req.session.cards) {
                 randomResults = req.session.cards;                
@@ -93,7 +94,6 @@ export default function mtgRouter() {
                 randomResults = req.session.cards;
             }
         };
-;
 
         res.render("home", {
             active: "Home",
@@ -130,10 +130,30 @@ export default function mtgRouter() {
         });
     });
 
+    router.get("/deck/:id", requireLogin, async (req, res) => {
+        const id: string = req.params.id;
+        const user: string | undefined = req.session.username;
+        if (user) {
+            const deck: WithId<Deck> | null = await getDeck(id, user);     
+            
+            console.log(deck?.cards.length);
+            
+            res.render("decksindividueel", {
+                active:  "Deck",
+                deck: deck,
+                id: id
+            });   
+        };
+    });
+
     router.get("/drawtest", requireLogin, (req, res) => {
         res.render("drawtest", {
             active: "Drawtest"
         });
+    });
+
+    router.get("/closeLimit", requireLogin, (req, res) => {
+        res.redirect("/MagicTheGathering/home#search-form-id");
     });
 
     router.get("/error", (req, res) => {
