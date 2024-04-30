@@ -1,9 +1,10 @@
 import express, { request, response } from "express";
-import {  addUser, findUser, findUserName, get10Cards } from "../database";
-import { Card, User } from "../types";
+import {  addUser, findUser, findUserName, get10Cards, insertCardInDeck } from "../database";
+import { AddDeck, Card, User } from "../types";
 import  { requireLogin } from "../middleware/middleware";
 import bcrypt from 'bcrypt';
 import { WithId } from "mongodb";
+import { log } from "console";
 
 
 
@@ -82,6 +83,21 @@ export default function mtgRouter() {
             active: "Home",
             cards: randomResults,
         });    
+    });
+
+
+
+    router.post("/home", requireLogin, async (req, res) => {
+       const response: AddDeck = req.body;
+       const user: string | undefined = req.session.username;
+       const error: string | undefined = await insertCardInDeck(response, user!);
+       if (error) {
+            res.render("home", {
+                error: error
+            });
+            return;
+       };
+       res.redirect("/MagicTheGathering/home");
     });
 
 

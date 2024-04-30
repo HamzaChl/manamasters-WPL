@@ -3,6 +3,18 @@ export interface ErrorHandlerOptions {
 }
 
 
+
+export interface Deck {
+    cards: Card[];
+    id: string;
+    username: string;
+};
+
+export interface AddDeck {
+    id: string;
+    deck: string;
+}
+
 export interface Card {
     _id?: string,
     name: string;

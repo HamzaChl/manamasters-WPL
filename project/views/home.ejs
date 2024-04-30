@@ -6,7 +6,7 @@
         <a href="#search-form-id" onclick="scrollBehaviorChange()"><div class="scroll"><img class=" bounce-top" src="/assets/images/scrolldown.webp" alt="scrolldown"></div></a>
       </section>
       <section class="card-finder">
-</div>
+  </div>
         <form class="search-form" id="search-form-id" action="/MagicTheGathering/home" method="get">
           <div class="wrapper">
             <input
@@ -93,16 +93,19 @@
                     <hr class="solid" />
                     <h4>kaart toevoegen aan deck</h4>
                     <br>
-                    <select name="pets" class="select-deck" id="pet-select">
-                      <option value="">--Kies een deck--</option>
-                      <option value="deck01">Deck 01</option>
-                      <option value="deck02">Deck 02</option>
-                      <option value="deck03">Deck 03</option>
-                      <option value="deck04">Deck 04</option>
-                      <option value="deck05">Deck 05</option>
-                      <option value="deck06">Deck 06</option>
-                    </select>
-                    <button class="add-deck" id="add-to-deck-btn">+</button>
+                   <form action="/MagicTheGathering/home" method="post">
+                      <select name="deck" class="select-deck" id="pet-select">
+                        <option value="" selected hidden>--Kies een deck--</option>
+                        <option value="1">Deck 01</option>
+                        <option value="2">Deck 02</option>
+                        <option value="3">Deck 03</option>
+                        <option value="4">Deck 04</option>
+                        <option value="5">Deck 05</option>
+                        <option value="6">Deck 06</option>
+                      </select>
+                      <input type="text" name="id" value="<%= card.id %>" hidden>
+                      <button class="add-deck" id="add-to-deck-btn">+</button>
+                  </form>
                   </div>
                 </section>
               </div>

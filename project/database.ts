@@ -1,5 +1,5 @@
-import { MongoClient, Collection } from "mongodb";
-import { Card, User } from "./types";
+import { MongoClient, Collection, WithId } from "mongodb";
+import { AddDeck, Card, Deck, User } from "./types";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -8,7 +8,21 @@ const uri: string = process.env.URI ?? "mongodb://localhost:27017";
 const client = new MongoClient(uri);
 const collectionCards: Collection<Card> =  client.db("tijdelijk").collection<Card>("mtg");
 const collectionUsers: Collection<User> =  client.db("tijdelijk").collection<User>("Usersmtg");
+const collecionDecks: Collection<Deck> =  client.db("tijdelijk").collection<Deck>("UserDecks");
 
+
+async function getAllCards() {
+    const amountCards: number = await  collectionCards.countDocuments();
+    if (amountCards === 0) {
+        for (let i = 0; i < 821; i++) {
+            const response = await fetch(`https://api.magicthegathering.io/v1/cards?page=${i}`);
+            const data: Card[] = await response.json(); 
+            collectionCards.insertMany(data);
+        };
+    } else{
+        console.log(`Database is already filled with ${amountCards}`);
+    };
+};
 
 
 export async function get10Cards(searchValue?: string ): Promise<Card[]> {
@@ -37,6 +51,32 @@ export async function findUserName(user: User) {
 };
 
 
+export async function insertCardInDeck(response: AddDeck, username: string) {
+    const card: WithId<Card> | null = await collectionCards.findOne({id: response.id});  
+    
+    if (card) {
+        const deck: Deck | null = await collecionDecks.findOne({$and: [{id: response.deck}, {username: username}]});
+        if (deck) {
+            if (deck.cards.length === 60) {
+                return "Limiet van kaarten op deck bereikt";
+            };
+            await collecionDecks.updateOne(
+                { $and: [{id: response.deck}, {username: username}] },
+                { $push: { cards: card } }
+            );
+            return undefined;
+        } else {
+            const deck: Deck = {
+                id: response.deck,
+                cards: [card],
+                username: username
+            };
+            await collecionDecks.insertOne(deck);
+            return undefined;
+        }
+    }
+};
+
 
 async function exit() {
     try {
@@ -55,6 +95,7 @@ export async function connect() {
         await client.connect();
         console.log("Connected to database");
         process.on("SIGINT", exit);
+        await getAllCards();
     } catch (error: any) {
         console.error(error.message);
     };
