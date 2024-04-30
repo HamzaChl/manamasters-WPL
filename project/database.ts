@@ -32,6 +32,12 @@ export async function findUser(user: User) {
     return await collectionUsers.findOne({$and: [{username: user.username}, {password: user.password}]});
 };
 
+export async function findUserName(user: User) {
+    return await collectionUsers.findOne({$and: [{username: user.username}]});
+};
+
+
+
 async function exit() {
     try {
         await client.close();

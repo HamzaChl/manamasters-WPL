@@ -1,5 +1,5 @@
 import express, { request, response } from "express";
-import {  addUser, findUser, get10Cards } from "../database";
+import {  addUser, findUser, findUserName, get10Cards } from "../database";
 import { Card, User } from "../types";
 import  { requireLogin } from "../middleware/middleware";
 import bcrypt from 'bcrypt';
@@ -43,9 +43,9 @@ export default function mtgRouter() {
     router.post("/registreer", async (req, res) => {
         const formRegister: User = req.body;
         formRegister.username = formRegister.username.toLowerCase();
-        const user: WithId<User> | null = await findUser(formRegister);
+        const user: WithId<User> | null = await findUserName(formRegister);
         let error: string | undefined = undefined;
-
+        
         if (user) {
             error = "Gebruikersnaam bestaat al. Gelieve in te loggen.";
             res.render("login", {
