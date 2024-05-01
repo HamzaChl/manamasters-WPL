@@ -19,6 +19,17 @@ export interface Card {
     _id?: string,
     name: string;
     manaCost: string;
+    type: string;
+    rarity: string;
+    text: string;
+    imageUrl: string;
+    id: string;
+}
+
+export interface ApiCard {
+    _id?: string,
+    name: string;
+    manaCost: string;
     cmc: number;
     colors: string[];
     colorIdentity: string[];
@@ -40,12 +51,6 @@ export interface Card {
     originalType: string;
     id: string;
 }
-
-
-export interface CardData {
-    cards: Card[];
-}
-
 
 export interface User {
     username: string;

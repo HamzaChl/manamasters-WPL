@@ -59,7 +59,7 @@
         <p><img src="/assets/icons/mana.webp" alt="mana" style="width: 30px; height: 30px;">
        mana:   
        <% if (deck) { %>
-        <!-- <% deck.cards[0].manaCost %> AANPASSEN -->
+        <%= manaCost %> 
       <%} else { %>
         0
       <% }; %></p>
@@ -68,7 +68,7 @@
         <p><img src="/assets/icons/cardsize.png" alt="card" style="width: 30px; height: 30px;">
        kaarten:  
        <% if (deck) { %>
-        <%=deck.cards.length%>
+        <%= deck.cards.length %>
       <%} else { %>
         0
       <% }; %>
@@ -76,119 +76,31 @@
       </article>
       <article class="icons last">
         <p><img src="/assets/icons/tree.webp" alt="tree" style="width: 30px; height: 30px;">
-        landkaarten: 0</p>
+        landkaarten: <%= totalLandCards %></p>
       </article>
-      
      </div>
      <img src="/assets/icons/manaicon2.png" id="manaicon2" alt="">
-        <%- include("partials/legende.ejs") %>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x3</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x2</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x3</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x4</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x1</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x3</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x1</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x3</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x4</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x1</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x2</p>
-        </article>
-        <article class="youcard">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            class="picturesDecksIndividueel"
-            alt=""
-            onclick="OpenDecksIndividueel()"
-          />
-          <p>x3</p>
-        </article>
-      </section>
+     <%- include("partials/legende.ejs") %>
+     <% if (deck) { %>
+       <% const cardCounts = {}; %>
+       <% for (const card of deck.cards) { %>
+         <% cardCounts[card.name] = (cardCounts[card.name] || 0) + 1; %>
+       <% }; %>
+       <% const uniqueCards = Array.from(new Set(deck.cards.map(card => card.name))); %>
+       <% for (const cardName of uniqueCards) { %>
+         <% const card = deck.cards.find(c => c.name === cardName); %>
+         <article class="youcard">
+           <img
+             src="<%= card.imageUrl %>"
+             class="picturesDecksIndividueel"
+             alt="<%= card.name %>"
+             onclick="OpenDecksIndividueel()"
+           />
+           <p>x<%= cardCounts[card.name] %></p>
+         </article>
+       <% }; %>
+     <% } else { %>
+        Deck is nog leeg.
+    <% }; %>
+     
 <%- include("partials/footer.ejs") %>

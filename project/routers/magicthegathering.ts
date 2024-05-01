@@ -135,13 +135,32 @@ export default function mtgRouter() {
         const user: string | undefined = req.session.username;
         if (user) {
             const deck: WithId<Deck> | null = await getDeck(id, user);     
-            
-            console.log(deck?.cards.length);
+            let total: number = 0;
+            let divide: number = 0;
+            let totalLandCards: number = 0;
+            let manaCostTotal: number = 0;
+            if (deck) {
+                for (const card of deck.cards) {
+                    if (card.manaCost) {
+                        const manaCost: number = parseInt(card.manaCost.substring(1,2));
+                        total += manaCost
+                        divide++;                        
+                    };
+                    if (card.type.toLowerCase().includes("land")) {
+                        totalLandCards++;
+                    }
+                };
+                if (divide != 0) {
+                    manaCostTotal = parseFloat((total / divide).toFixed(2));  
+                };
+            };
             
             res.render("decksindividueel", {
                 active:  "Deck",
                 deck: deck,
-                id: id
+                id: id,
+                manaCost: manaCostTotal,
+                totalLandCards: totalLandCards
             });   
         };
     });

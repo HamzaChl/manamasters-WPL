@@ -1,20 +1,16 @@
 import { MongoClient, Collection, WithId } from "mongodb";
-import { AddDeck, Card, Deck, User } from "./types";
+import { AddDeck, ApiCard, Card, Deck, User } from "./types";
 import dotenv from "dotenv";
+import { log } from "console";
+import { once } from "events";
 
 dotenv.config();
 
 const uri: string = process.env.URI ?? "mongodb://localhost:27017";
 const client = new MongoClient(uri);
-const collectionCards: Collection<Card> = client
-  .db("tijdelijk")
-  .collection<Card>("mtg");
-const collectionUsers: Collection<User> = client
-  .db("tijdelijk")
-  .collection<User>("Usersmtg");
-const collecionDecks: Collection<Deck> = client
-  .db("tijdelijk")
-  .collection<Deck>("UserDecks");
+const collectionCards: Collection<Card> = client.db("tijdelijk").collection<Card>("mtg");
+const collectionUsers: Collection<User> = client.db("tijdelijk").collection<User>("Usersmtg");
+const collecionDecks: Collection<Deck> = client.db("tijdelijk").collection<Deck>("UserDecks");
 
 async function getAllCards() {
   const amountCards: number = await collectionCards.countDocuments();
@@ -23,13 +19,31 @@ async function getAllCards() {
       const response = await fetch(
         `https://api.magicthegathering.io/v1/cards?page=${i}`
       );
-      const data: Card[] = await response.json();
-      collectionCards.insertMany(data);
-    }
+      const data: ApiCard[] = (await response.json()).cards;
+      let filteredData: Card[] = [];      
+      for (const card of data) {
+        if (card.imageUrl) {
+          const correctedCard: Card = {
+            name: card.name,
+            manaCost: card.manaCost,
+            id: card.id,
+            imageUrl: card.imageUrl,
+            type: card.type,
+            rarity: card.rarity,
+            text: card.text
+          }; 
+          filteredData.push(correctedCard);
+          
+        };
+      };   
+      if (filteredData.length > 0) {
+        collectionCards.insertMany(filteredData);
+      };
+    };
   } else {
     console.log(`Database is already filled with ${amountCards}`);
-  }
-}
+  };
+};
 
 export async function get10Cards(searchValue?: string): Promise<Card[]> {
   if (searchValue) {
