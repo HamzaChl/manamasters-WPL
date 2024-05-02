@@ -183,7 +183,7 @@ export default function mtgRouter() {
         res.redirect("/MagicTheGathering/home");
     });
 
-    router.get("/uitloggen", (req, res) => {
+    router.post("/uitloggen", (req, res) => {
         req.session.destroy(() => {
             console.log("Succesvol uitgelogd");
         });

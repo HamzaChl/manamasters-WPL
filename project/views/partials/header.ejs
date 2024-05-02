@@ -110,11 +110,11 @@
           <a href="/MagicTheGathering/drawtest"><li <% if(active === "Drawtest") { %> class="active" <% } %> >DrawTest</li></a>
         </ul>
         <ul class="right">
-          <a href="/MagicTheGathering/uitloggen"
-            ><li class="my-account-nav">
-              <span class="login-icon"
+          <form action="/MagicTheGathering/uitloggen" method="post">
+            <button>
+              <li class="my-account-nav"><span class="login-icon"
                 ><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="26" height="26"  viewBox="0 0 256 256" xml:space="preserve">
-
+  
                   <defs>
                   </defs>
                   <g style="stroke: none; color:white; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
@@ -125,8 +125,9 @@
                   </svg>
               </span>
               uitloggen
-            </li></a
-          >
+              </li>
+            </button>
+          </form>
         </ul>
       </nav>
     </header>
