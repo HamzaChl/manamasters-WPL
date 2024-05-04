@@ -2,6 +2,7 @@ import { MongoClient, Collection, WithId } from "mongodb";
 import { AddDeck, ApiCard, Card, Deck, User } from "./types";
 import dotenv from "dotenv";
 import bcrypt from 'bcrypt';
+import { log } from "console";
 
 
 dotenv.config();
@@ -96,31 +97,26 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
       $and: [{ id: response.deck }, { username: username }],
     });
       if (deck) {
-        const cards: WithId<Deck>[] = await collecionDecks.find({ 
-          deck: response.deck, 
+        const cards: WithId<Deck>[] | null = await collecionDecks.find({$and: [{username: username}, {id: response.deck}, {cards: { $elemMatch: { id: card.id } } }]}).toArray();
+        
+        if (deck.cards.length === 60) {
+          return `Limiet van kaarten op deck ${response.deck} bereikt.`;
+        } else if (cards.length > 0 && cards[0].cards.length === 4 && !card.text.toLowerCase().includes("land")) {
+          return `Limiet van deze kaart bereikt in deck ${response.deck}.`;
+        };
+        await collecionDecks.updateOne(
+          { $and: [{ id: response.deck }, { username: username }] },
+          { $push: { cards: card } }
+        );
+        return undefined;
+      } else {
+        const deck: Deck = {
+          id: response.deck,
+          cards: [card],
           username: username,
-          cards: { $elemMatch: { id: card.id } } 
-      }).toArray();      
-      console.log(cards);
-      
-      if (deck.cards.length === 60) {
-        return `Limiet van kaarten op deck ${response.deck} bereikt.`;
-      } else if (cards.length > 4) {
-        return `Limiet van 4 op kaart ${card.name} bereikt in deck ${response.deck}.`;
-      };
-      await collecionDecks.updateOne(
-        { $and: [{ id: response.deck }, { username: username }] },
-        { $push: { cards: card } }
-      );
-      return undefined;
-    } else {
-      const deck: Deck = {
-        id: response.deck,
-        cards: [card],
-        username: username,
-      };
-      await collecionDecks.insertOne(deck);
-      return undefined;
+        };
+        await collecionDecks.insertOne(deck);
+        return undefined;
     };
   };
 };

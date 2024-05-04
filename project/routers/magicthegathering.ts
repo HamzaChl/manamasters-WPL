@@ -150,7 +150,7 @@ export default function mtgRouter() {
                     if (card.type.toLowerCase().includes("land")) {
                         totalLandCards++;
                     };
-                    cardCounts[card.name] = (cardCounts[card.name] || 0) + 1; 
+                    cardCounts[card.id] = (cardCounts[card.id] || 0) + 1; 
                 };
                 if (divide != 0) {
                     manaCostTotal = parseFloat((total / divide).toFixed(2));  
