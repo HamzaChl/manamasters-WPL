@@ -1,43 +1,76 @@
 <%- include("partials/header.ejs") %>
-  
-    <div id="popupdecksIndividueel">
-      <button onclick="buttonClosePopUpIndividueel()" id="buttonClosePopUpIndividueel"><h1>ⓧ</h1></button>
-      <section>
-        <article id="popupdecksIndividueelImages">
-          <img
-            src="/assets/images/cardindividueel.webp"
-            id="picturePopUpIndividueel"
-            alt=""
-          />
-        </article>
-        <article id="popupdecksIndividueelEigenschappen">
-          <h4>KAARTNAAM</h4>
-          <br />
-          <p id="card-name">Archangel Avacyn</p>
-          <br />
-          <hr class="solid" />
-          <h4>zeldzaamheid</h4>
-          <br />
-          <p id="card-rarity">common</p>
-          <br />
-          <hr class="solid" />
-          <h4>eigenschappen</h4>
-          <br />
-          <p id="card-text">Flying, vigilance</p>
-          <br />
-          <hr class="solid" />
-          <h4>type</h4>
-          <br />
-          <p id="card-type">Flash</p>
-        </article>
-        <article id="popupdecksIndividueelVinkEnVuil">
-          <img src="/assets/icons/min.webp" alt="" />
-          <img src="/assets/icons/plus.webp" alt="" />
-          <img src="/assets/icons/trash.webp" alt="" />
-          <img src="/assets/icons/vinkje.webp" alt="" />
-        </article>
-      </section>
-    </div>
+
+    <% let counter = 0; %>
+    <% let counter2 = 0; %>
+    <% for (const uniqueCard of uniqueCards) { %>
+      <div class="popupdecksIndividueel" id="popupD<%= counter %>" <% counter++ %>>
+        <button onclick="buttonClosePopUpIndividueel()" id="buttonClosePopUpIndividueel"><h1>ⓧ</h1></button>
+        <section>
+          <article id="popupdecksIndividueelImages">
+            <img
+              src="<%= uniqueCard.imageUrl %>"
+              id="picturePopUpIndividueel"
+              alt="<%= uniqueCard.name %>"
+              <% if (uniqueCard.rarity === "Common") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(255, 255, 255, 0.6);"
+              <% } else if (uniqueCard.rarity === "Uncommon") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(18, 80, 179, 0.6);"
+              <% } else if (uniqueCard.rarity === "Rare") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(174, 186, 85, 0.7);"
+              <% } else if (uniqueCard.rarity === "Mythic") { %>
+                style="box-shadow: 0px 2px 6px 5px rgba(151, 0, 0, 0.9);"
+              <% }; %>
+            />
+          </article>
+          <article id="popupdecksIndividueelEigenschappen">
+            <h4>KAARTNAAM</h4>
+            <br />
+            <p id="card-name"><%= uniqueCard.name %></p>
+            <br />
+            <hr class="solid" />
+            <h4>zeldzaamheid</h4>
+            <br />
+            <p id="card-rarity"
+              <% if (uniqueCard.rarity === "Common") { %>
+              style="color: rgba(255, 255, 255, 0.6);" 
+              <% } else if (uniqueCard.rarity === "Uncommon" ) { %>
+              style="color: rgba(18, 80, 179, 0.6);" 
+              <% } else if (uniqueCard.rarity === "Rare" ) { %>
+              style="color: rgba(174, 186, 85, 0.7);" 
+              <% } else if (uniqueCard.rarity === "Mythic") { %>
+               style="color: rgba(151, 0, 0, 0.9);" 
+              <% } %> >
+              <%= uniqueCard.rarity %>
+              <% if (uniqueCard.rarity === "Common") { %>
+                <img src="/assets/images/rarity1.webp" width="20px" alt="Common">
+                <% } else if (uniqueCard.rarity === "Uncommon") { %>
+                <img src="/assets/images/rarity 2.png" width="20px" alt="Uncommon">
+                <% } else if (uniqueCard.rarity === "Rare") { %>
+                  <img src="/assets/images/rarity 3.png" width="20px" alt="Rare">
+                <% } else if (uniqueCard.rarity === "Mythic") { %>
+                <img src="/assets/images/rarity 4.png" width="20px" alt="Mythic">
+              <% } %>
+            </p>
+            <br />
+            <hr class="solid" />
+            <h4>eigenschappen</h4>
+            <br />
+            <p id="card-text"><%= uniqueCard.text %></p>
+            <br />
+            <hr class="solid" />
+            <h4>type</h4>
+            <br />
+            <p id="card-type"><%= uniqueCard.type %></p>
+          </article>
+          <article id="popupdecksIndividueelVinkEnVuil">
+            <img src="/assets/icons/min.webp" alt="min" />
+            <img src="/assets/icons/plus.webp" alt="plus" />
+            <img src="/assets/icons/trash.webp" alt="trash" />
+            <img src="/assets/icons/vinkje.webp" alt="vink" />
+          </article>
+        </section>
+      </div>
+    <% }; %>
     <main id="mainDecksIndividueel">
       <h1 style="font-size: 2rem; font-family: dragon;">SuperDeck</h1>
            
@@ -82,19 +115,12 @@
      <img src="/assets/icons/manaicon2.png" id="manaicon2" alt="">
      <%- include("partials/legende.ejs") %>
      <% if (deck) { %>
-       <% const cardCounts = {}; %>
-       <% for (const card of deck.cards) { %>
-         <% cardCounts[card.name] = (cardCounts[card.name] || 0) + 1; %>
-       <% }; %>
-       <% const uniqueCards = Array.from(new Set(deck.cards.map(card => card.name))); %>
-       <% for (const cardName of uniqueCards) { %>
-         <% const card = deck.cards.find(c => c.name === cardName); %>
-         <article class="youcard">
+       <% for (const card of uniqueCards) { %>
+         <article class="youcard" id="<%= counter2 %>" <% counter2++ %>>
            <img
              src="<%= card.imageUrl %>"
              class="picturesDecksIndividueel"
              alt="<%= card.name %>"
-             onclick="OpenDecksIndividueel()"
            />
            <p>x<%= cardCounts[card.name] %></p>
          </article>

@@ -1,10 +1,11 @@
 import { MongoClient, Collection, WithId } from "mongodb";
 import { AddDeck, ApiCard, Card, Deck, User } from "./types";
 import dotenv from "dotenv";
-import { log } from "console";
-import { once } from "events";
+import bcrypt from 'bcrypt';
+
 
 dotenv.config();
+const saltRounds: number = 10;
 
 const uri: string = process.env.URI ?? "mongodb://localhost:27017";
 const client = new MongoClient(uri);
@@ -63,17 +64,26 @@ export async function get10Cards(searchValue?: string): Promise<Card[]> {
 }
 
 export async function addUser(user: User) {
+  user = {
+    username: user.username,
+    password: await bcrypt.hash(user.password, saltRounds)
+  };
   await collectionUsers.insertOne(user);
-}
+};
 
 export async function findUser(user: User) {
-  return await collectionUsers.findOne({
-    $and: [{ username: user.username }, { password: user.password }],
-  });
-}
+  const foundUser: User | null = await findUserName(user);
+  if (foundUser) {
+    const passwordCorrect: boolean = await bcrypt.compare(user.password, foundUser.password);
+    if (passwordCorrect) {
+      return foundUser
+    };
+  };
+  return null;
+};
 
 export async function findUserName(user: User) {
-  return await collectionUsers.findOne({ $and: [{ username: user.username }] });
+  return await collectionUsers.findOne({ username: user.username });
 }
 
 export async function insertCardInDeck(response: AddDeck, username: string) {

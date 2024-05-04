@@ -1,162 +1,144 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magic The Gathering | <%=active%></title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/font.css">
-    <link rel="shortcut icon" href="/assets/icons/logofavicon.webp" type="image/x-icon"/>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-    <script>
-      // scroll
-      const lenis = new Lenis();
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic The Gathering | <%=active%> </title>
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/font.css">
+  <link rel="shortcut icon" href="/assets/icons/logofavicon.webp" type="image/x-icon" />
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  <script>
+   // Scroll
+   const lenis = new Lenis();
+   lenis.on("scroll", () => {});
 
-        lenis.on("scroll", (e) => {});
+   function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+   }
+   requestAnimationFrame(raf);
 
-        function raf(time) {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        }
+   function scrollBehaviorChange() {
+    document.documentElement.style.scrollBehavior = "smooth";
+    setTimeout(() => {
+     document.documentElement.style.scrollBehavior = "auto";
+    }, 200);
+   }
+   // Menu
+   function toggleMobileMenu() {
+    const mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.style.display = (mobileMenu.style.display === "block") ? "none" : "block";
+   }
+   const mediaQuery = matchMedia("(min-width:1085px)");
+   mediaQuery.addEventListener("change", () => {
+    document.getElementById("mobile-menu").style.display = "none";
+   });
 
-        requestAnimationFrame(raf);
-        
-        function scrollBehaviorChange() {
-          document.documentElement.style.scrollBehavior = "smooth";
-            setTimeout(() => {
-              document.documentElement.style.scrollBehavior = "auto";
-            }, 200);
-      };
+   function closePopUps() {
+    for (let i = 0; i < 10; i++) {
+     const popup = document.getElementById(`popup${i}`);
+     if (popup) {
+      popup.style.display = "none";
+     }
+    }
+   }
+   document.addEventListener("keydown", () => {
+    buttonClosePopUpIndividueel();
+    closePopUps();
+   });
+   const openPopup = (id) => {
+    const popup = document.getElementById(`popup${id}`);
+    popup.style.display = "block";
+   };
 
-        // menu
-       function menuFunction() {
-          if (document.getElementById("mobile-menu").style.display === "block") {
-            document.getElementById("mobile-menu").style.display = "none";
-          } else {
-            document.getElementById("mobile-menu").style.display = "block";
-          };
-       };
+   function openDecksIndividueel(id) {
+    const popup = document.getElementById(`popupD${id}`);
+    popup.style.visibility = "visible";
+    popup.style.height = "100vh";
+   }
 
-        const media = matchMedia("(min-width:1085px)");
-
-        media.addEventListener("change", () => {
-          document.getElementById("mobile-menu").style.display = "none";
-        });
-
-        // popup deck individueel
-        function OpenDecksIndividueel() {
-          document.getElementById("popupdecksIndividueel").style.visibility = "visible";
-          document.getElementById("popupdecksIndividueel").style.height = "100vh";
-      }
-      function buttonClosePopUpIndividueel() {
-        document.getElementById("popupdecksIndividueel").style.visibility = "hidden";
-          document.getElementById("popupdecksIndividueel").style.height = 0;
-      }
-
-      function ClosePopUp() {
-        for (let i = 0; i < 10; i++) {
-          document.getElementById(`popup${i}`).style.display = "none";
-        };
-      };
-      
-      
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" || event.key === "Esc") {
-          ClosePopUp("popupdecksIndividueel");
-        }
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" || event.key === "Esc") {
-          ClosePopUp();
-        }
-      });
-          
-      const openPopup = (id) => {
-      const popupCardImg = document.getElementById("popupCardImg");
-      const popup = document.getElementById(`popup${id}`);
-    
-      popup.style.display = "block";
-      }
-
-      document.addEventListener("DOMContentLoaded", ( ) => {
-        const popupCardImg = document.getElementById("popupCardImg");
-
-        document.querySelectorAll('.card-holder').forEach(element => {
-        element.addEventListener("click", function () {
-        
-          openPopup(element.id);
-        });
-      });
-      })
-    </script>
-
-  </head>
-  <body>
-    <header class="desktop-version">
-      <nav>
-        <ul>
-          <a href="/MagicTheGathering/home"
-            ><img
-              src="/assets/images/logo.webp"
-              class="shadow-filter"
-              alt=""
-          /></a>
-        </ul>
-        <ul class="nav">
-          <a href="/MagicTheGathering/home"><li <% if(active === "Home") { %> class="active" <% } %> >Home</li></a>
-          <a href="/MagicTheGathering/decks"><li <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %> >Decks</li></a>
-          <a href="/MagicTheGathering/drawtest"><li <% if(active === "Drawtest") { %> class="active" <% } %> >DrawTest</li></a>
-        </ul>
-        <ul class="right">
-          <form action="/MagicTheGathering/uitloggen" method="post">
-            <button>
-              <li class="my-account-nav"><span class="login-icon"
-                ><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="26" height="26"  viewBox="0 0 256 256" xml:space="preserve">
-  
-                  <defs>
-                  </defs>
-                  <g style="stroke: none; color:white; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-                    <path d="M 64.797 45 c 0 0.586 -0.205 1.173 -0.616 1.644 L 50.92 61.839 c -0.908 1.041 -2.487 1.148 -3.527 0.24 c -1.04 -0.909 -1.146 -2.489 -0.24 -3.527 L 58.979 45 L 47.152 31.447 c -0.907 -1.04 -0.799 -2.62 0.24 -3.527 c 1.04 -0.907 2.619 -0.8 3.527 0.24 l 13.261 15.196 C 64.592 43.827 64.797 44.414 64.797 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <path d="M 64.797 45 c 0 1.381 -1.119 2.5 -2.5 2.5 H 27.704 c -1.381 0 -2.5 -1.119 -2.5 -2.5 s 1.119 -2.5 2.5 -2.5 h 34.593 C 63.678 42.5 64.797 43.619 64.797 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                    <path d="M 90 45 c 0 24.813 -20.187 45 -45 45 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 C 69.813 0 90 20.187 90 45 z M 5 45 c 0 22.056 17.944 40 40 40 c 22.056 0 40 -17.944 40 -40 C 85 22.944 67.056 5 45 5 C 22.944 5 5 22.944 5 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                  </g>
-                  </svg>
-              </span>
-              uitloggen
-              </li>
-            </button>
-          </form>
-        </ul>
-      </nav>
-    </header>
-    <header class="mobile-version">
-      <nav class="header-menu">
-        <a href="/MagicTheGathering/home"
-        ><img
-          src="/assets/images/logo.webp"
-          class="shadow-filter"
-          alt=""
-      /></a>
-      <img src="/assets/images/hamburger-menu.webp" onclick="menuFunction()" class="menu-icon" id="hamburger" alt="">
-      </nav>
-    </header>
-    <header class="mobile-menu" id="mobile-menu">
-      <nav class="mobile-nav">
-        <section class="mobile-item" onclick="location.href='/MagicTheGathering/home'">
-          <a href="/MagicTheGathering/home" <% if(active === "Home") { %> class="active" <% } %> >home</a>
-        </section>
-
-        <section class="mobile-item" onclick="location.href='/MagicTheGathering/decks'">
-          <a href="/MagicTheGathering/decks" <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %> >decks</a>
-        </section>
-
-        <section class="mobile-item" onclick="location.href='/MagicTheGathering/drawtest'">
-          <a href="/MagicTheGathering/drawtest" <% if(active === "Drawtest  ") { %> class="active" <% } %> >drawtest</a>
-        </section>
-        <section class="mobile-item" onclick="location.href='/MagicTheGathering/login'">
-          <a href="/MagicTheGathering/uitloggen">logout</a>
-        </section>
-      </nav>
-    </header>
+   function buttonClosePopUpIndividueel() {
+    document.querySelectorAll('.popupdecksIndividueel').forEach(popup => {
+     popup.style.visibility = "hidden";
+     popup.style.height = "0vh";
+    });
+   }
+   document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.card-holder').forEach(element => {
+     element.addEventListener("click", () => {
+      openPopup(element.id);
+     });
+    });
+    document.querySelectorAll('.youcard').forEach(element => {
+     element.addEventListener("click", () => {
+      openDecksIndividueel(element.id);
+     });
+    });
+   });
+  </script>
+ </head>
+ <body>
+  <header class="desktop-version">
+   <nav>
+    <ul>
+     <a href="/MagicTheGathering/home">
+      <img src="/assets/images/logo.webp" class="shadow-filter" alt="" />
+     </a>
+    </ul>
+    <ul class="nav">
+     <a href="/MagicTheGathering/home">
+      <li <% if(active === "Home") { %> class="active" <% } %>>Home </li>
+     </a>
+     <a href="/MagicTheGathering/decks">
+      <li <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %>>Decks </li>
+     </a>
+     <a href="/MagicTheGathering/drawtest">
+      <li <% if(active === "Drawtest") { %> class="active" <% } %>>DrawTest </li>
+     </a>
+    </ul>
+    <ul class="right">
+     <form action="/MagicTheGathering/uitloggen" method="post">
+      <button>
+       <li class="my-account-nav">
+        <span class="login-icon">
+         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="26" height="26" viewBox="0 0 256 256" xml:space="preserve">
+          <defs></defs>
+          <g style="stroke: none; color:white; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+           <path d="M 64.797 45 c 0 0.586 -0.205 1.173 -0.616 1.644 L 50.92 61.839 c -0.908 1.041 -2.487 1.148 -3.527 0.24 c -1.04 -0.909 -1.146 -2.489 -0.24 -3.527 L 58.979 45 L 47.152 31.447 c -0.907 -1.04 -0.799 -2.62 0.24 -3.527 c 1.04 -0.907 2.619 -0.8 3.527 0.24 l 13.261 15.196 C 64.592 43.827 64.797 44.414 64.797 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+           <path d="M 64.797 45 c 0 1.381 -1.119 2.5 -2.5 2.5 H 27.704 c -1.381 0 -2.5 -1.119 -2.5 -2.5 s 1.119 -2.5 2.5 -2.5 h 34.593 C 63.678 42.5 64.797 43.619 64.797 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+           <path d="M 90 45 c 0 24.813 -20.187 45 -45 45 C 20.187 90 0 69.813 0 45 C 0 20.187 20.187 0 45 0 C 69.813 0 90 20.187 90 45 z M 5 45 c 0 22.056 17.944 40 40 40 c 22.056 0 40 -17.944 40 -40 C 85 22.944 67.056 5 45 5 C 22.944 5 5 22.944 5 45 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255, 255, 255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+          </g>
+         </svg>
+        </span> uitloggen
+       </li>
+      </button>
+     </form>
+    </ul>
+   </nav>
+  </header>
+  <header class="mobile-version">
+   <nav class="header-menu">
+    <a href="/MagicTheGathering/home">
+     <img src="/assets/images/logo.webp" class="shadow-filter" alt="" />
+    </a>
+    <img src="/assets/images/hamburger-menu.webp" onclick="menuFunction()" class="menu-icon" id="hamburger" alt="">
+   </nav>
+  </header>
+  <header class="mobile-menu" id="mobile-menu">
+   <nav class="mobile-nav">
+    <section class="mobile-item" onclick="location.href='/MagicTheGathering/home'">
+     <a href="/MagicTheGathering/home" <% if(active === "Home") { %> class="active" <% } %>>home </a>
+    </section>
+    <section class="mobile-item" onclick="location.href='/MagicTheGathering/decks'">
+     <a href="/MagicTheGathering/decks" <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %>>decks </a>
+    </section>
+    <section class="mobile-item" onclick="location.href='/MagicTheGathering/drawtest'">
+     <a href="/MagicTheGathering/drawtest" <% if(active === "Drawtest  ") { %> class="active" <% } %>>drawtest </a>
+    </section>
+    <section class="mobile-item" onclick="location.href='/MagicTheGathering/login'">
+     <a href="/MagicTheGathering/uitloggen">logout</a>
+    </section>
+   </nav>
+  </header>

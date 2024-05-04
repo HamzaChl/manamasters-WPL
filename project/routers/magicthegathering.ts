@@ -2,9 +2,8 @@ import express, { request, response } from "express";
 import {  addUser, findUser, findUserName, get10Cards, getDeck, insertCardInDeck } from "../database";
 import { AddDeck, Card, Deck, User } from "../types";
 import  { continueLogin, requireLogin } from "../middleware/middleware";
-import bcrypt from 'bcrypt';
 import { WithId } from "mongodb";
-import { log } from "console";
+import { json } from "stream/consumers";
 
 
 
@@ -34,7 +33,7 @@ export default function mtgRouter() {
     router.post("/login", continueLogin , async (req, res) => {
         const formRegister: User = req.body;
         formRegister.username = formRegister.username.toLowerCase();        
-        const user: WithId<User> | null = await findUser(formRegister);
+        const user: User| null = await findUser(formRegister);
         
         if (user) {
             req.session.username = formRegister.username;
@@ -139,6 +138,8 @@ export default function mtgRouter() {
             let divide: number = 0;
             let totalLandCards: number = 0;
             let manaCostTotal: number = 0;
+            const cardCounts: { [key: string]: number } = {};
+            let uniqueCards: Card[] = [];
             if (deck) {
                 for (const card of deck.cards) {
                     if (card.manaCost) {
@@ -148,15 +149,18 @@ export default function mtgRouter() {
                     };
                     if (card.type.toLowerCase().includes("land")) {
                         totalLandCards++;
-                    }
+                    };
+                    cardCounts[card.name] = (cardCounts[card.name] || 0) + 1; 
                 };
                 if (divide != 0) {
                     manaCostTotal = parseFloat((total / divide).toFixed(2));  
                 };
+                uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
             };
-            
             res.render("decksindividueel", {
                 active:  "Deck",
+                uniqueCards: uniqueCards,
+                cardCounts: cardCounts,
                 deck: deck,
                 id: id,
                 manaCost: manaCostTotal,
