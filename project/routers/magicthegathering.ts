@@ -60,13 +60,13 @@ export default function mtgRouter() {
             });
         }
         else if (formRegister.username.length < 5) {
-            error = "Gelieve een geldige gebruikersnaam in te geven (Ps. te kort)";
+            error = "Gelieve een geldige gebruikersnaam in te geven.";
             res.render("registreer", {
                 error: error,
                 word: "registreer"
             });
         } else if (formRegister.password.length < 8) {
-            error = "Wachtwoord moet minimaal 8 karakters lang zijn";
+            error = "Wachtwoord moet minimaal 8 karakters lang zijn.";
             res.render("registreer", {
                 error: error,
                 word: "registreer"
