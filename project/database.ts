@@ -101,12 +101,15 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
         for (const deckCard of deck.cards) {
           if (deckCard.id === card.id) {
               cards.push(deckCard);
+              console.log("check");
+              
           };
         };
+        console.log(cards);
         
         if (deck.cards.length === 60) {
           return `Limiet van kaarten op deck ${response.deck} bereikt.`;
-        } else if (cards.length === 4 && !card.text.toLowerCase().includes("land")) {
+        } else if (cards.length === 4 && !card.type.toLowerCase().includes("land")) {
           return `Limiet van deze kaart bereikt in deck ${response.deck}.`;
         };
         await collecionDecks.updateOne(
