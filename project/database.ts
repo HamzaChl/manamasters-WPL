@@ -97,11 +97,16 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
       $and: [{ id: response.deck }, { username: username }],
     });
       if (deck) {
-        const cards: WithId<Deck>[] | null = await collecionDecks.find({$and: [{username: username}, {id: response.deck}, {cards: { $elemMatch: { id: card.id } } }]}).toArray();
+        const cards: Card[] = [];
+        for (const deckCard of deck.cards) {
+          if (deckCard.id === card.id) {
+              cards.push(deckCard);
+          };
+        };
         
         if (deck.cards.length === 60) {
           return `Limiet van kaarten op deck ${response.deck} bereikt.`;
-        } else if (cards.length > 0 && cards[0].cards.length === 4 && !card.text.toLowerCase().includes("land")) {
+        } else if (cards.length === 4 && !card.text.toLowerCase().includes("land")) {
           return `Limiet van deze kaart bereikt in deck ${response.deck}.`;
         };
         await collecionDecks.updateOne(
