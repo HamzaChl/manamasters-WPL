@@ -4,21 +4,24 @@
         <h1 class="ui-hover">Draw Test</h1>
         <article id="add-deck" class="add-deck">
           <div class="left-part">
-            <select name="pets" class="select-deck" id="pet-select">
-              <option value="">--Kies een deck--</option>
-              <option value="deck01">Deck 01</option>
-              <option value="deck02">Deck 02</option>
-              <option value="deck03">Deck 03</option>
-              <option value="deck04">Deck 04</option>
-              <option value="deck05">Deck 05</option>
-            </select>
-            <input
-              type="text"
-              class="input-deck"
-              placeholder="Zoek een kaart naam, type, ..."
-            />
-          </div>
-          <button class="track-btn">track</button>
+            <form action="/MagicTheGathering/drawtest" method="post">
+              <select name="pets" class="select-deck" id="pet-select">
+                <option value="1">Deck 01</option>
+                <option value="2">Deck 02</option>
+                <option value="3">Deck 03</option>
+                <option value="4">Deck 04</option>
+                <option value="5">Deck 05</option>
+                <option value="6">Deck 06</option>
+              </select>
+              <input
+                type="text"
+                class="input-deck"
+                placeholder="Zoek een kaart naam, type, ..."
+              />
+            </div>
+            <button class="track-btn">track</button>
+            </form>
+            
           <h3>drawpercentage</h3>
         </article>
         <article id="card-comparaison">
@@ -34,7 +37,7 @@
             </div>
             <img
               class="compar-img"
-              src="/assets/images/back-card.webp"
+              src=""
               alt=""
             />
           </div>

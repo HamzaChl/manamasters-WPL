@@ -248,6 +248,14 @@ export default function mtgRouter() {
 
 
     router.get("/drawtest", requireLogin, (req, res) => {
+
+        res.render("drawtest", {
+            active: "Drawtest"
+        });
+    });
+
+    router.post("/drawtest", requireLogin, (req, res) => {
+        req.body.
         res.render("drawtest", {
             active: "Drawtest"
         });
@@ -257,14 +265,6 @@ export default function mtgRouter() {
         res.redirect("/MagicTheGathering/home#search-form-id");
     });
 
-
-    router.get("/error", (req, res) => {
-        if (!req.session.username) {
-            res.redirect("/projects");
-            return;
-        };
-        res.redirect("/MagicTheGathering/home");
-    });
 
     router.get("/export/:id", requireLogin, async (req, res) => {
         const deck: WithId<Deck> | null = await getDeck(req.params.id, req.session.username!);
@@ -284,6 +284,15 @@ export default function mtgRouter() {
             });
         };        
     });
+    
+    router.get("/error", (req, res) => {
+        if (!req.session.username) {
+            res.redirect("/projects");
+            return;
+        };
+        res.redirect("/MagicTheGathering/home");
+    });
+
 
     router.post("/uitloggen", (req, res) => {
         req.session.destroy(() => {
