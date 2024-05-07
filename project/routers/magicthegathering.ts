@@ -188,6 +188,25 @@ export default function mtgRouter() {
         res.redirect("/MagicTheGathering/home");
     });
 
+    router.get("/export/:id", requireLogin, async (req, res) => {
+        const deck: WithId<Deck> | null = await getDeck(req.params.id, req.session.username!);
+        res.type("application/json");
+        if (deck) {
+            const cards: Card[] = deck.cards;
+            if (cards.length === 0) {
+                res.json({
+                    "Melding": "Geen kaarten gevonden"
+                });
+            } else {
+                res.json(cards);
+            };
+        } else {
+            res.json({
+                "Melding": "Geen kaarten gevonden"
+            });
+        };        
+    });
+
     router.post("/uitloggen", (req, res) => {
         req.session.destroy(() => {
             console.log("Succesvol uitgelogd");
