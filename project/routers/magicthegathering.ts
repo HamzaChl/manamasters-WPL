@@ -276,7 +276,6 @@ export default function mtgRouter() {
         } else {
             cards = deck.cards;
         };
-        console.log( req.session.shuffledCards );
         
         if (!req.session.shuffledCards ) {
             req.session.shuffledCards = shuffle(cards);
@@ -316,6 +315,7 @@ export default function mtgRouter() {
     router.post("/drawtest", requireLogin, (req, res) => {
         const deckNumber: string = req.body.deck;
         req.session.deckNumber = deckNumber;
+        req.session.index = undefined;
         req.session.shuffledCards = undefined;
         res.redirect("/MagicTheGathering/drawtest");
     });
