@@ -279,8 +279,8 @@ export default function mtgRouter() {
         console.log( req.session.shuffledCards );
         
         if (!req.session.shuffledCards ) {
-            req.session.shuffledCards = cards;
-            shuffledCards = cards;
+            req.session.shuffledCards = shuffle(cards);
+            shuffledCards = req.session.shuffledCards;
         };
 
         if (shuffledCards) {
