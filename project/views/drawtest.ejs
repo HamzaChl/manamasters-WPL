@@ -5,14 +5,15 @@
         <article id="add-deck" class="add-deck">
           <div class="left-part">
             <form action="/MagicTheGathering/drawtest" method="post">
-              <select name="pets" class="select-deck" id="pet-select">
-                <option value="1">Deck 01</option>
-                <option value="2">Deck 02</option>
-                <option value="3">Deck 03</option>
-                <option value="4">Deck 04</option>
-                <option value="5">Deck 05</option>
-                <option value="6">Deck 06</option>
-              </select>
+              <select name="deck" class="select-deck" id="deck-select">
+                <option disabled <% if (!deckNumber) { %> selected <%} %> >-- Kies een deck --</option>
+                <option value="1" <% if (deckNumber === 1) { %> selected <% }; %> >Deck 01</option>
+                <option value="2" <% if (deckNumber === 2) { %> selected <% }; %> >Deck 02</option>
+                <option value="3" <% if (deckNumber === 3) { %> selected <% }; %> >Deck 03</option>
+                <option value="4" <% if (deckNumber === 4) { %> selected <% }; %> >Deck 04</option>
+                <option value="5" <% if (deckNumber === 5) { %> selected <% }; %> >Deck 05</option>
+                <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Deck 06</option>
+              </select> 
               <input
                 type="text"
                 class="input-deck"
@@ -24,23 +25,50 @@
             
           <h3>drawpercentage</h3>
         </article>
-        <article id="card-comparaison">
+        <% if (!error) { %>
+            <article id="card-comparaison">
+          <% if (deckNumber) { %>
+            <h1>Deck <%= deckNumber %></h1>
+          <% }; %>
           <div class="holder-comparaison">
-            <img
+            <% if (!limit60) { %>
+              <img
               class="compar-img"
               src="/assets/images/back-card.webp"
-              alt=""
+              alt="achterkantCard"
             />
-            <div id="draw-button">
-              <button class="track-btn">Draw</button>
-              <button class="track-btn">Reset</button>
-            </div>
-            <img
+            <% } else { %>
+              <img
               class="compar-img"
-              src=""
-              alt=""
-            />
+              />
+            <% }; %>
+            <div id="draw-button">
+              <a href="/MagicTheGathering/drawtest/draw"><button class="track-btn">Draw</button></a>
+              <a href="/MagicTheGathering/drawtest/reset"><button class="track-btn">Reset</button></a>
+            </div>
+            <% if (card) { %>
+              <img
+              class="compar-img"
+              src="<%= card.imageUrl %>"
+              alt="Card"
+              />
+            <% } else if (limit60) { %>
+              <img
+              class="compar-img"
+              src="/assets/images/back-card.webp"
+              alt="achterkantCard"
+              />
+            <% } else { %>
+              <img
+             class="compar-img"
+             />
+           <% }; %>
           </div>
         </article>
+        <% } else if (error === "leeg") { %>
+
+        <% } else { %>
+          <p><%=error%></p>
+        <% }; %>
       </section>
 <%- include("partials/footer.ejs") %>

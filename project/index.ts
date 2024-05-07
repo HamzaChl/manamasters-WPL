@@ -21,10 +21,10 @@ app.set('views', path.join(__dirname, "views"));
 app.use(session);
 app.use((req, res, next) => {
     res.locals.error = undefined;
-    res.locals.limit60 = undefined;
     res.locals.active = undefined;
     res.locals.limit60 = undefined;
     res.locals.card = undefined;
+    res.locals.deckNumber = undefined;
     next();
 })
 
@@ -49,6 +49,5 @@ app.use(errorHandler(404, "De pagina die je probeerde te vinden bestaat niet."))
 
 app.listen(app.get("port"), async () => {
     await connect();
-    
     console.log("Server started on http://localhost:" + app.get('port'));
 });

@@ -7,6 +7,7 @@ import { json } from "stream/consumers";
 import { appendFile, link } from "fs";
 import { parseArgs } from "util";
 import { userInfo } from "os";
+import { shuffle } from "../functions";
 
 
 
@@ -83,6 +84,8 @@ export default function mtgRouter() {
 
     router.get("/home", requireLogin ,async (req, res) => {
         const searchValue: string | undefined = typeof req.query.search === "string" ? req.query.search : undefined;
+        req.session.deckNumber = undefined;
+        req.session.shuffledCards = undefined;
         let randomResults: Card[] = [];
         if (searchValue) {
             randomResults = await get10Cards(searchValue);   
@@ -247,19 +250,93 @@ export default function mtgRouter() {
     });
 
 
-    router.get("/drawtest", requireLogin, (req, res) => {
+    router.get("/drawtest", requireLogin, async (req, res) => {
+        const index: number | undefined = req.session.index;
+        const deckNumber: string | undefined = req.session.deckNumber;
+        let shuffledCards: Card[] | undefined = req.session.shuffledCards;
+        
+        if (!deckNumber) {
+            res.render("drawtest", {
+                active: "Drawtest",
+                error: "leeg"
+            });
+            return;
+        }
+    
+        const deck: WithId<Deck> | null = await getDeck(deckNumber, req.session.username!);
+        let cards: Card[] = [];
+                
+        if (!deck || deck && deck.cards.length === 0) {
+            res.render("drawtest", {
+                active: "Drawtest",
+                error: `Geen kaarten gevonden in deck ${deckNumber}`,
+                deckNumber: parseInt(deckNumber),
+            });
+            return;
+        } else {
+            cards = deck.cards;
+        };
+        console.log( req.session.shuffledCards );
+        
+        if (!req.session.shuffledCards ) {
+            req.session.shuffledCards = cards;
+            shuffledCards = cards;
+        };
 
-        res.render("drawtest", {
-            active: "Drawtest"
-        });
+        if (shuffledCards) {
+            if (index !== undefined && index !== null) {
+               
+                if (index >= shuffledCards.length) {
+                    res.render("drawtest", {
+                        active: "Drawtest",
+                        deckNumber: parseInt(deckNumber),
+                        limit60: "stop"
+                    });
+                    return;
+                } else {
+                    const card: Card = shuffledCards[index];
+                    res.render("drawtest", {
+                        active: "Drawtest",
+                        deckNumber: parseInt(deckNumber),
+                        card: card
+                    });
+                    return;
+                };
+            } else {            
+                res.render("drawtest", {
+                    active: "Drawtest",
+                    deckNumber: parseInt(deckNumber),
+                });
+                return;
+            };
+        }
     });
+    
 
     router.post("/drawtest", requireLogin, (req, res) => {
-        req.body.
-        res.render("drawtest", {
-            active: "Drawtest"
-        });
+        const deckNumber: string = req.body.deck;
+        req.session.deckNumber = deckNumber;
+        req.session.shuffledCards = undefined;
+        res.redirect("/MagicTheGathering/drawtest");
     });
+
+    router.get("/drawtest/draw", requireLogin, (req, res) => {
+        if (req.session.index || req.session.index === 0) {
+            req.session.index++;
+        } else {
+            req.session.index = 0;    
+        }            
+        res.redirect("/MagicTheGathering/drawtest#deck-select");
+    });
+
+    router.get("/drawtest/reset", requireLogin, (req, res) => {
+        req.session.index = undefined;
+        if (req.session.shuffledCards) {
+            req.session.shuffledCards = shuffle(req.session.shuffledCards);                        
+        };
+        res.redirect("/MagicTheGathering/drawtest#deck-select");
+    });
+    
 
     router.get("/closeLimit", requireLogin, (req, res) => {
         res.redirect("/MagicTheGathering/home#search-form-id");

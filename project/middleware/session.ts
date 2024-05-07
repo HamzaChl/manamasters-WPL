@@ -22,6 +22,9 @@ declare module 'express-session' {
         username?: string;
         cards?: Card[];
         loginUsername?: string;
+        index: number;
+        deckNumber: string;
+        shuffledCards: Card[];
     }
 }
 
