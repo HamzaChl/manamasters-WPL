@@ -45,7 +45,6 @@
     }
    }
    document.addEventListener("keydown", () => {
-    buttonClosePopUpIndividueel();
     closePopUps();
    });
    const openPopup = (id) => {
@@ -53,31 +52,17 @@
     popup.style.display = "block";
    };
 
-   function openDecksIndividueel(id) {
-    const popup = document.getElementById(`popupD${id}`);
-    popup.style.visibility = "visible";
-    popup.style.height = "100vh";
-   }
+ 
 
-   function buttonClosePopUpIndividueel() {
-    document.querySelectorAll('.popupdecksIndividueel').forEach(popup => {
-     popup.style.visibility = "hidden";
-     popup.style.height = "0vh";
-    });
-   }
    document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('.card-holder').forEach(element => {
      element.addEventListener("click", () => {
       openPopup(element.id);
      });
     });
-    document.querySelectorAll('.youcard').forEach(element => {
-     element.addEventListener("click", () => {
-      openDecksIndividueel(element.id);
-     });
-    });
    });
   </script>
+  
  </head>
  <body>
   <header class="desktop-version">

@@ -64,6 +64,10 @@ export async function get10Cards(searchValue?: string): Promise<Card[]> {
   }
 }
 
+export async function getCardById(id: string) {
+    return await collectionCards.findOne({id: id});
+};
+
 export async function addUser(user: User) {
   user = {
     username: user.username,

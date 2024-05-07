@@ -1,5 +1,5 @@
 import express, { request, response } from "express";
-import {  addUser, findUser, findUserName, get10Cards, getDeck, insertCardInDeck } from "../database";
+import {  addUser, findUser, findUserName, get10Cards, getCardById, getDeck, insertCardInDeck } from "../database";
 import { AddDeck, Card, Deck, User } from "../types";
 import  { continueLogin, requireLogin } from "../middleware/middleware";
 import { WithId } from "mongodb";
@@ -169,6 +169,53 @@ export default function mtgRouter() {
             });   
         };
     });
+
+    
+    router.get("/deck/:id/:cardId", requireLogin, async (req, res) => {
+        const card: WithId<Card> | null = await getCardById(req.params.cardId);
+        console.log(card);
+        const id: string = req.params.id;
+        const user: string | undefined = req.session.username;
+        if (user) {
+            const deck: WithId<Deck> | null = await getDeck(id, user);     
+            let total: number = 0;
+            let divide: number = 0;
+            let totalLandCards: number = 0;
+            let manaCostTotal: number = 0;
+            const cardCounts: { [key: string]: number } = {};
+            let uniqueCards: Card[] = [];
+            if (deck) {
+                for (const card of deck.cards) {
+                    if (card.manaCost) {
+                        const manaCost: number = parseInt(card.manaCost.substring(1,2));
+                        if (!isNaN(manaCost)) {
+                            total += manaCost
+                            divide++;   
+                        };            
+                    };
+                    if (card.type.toLowerCase().includes("land")) {
+                        totalLandCards++;
+                    };
+                    cardCounts[card.id] = (cardCounts[card.id] || 0) + 1; 
+                };
+                if (divide != 0) {
+                    manaCostTotal = parseFloat((total / divide).toFixed(2));  
+                };
+                uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
+            };
+            res.render("decksindividueel", {
+                active:  "Deck",
+                uniqueCards: uniqueCards,
+                card: card,
+                cardCounts: cardCounts,
+                deck: deck,
+                id: id,
+                manaCost: manaCostTotal,
+                totalLandCards: totalLandCards
+            });   
+        };
+    });
+
 
     router.get("/drawtest", requireLogin, (req, res) => {
         res.render("drawtest", {
