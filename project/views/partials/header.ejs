@@ -36,7 +36,7 @@
     document.getElementById("mobile-menu").style.display = "none";
    });
 
-   function closePopUps() {
+   function closePopUp() {
     for (let i = 0; i < 10; i++) {
      const popup = document.getElementById(`popup${i}`);
      if (popup) {
@@ -45,7 +45,7 @@
     }
    }
    document.addEventListener("keydown", () => {
-    closePopUps();
+    closePopUp();
    });
    const openPopup = (id) => {
     const popup = document.getElementById(`popup${id}`);

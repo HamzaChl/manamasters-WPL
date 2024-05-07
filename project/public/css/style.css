@@ -240,9 +240,7 @@ input::placeholder {
   width: 25px;
 }
 
-.popupdecksIndividueel,
 .info-toggle {
-  display: none;
   width: 100vw;
   transition: transform 0.35s ease-out, opacity 0.25s ease-out,
     background-color 0.25s ease-out;
@@ -255,6 +253,9 @@ input::placeholder {
   overflow: hidden;
 }
 
+.infonone {
+  display: none;
+}
 .wrapper-card {
   height: 100vh;
   width: 100vw;
@@ -271,25 +272,6 @@ input::placeholder {
   padding-top: 20px;
 }
 
-.popupdecksIndividueel>section {
-  max-height: 90vh;
-  max-width: 90vw;
-  outline: 1px solid #fff;
-  padding: 10px;
-  backdrop-filter: blur(6px);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#popupdecksIndividueelImages {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 #buttonClosePopUpIndividueel {
   position: relative;
@@ -306,23 +288,18 @@ input::placeholder {
 
 #popupdecksIndividueelVinkEnVuil {
   display: flex;
-  justify-content: center;
-  padding-top: 30rem;
+  justify-content: start;
   gap: 1rem;
 }
 
-#popupdecksIndividueelImages>p {
-  font-size: 30px;
-}
 
 #popupdecksIndividueelVinkEnVuil {
   margin: 2rem;
 }
 
-#popupdecksIndividueelImages>article>img,
 #popupdecksIndividueelVinkEnVuil> a > img {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
 }
 
 #picturePopUpIndividueel {
@@ -330,24 +307,6 @@ input::placeholder {
   margin: 4rem;
 }
 
-.popupdecksIndividueel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-  outline: 3px solid #fff;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.658);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding-top: 20px;
-}
 
 .select-deck {
   background-color: #fff;
@@ -1469,12 +1428,6 @@ footer h4 {
     flex-direction: row;
   }
 
-  .popupdecksIndividueel>section {
-    display: flex;
-    flex-direction: column;
-    align-items: normal;
-    max-height: none;
-  }
 
   #popupdecksIndividueelVinkEnVuil {
     margin: 0;
@@ -1483,14 +1436,7 @@ footer h4 {
     padding-top: 0;
   }
 
-  .popupdecksIndividueel {
-    padding-top: 30rem;
-    padding-bottom: 5rem;
-  }
 
-  #popupdecksIndividueelImages {
-    gap: 2rem;
-  }
 
   #picturePopUpIndividueel {
     height: 300px;

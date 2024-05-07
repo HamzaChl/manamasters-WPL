@@ -205,10 +205,7 @@ export default function mtgRouter() {
             };
             uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
         };
-        console.log(card);
-        console.log(req.session.limit60);
-        
-        
+
         res.render("decksindividueel", {
             active:  "Deck",
             uniqueCards: uniqueCards,
@@ -218,7 +215,6 @@ export default function mtgRouter() {
             id: id,
             manaCost: manaCostTotal,
             totalLandCards: totalLandCards,
-            limit60: req.session.limit60
         });   
     });
 
@@ -241,13 +237,8 @@ export default function mtgRouter() {
             id: cardId,
             deck: id
         };
-        const limit60: string | undefined = await insertCardInDeck(response, req.session.username!);
-        if (limit60) {
-            req.session.limit60 = limit60;
-            res.redirect(`/MagicTheGathering/deck/${id}`);
-        } else {
-            res.redirect(`/MagicTheGathering/deck/${id}/${cardId}`);
-        }
+        await insertCardInDeck(response, req.session.username!);
+        res.redirect(`/MagicTheGathering/deck/${id}/${cardId}`);
     });
 
     router.get("/deck/:id/:cardId/delete", requireLogin, async (req, res) => {
@@ -266,11 +257,6 @@ export default function mtgRouter() {
         res.redirect("/MagicTheGathering/home#search-form-id");
     });
 
-    
-    router.get("/closeLimitdeck/:id", requireLogin, (req, res) => {
-        req.session.limit60 = undefined;
-        res.redirect(`/MagicTheGathering/deck/${req.params.id}`);
-    });
 
     router.get("/error", (req, res) => {
         if (!req.session.username) {

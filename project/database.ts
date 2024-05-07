@@ -104,9 +104,7 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
         const cards: Card[] = [];
         for (const deckCard of deck.cards) {
           if (deckCard.id === card.id) {
-              cards.push(deckCard);
-              console.log("check");
-              
+              cards.push(deckCard);              
           };
         };
         

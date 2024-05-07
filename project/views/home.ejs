@@ -43,10 +43,10 @@
         </form>
         <% let counter = 0; %>
         <% for (const card of cards) {%>
-          <div class="info-toggle" id="popup<%=counter%>">
+          <div class="info-toggle infonone" id="popup<%=counter%>">
             <% counter++; %>
             <article class="wrapper-card">
-              <button class="btn-popup" onclick="ClosePopUp()"><span style="font-size: 3rem;">ⓧ</span></button>
+              <button class="btn-popup" onclick="closePopUp()"><span style="font-size: 3rem;">ⓧ</span></button>
               <div class="popup-wrapper">
                 <section class="card-details-holder">
                   

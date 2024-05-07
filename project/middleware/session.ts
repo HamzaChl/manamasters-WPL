@@ -22,7 +22,6 @@ declare module 'express-session' {
         username?: string;
         cards?: Card[];
         loginUsername?: string;
-        limit60?: string;
     }
 }
 
