@@ -17,7 +17,6 @@ export default function mtgRouter() {
     });
 
     router.get("/login", continueLogin ,(req, res) => {
-        
         res.render("login", {
             word: "login"
         });
@@ -39,7 +38,7 @@ export default function mtgRouter() {
             req.session.username = formRegister.username;
             res.redirect("/MagicTheGathering/home");  
         } else {
-            res.render("login", {
+            res.status(401).render("login", {
                 error: "De verstrekte inloggegevens zijn niet correct.",
                 word: "login"
             });
@@ -144,8 +143,10 @@ export default function mtgRouter() {
                 for (const card of deck.cards) {
                     if (card.manaCost) {
                         const manaCost: number = parseInt(card.manaCost.substring(1,2));
-                        total += manaCost
-                        divide++;                        
+                        if (!isNaN(manaCost)) {
+                            total += manaCost
+                            divide++;   
+                        };            
                     };
                     if (card.type.toLowerCase().includes("land")) {
                         totalLandCards++;

@@ -21,6 +21,7 @@ declare module 'express-session' {
     export interface SessionData {
         username?: string;
         cards?: Card[];
+        loginUsername?: string;
     }
 }
 

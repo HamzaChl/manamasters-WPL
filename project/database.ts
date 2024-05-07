@@ -105,7 +105,6 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
               
           };
         };
-        console.log(cards);
         
         if (deck.cards.length === 60) {
           return `Limiet van kaarten op deck ${response.deck} bereikt.`;

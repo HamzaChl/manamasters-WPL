@@ -44,7 +44,6 @@ app.get("/projects", (req, res) => {
 app.use(errorHandler(404, "De pagina die je probeerde te vinden bestaat niet."))
    .use(errorHandler(500, "Interne serverfout. Probeer het later opnieuw."))
    .use(errorHandler(403, "Verboden. Toegang geweigerd."))
-   .use(errorHandler(401, "Ongeautoriseerd. Log alsjeblieft in."))
    .use(errorHandler(400, "Foute aanvraag. Ongeldige syntaxis."));
 
 app.listen(app.get("port"), async () => {
