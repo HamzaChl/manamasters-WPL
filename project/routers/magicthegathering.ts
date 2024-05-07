@@ -1,9 +1,12 @@
 import express, { request, response } from "express";
-import {  addUser, findUser, findUserName, get10Cards, getCardById, getDeck, insertCardInDeck } from "../database";
+import {  addUser, checkCardExists, deleteCards, deleteOneCard, findUser, findUserName, get10Cards, getCardById, getDeck, insertCardInDeck } from "../database";
 import { AddDeck, Card, Deck, User } from "../types";
 import  { continueLogin, requireLogin } from "../middleware/middleware";
 import { WithId } from "mongodb";
 import { json } from "stream/consumers";
+import { appendFile, link } from "fs";
+import { parseArgs } from "util";
+import { userInfo } from "os";
 
 
 
@@ -173,47 +176,83 @@ export default function mtgRouter() {
     
     router.get("/deck/:id/:cardId", requireLogin, async (req, res) => {
         const card: WithId<Card> | null = await getCardById(req.params.cardId);
-        console.log(card);
         const id: string = req.params.id;
         const user: string | undefined = req.session.username;
-        if (user) {
-            const deck: WithId<Deck> | null = await getDeck(id, user);     
-            let total: number = 0;
-            let divide: number = 0;
-            let totalLandCards: number = 0;
-            let manaCostTotal: number = 0;
-            const cardCounts: { [key: string]: number } = {};
-            let uniqueCards: Card[] = [];
-            if (deck) {
-                for (const card of deck.cards) {
-                    if (card.manaCost) {
-                        const manaCost: number = parseInt(card.manaCost.substring(1,2));
-                        if (!isNaN(manaCost)) {
-                            total += manaCost
-                            divide++;   
-                        };            
-                    };
-                    if (card.type.toLowerCase().includes("land")) {
-                        totalLandCards++;
-                    };
-                    cardCounts[card.id] = (cardCounts[card.id] || 0) + 1; 
+
+        const deck: WithId<Deck> | null = await getDeck(id, user!);     
+        let total: number = 0;
+        let divide: number = 0;
+        let totalLandCards: number = 0;
+        let manaCostTotal: number = 0;
+        const cardCounts: { [key: string]: number } = {};
+        let uniqueCards: Card[] = [];
+        if (deck) {
+            for (const card of deck.cards) {
+                if (card.manaCost) {
+                    const manaCost: number = parseInt(card.manaCost.substring(1,2));
+                    if (!isNaN(manaCost)) {
+                        total += manaCost
+                        divide++;   
+                    };            
                 };
-                if (divide != 0) {
-                    manaCostTotal = parseFloat((total / divide).toFixed(2));  
+                if (card.type.toLowerCase().includes("land")) {
+                    totalLandCards++;
                 };
-                uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
+                cardCounts[card.id] = (cardCounts[card.id] || 0) + 1; 
             };
-            res.render("decksindividueel", {
-                active:  "Deck",
-                uniqueCards: uniqueCards,
-                card: card,
-                cardCounts: cardCounts,
-                deck: deck,
-                id: id,
-                manaCost: manaCostTotal,
-                totalLandCards: totalLandCards
-            });   
+            if (divide != 0) {
+                manaCostTotal = parseFloat((total / divide).toFixed(2));  
+            };
+            uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
         };
+        console.log(card);
+        console.log(req.session.limit60);
+        
+        
+        res.render("decksindividueel", {
+            active:  "Deck",
+            uniqueCards: uniqueCards,
+            card: card,
+            cardCounts: cardCounts,
+            deck: deck,
+            id: id,
+            manaCost: manaCostTotal,
+            totalLandCards: totalLandCards,
+            limit60: req.session.limit60
+        });   
+    });
+
+    router.get("/deck/:id/:cardId/min", requireLogin, async (req, res) => {
+        const id: string = req.params.id;
+        const cardId: string = req.params.cardId;
+        await deleteOneCard(id, cardId, req.session.username!);
+        const cardExists: boolean = await checkCardExists(id, cardId, req.session.username!);
+        if (cardExists) {
+            res.redirect(`/MagicTheGathering/deck/${id}/${cardId}`);            
+        } else {
+            res.redirect(`/MagicTheGathering/deck/${id}`);            
+        }
+    });
+
+    router.get("/deck/:id/:cardId/add", requireLogin, async (req, res) => {
+        const id: string = req.params.id;
+        const cardId: string = req.params.cardId;
+        const response: AddDeck = {
+            id: cardId,
+            deck: id
+        };
+        const limit60: string | undefined = await insertCardInDeck(response, req.session.username!);
+        if (limit60) {
+            req.session.limit60 = limit60;
+            res.redirect(`/MagicTheGathering/deck/${id}`);
+        } else {
+            res.redirect(`/MagicTheGathering/deck/${id}/${cardId}`);
+        }
+    });
+
+    router.get("/deck/:id/:cardId/delete", requireLogin, async (req, res) => {
+        await deleteCards(req.params.id, req.params.cardId, req.session.username!);
+        res.redirect(`/MagicTheGathering/deck/${req.params.id}`);
     });
 
 
@@ -225,6 +264,12 @@ export default function mtgRouter() {
 
     router.get("/closeLimit", requireLogin, (req, res) => {
         res.redirect("/MagicTheGathering/home#search-form-id");
+    });
+
+    
+    router.get("/closeLimitdeck/:id", requireLogin, (req, res) => {
+        req.session.limit60 = undefined;
+        res.redirect(`/MagicTheGathering/deck/${req.params.id}`);
     });
 
     router.get("/error", (req, res) => {

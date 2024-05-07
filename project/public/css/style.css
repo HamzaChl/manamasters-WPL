@@ -320,7 +320,7 @@ input::placeholder {
 }
 
 #popupdecksIndividueelImages>article>img,
-#popupdecksIndividueelVinkEnVuil>img {
+#popupdecksIndividueelVinkEnVuil> a > img {
   height: 40px;
   width: 40px;
 }

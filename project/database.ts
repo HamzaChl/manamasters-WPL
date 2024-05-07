@@ -132,9 +132,41 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
   };
 };
 
+export async function deleteOneCard(deckNumber: string, cardId: string, username: string) {
+    const deck: WithId<Deck> | null = await getDeck(deckNumber, username);
+    if (deck) {
+      const cardIndex = deck.cards.findIndex(card => card.id === cardId);
+      if (cardIndex !== -1) {
+          deck.cards.splice(cardIndex, 1);
+          await collecionDecks.updateOne(
+              { id: deckNumber, username: username },
+              { $set: { cards: deck.cards } }
+          );
+      }
+  }
+};
+
+
+export async function deleteCards(deckNumber: string, cardId: string, username: string) {
+  await collecionDecks.updateOne(
+      { $and: [{ id: deckNumber, username: username }] }, 
+      { $pull: { cards: { id: cardId } } }
+  );
+};
+
+
 export async function getDeck(deckNumber: string, username: string) {
   return await collecionDecks.findOne({$and: [{id: deckNumber}, {username: username}]});
 }
+
+export async function checkCardExists(deckNumber: string, cardId: string, username: string) {
+  const deck: WithId<Deck> | null = await getDeck(deckNumber, username);
+  if (deck) {
+      const cardExists = deck.cards.some(card => card.id === cardId);
+      return cardExists;
+  }
+  return false;
+};
 
 async function exit() {
   try {
