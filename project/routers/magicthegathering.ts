@@ -271,6 +271,7 @@ export default function mtgRouter() {
                 active: "Drawtest",
                 error: `Geen kaarten gevonden in deck ${deckNumber}`,
                 deckNumber: parseInt(deckNumber),
+                cards: undefined
             });
             return;
         } else {
@@ -289,7 +290,8 @@ export default function mtgRouter() {
                     res.render("drawtest", {
                         active: "Drawtest",
                         deckNumber: parseInt(deckNumber),
-                        limit60: "stop"
+                        limit60: "stop",
+                        cards: cards
                     });
                     return;
                 } else {
@@ -297,7 +299,8 @@ export default function mtgRouter() {
                     res.render("drawtest", {
                         active: "Drawtest",
                         deckNumber: parseInt(deckNumber),
-                        card: card
+                        card: card,
+                        cards: cards
                     });
                     return;
                 };
@@ -305,6 +308,7 @@ export default function mtgRouter() {
                 res.render("drawtest", {
                     active: "Drawtest",
                     deckNumber: parseInt(deckNumber),
+                    cards: cards
                 });
                 return;
             };

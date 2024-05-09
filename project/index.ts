@@ -25,6 +25,7 @@ app.use((req, res, next) => {
     res.locals.limit60 = undefined;
     res.locals.card = undefined;
     res.locals.deckNumber = undefined;
+    res.locals.cards = undefined;
     next();
 })
 

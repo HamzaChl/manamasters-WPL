@@ -14,15 +14,16 @@
                 <option value="5" <% if (deckNumber === 5) { %> selected <% }; %> >Deck 05</option>
                 <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Deck 06</option>
               </select> 
-              <input
-                type="text"
-                class="input-deck"
-                placeholder="Zoek een kaart naam, type, ..."
-              />
+              <% if (cards) { %>
+                <select name="drawpercentage" class="select-deck" id="">
+                  <% for (const card of cards) { %>
+                      <option value="<%= card.id %>"><%= card.name %></option>
+                  <% }; %>
+                </select>
+              <% }; %>
             </div>
             <button class="track-btn">track</button>
             </form>
-            
           <h3>drawpercentage</h3>
         </article>
         <% if (!error) { %>
