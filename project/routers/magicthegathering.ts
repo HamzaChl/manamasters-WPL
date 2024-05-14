@@ -98,10 +98,26 @@ export default function mtgRouter() {
                 randomResults = req.session.cards;
             }
         };
-
+        let alreadyInDecks: { deck: string | undefined }[] = []; 
+        const decks = ["1", "2", "3", "4", "5", "6"];
+        for (let i = 0; i < 10; i++) {
+            alreadyInDecks[i] = { deck: "" };
+            for (const deckId of decks) {
+                const deck: boolean = await checkCardExists(deckId, randomResults[i].id, req.session.username!);        
+                if (deck) {
+                    alreadyInDecks[i].deck += deckId + ", ";
+                };
+            };
+            alreadyInDecks[i].deck = alreadyInDecks[i].deck!.substring(0, alreadyInDecks[i].deck!.length - 2);
+            if (alreadyInDecks[i].deck === '') {
+                alreadyInDecks[i].deck = undefined;
+            }
+        };
+        
         res.render("home", {
             active: "Home",
             cards: randomResults,
+            alreadyInDecks: alreadyInDecks
         });    
     });
 

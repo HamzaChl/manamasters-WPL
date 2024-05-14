@@ -8,6 +8,7 @@ export interface Deck {
     cards: Card[];
     id: string;
     username: string;
+    deckName: string;
 };
 
 export interface AddDeck {

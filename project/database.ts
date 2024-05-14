@@ -95,6 +95,7 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
   const card: WithId<Card> | null = await collectionCards.findOne({
     id: response.id,
   });
+  const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"];
 
   if (card) {
     const deck: Deck | null = await collecionDecks.findOne({
@@ -123,6 +124,7 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
           id: response.deck,
           cards: [card],
           username: username,
+          deckName: deckNames[parseInt(response.deck)]
         };
         await collecionDecks.insertOne(deck);
         return undefined;

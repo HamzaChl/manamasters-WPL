@@ -1,6 +1,8 @@
 <%- include("partials/header.ejs") %>
-    <main>
+    <main class="draw-test">
       <section class="decks-container">
+        <script src="https://kit.fontawesome.com/ccd4003a42.js" crossorigin="anonymous"></script>
+
         <h1 class="ui-hover">Draw Test</h1>
         <article id="add-deck" class="add-deck">
           <div class="left-part">
@@ -15,7 +17,7 @@
                 <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Deck 06</option>
               </select> 
               <% if (cards) { %>
-                <select name="drawpercentage" class="select-deck" id="">
+                <select name="drawpercentage" class="select-deck card-names-select" id="">
                   <% for (const card of cards) { %>
                       <option value="<%= card.id %>"><%= card.name %></option>
                   <% }; %>
@@ -69,7 +71,10 @@
         <% } else if (error === "leeg") { %>
 
         <% } else { %>
-          <p><%=error%></p>
+          
+
+            <h4 class="error-leeg"><%=error%></h4>
+          
         <% }; %>
       </section>
 <%- include("partials/footer.ejs") %>

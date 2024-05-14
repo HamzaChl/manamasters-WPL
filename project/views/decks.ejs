@@ -2,11 +2,12 @@
     <main id="decks-main">
       <h1 class="ui-hover">Decks</h1>
       <section id="decks-container">
+        <% const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"]; %>
         <% for (let i = 1; i < 7; i++) { %>
           <a href="/MagicTheGathering/deck/<%=i%>">
             <article class="decks-holder">
               <div class="deck<%=i%> project">
-                <h2>Deck 0<%=i%></h2>
+                <h2><%= deckNames[i - 1 ] %></h2>
               </div>
             </article>
           </a>
