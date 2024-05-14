@@ -68,11 +68,13 @@
                       <% 
                       if (index === 0) { %> 
                         Er zijn nog geen vorige kaarten 
-                      <% } else { 
-                        for (let i = 0; i < index; i++) { %> 
-                          <%= (i + 1) + ". " + cards[i].name %> <br> <% 
-                        } 
-                      } %>  
+                      <% } else { %>
+                        <ol style="list-style: decimal;">
+                          <% for (let i = 0; i < index; i++) { %> 
+                              <li><%=   cards[i].name %> </li> <% 
+                          } %>
+                        </ol>
+                      <% }; %>  
                     </p> 
                     <a class="login-error-close" href="/MagicTheGathering/drawtest/closeshowpreviouscards" >Sluiten</a>
                   </section>
@@ -92,7 +94,7 @@
               alt="achterkantCard"
               />
             <% } else { %>
-              <img
+              <img 
              class="compar-img"
              />
            <% }; %>
