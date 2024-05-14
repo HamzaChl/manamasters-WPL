@@ -26,6 +26,8 @@ app.use((req, res, next) => {
     res.locals.card = undefined;
     res.locals.deckNumber = undefined;
     res.locals.cards = undefined;
+    res.locals.drawPercentage = undefined;
+    res.locals.drawPercentageId = undefined;
     next();
 })
 

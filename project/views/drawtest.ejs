@@ -22,16 +22,20 @@
                 <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Celestial Heights</option>
               </select> 
               <% if (cards) { %>
-                <select name="drawpercentage" class="select-deck card-names-select">
+                <select name="drawPercentage" class="select-deck card-names-select">
                   <% for (const card of cards) { %>
-                      <option value="<%= card.id %>"><%= card.name %></option>
+                      <option value="<%= card._id %>" <% if (drawPercentageId === card._id) { %> selected <% } %> ><%= card.name %></option>
                   <% }; %>
                 </select>
               <% }; %>
             </div>
             <button class="track-btn">track</button>
             </form>
-          <h3>drawpercentage</h3>
+          <h3>
+            <% if (drawPercentage) { %>
+              <%= drawPercentage %>%
+            <% }; %>
+          </h3>
         </article>
         <% if (!error) { %>
             <article id="card-comparaison">
@@ -66,12 +70,12 @@
                     
                     <p>
                       <% 
-                      if (index === 0) { %> 
+                      if (index === 0 | !index) { %> 
                         Er zijn nog geen vorige kaarten 
                       <% } else { %>
                         <ol style="list-style: decimal;">
                           <% for (let i = 0; i < index; i++) { %> 
-                              <li><%=   cards[i].name %> </li> <% 
+                              <li> <%= cards[i].name %> </li> <% 
                           } %>
                         </ol>
                       <% }; %>  
@@ -83,7 +87,11 @@
             <% }; %>
             <% if (card) { %>
               <img
-              class="compar-img flip-anim"
+              class="compar-img 
+              <% if (!popupPreviousCards) { %>
+                flip-anim                
+              <% } %>
+              "
               src="<%= card.imageUrl %>"
               alt="Card"
               />

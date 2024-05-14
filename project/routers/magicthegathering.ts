@@ -8,6 +8,7 @@ import { appendFile, link } from "fs";
 import { parseArgs } from "util";
 import { userInfo } from "os";
 import { shuffle } from "../functions";
+import { isContext } from "vm";
 
 
 
@@ -270,6 +271,7 @@ export default function mtgRouter() {
     router.get("/drawtest", requireLogin, async (req, res) => {
         const index: number | undefined = req.session.index;
         const deckNumber: string | undefined = req.session.deckNumber;
+        const drawPercentageId: string | undefined = req.session.drawPercentage;
         let shuffledCards: Card[] | undefined = req.session.shuffledCards;
         
         if (!deckNumber) {
@@ -303,17 +305,33 @@ export default function mtgRouter() {
 
         if (shuffledCards) {
             if (index !== undefined && index !== null) {
-               
+
+                let drawPercentage: number | string = 0;
+                for (let i = 0; i < shuffledCards.length; i++) {
+                    
+                    if (shuffledCards[i]._id!.toString() === drawPercentageId) { 
+                        const indexCard: number = i;
+                        if (indexCard <= index) {
+                            drawPercentage = "0";
+                        } else {
+                            drawPercentage = parseFloat((100 / (indexCard - index)).toFixed(2)) ; 
+                        }
+                    }
+                }
+                
                 if (index >= shuffledCards.length) {
                     res.render("drawtest", {
                         active: "Drawtest",
                         deckNumber: parseInt(deckNumber),
                         limit60: "stop",
                         cards: cards,
+                        card: undefined,
                         deckName: deckNames[parseInt(deckNumber) - 1],
                         index: index,
-                        popupPreviousCards: req.session.popupPreviousCards
-                    });
+                        popupPreviousCards: req.session.popupPreviousCards,
+                        drawPercentage: drawPercentage,
+                        drawPercentageId: drawPercentageId
+                    });                    
                     return;
                 } else {
                     const card: Card = shuffledCards[index];
@@ -324,18 +342,38 @@ export default function mtgRouter() {
                         cards: cards,
                         deckName: deckNames[parseInt(deckNumber) - 1],
                         index: index,
-                        popupPreviousCards: req.session.popupPreviousCards
+                        popupPreviousCards: req.session.popupPreviousCards,
+                        drawPercentage: drawPercentage,
+                        drawPercentageId: drawPercentageId
                     });
                     return;
                 };
             } else {            
+                let drawPercentage: number | string = 0;
+                for (let i = 0; i < shuffledCards.length; i++) {
+                    if (shuffledCards[i]._id?.toString() === drawPercentageId) {
+                        const indexCard: number = i;
+                        if (!index) {
+                            if (indexCard === 0) {
+                                drawPercentage = 100;
+                            } else {
+                                drawPercentage = parseFloat((100 / (indexCard)).toFixed(2)) ; 
+                            }
+                        }  else {
+                            drawPercentage = "0";
+                        }
+                    }
+                }
+                
                 res.render("drawtest", {
                     active: "Drawtest",
                     deckNumber: parseInt(deckNumber),
                     cards: cards,
                     deckName: deckNames[parseInt(deckNumber) - 1],
                     index: index,
-                    popupPreviousCards: req.session.popupPreviousCards
+                    popupPreviousCards: req.session.popupPreviousCards,
+                    drawPercentage: drawPercentage,
+                    drawPercentageId: drawPercentageId
                 });
                 return;
             };
@@ -345,20 +383,24 @@ export default function mtgRouter() {
 
     router.post("/drawtest", requireLogin, (req, res) => {
         const deckNumber: string = req.body.deck;
+        const drawPercentage: string = req.body.drawPercentage;
+        if (req.session.deckNumber && req.session.deckNumber != req.body.deck) {
+            req.session.index = undefined;
+            req.session.shuffledCards = undefined;
+        }
         req.session.deckNumber = deckNumber;
-        req.session.index = undefined;
-        req.session.shuffledCards = undefined;
+        req.session.drawPercentage = drawPercentage;
         res.redirect("/MagicTheGathering/drawtest");
     });
     
     router.get("/drawtest/showpreviouscards", requireLogin, async (req, res) => {
         req.session.popupPreviousCards = true; 
-        res.redirect("/MagicTheGathering/drawtest#deckNameDrawtest");
+        res.redirect("/MagicTheGathering/drawtest#deck-select");
     });
 
     router.get("/drawtest/closeshowpreviouscards", requireLogin, async (req, res) => {
         req.session.popupPreviousCards = false; 
-        res.redirect("/MagicTheGathering/drawtest#deckNameDrawtest");
+        res.redirect("/MagicTheGathering/drawtest#deck-select");
     });
 
     router.get("/drawtest/draw", requireLogin, (req, res) => {
