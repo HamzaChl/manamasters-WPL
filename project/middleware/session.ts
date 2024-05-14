@@ -25,6 +25,7 @@ declare module 'express-session' {
         index: number;
         deckNumber: string;
         shuffledCards: Card[];
+        popupPreviousCards: boolean;
     }
 }
 

@@ -107,7 +107,7 @@
                     <h4>kaart toevoegen aan deck</h4>
                     <br>
                    <form action="/MagicTheGathering/home" method="post">
-                      <select name="deck" class="select-deck" id="pet-select">
+                      <select name="deck" class="select-deck select-deck-home" id="pet-select">
                         <option value="1">Deck 01</option>
                         <option value="2">Deck 02</option>
                         <option value="3">Deck 03</option>
@@ -119,8 +119,13 @@
                       <button class="add-deck" id="add-to-deck-btn">+</button>
                   </form>
                   <% if (alreadyInDecks[i].deck) { %>
-                    <p>Zit al in deck(s): <%= alreadyInDecks[i].deck %></p>
-                  <% }; %>
+                      <div class="exists-deck">
+                        <hr class="solid" />
+                        <h4>Zit al in deck(s):</h4>
+                        <p><br><%= alreadyInDecks[i].deck %></p>
+                        
+                      </div>
+                    <% }; %>
                   </div>
                 </section>
               </div>

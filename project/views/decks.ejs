@@ -6,11 +6,11 @@
         <% for (let i = 1; i < 7; i++) { %>
           <a href="/MagicTheGathering/deck/<%=i%>">
             <article class="decks-holder">
-              <div class="deck<%=i%> project">
+              <div class="project titel-decks" style="background-image: linear-gradient(to bottom, transparent, #100f15d2), url('https://raw.githubusercontent.com/Imrxng/fotosProjectWEB/main/deck<%= i %>.webp');">
                 <h2><%= deckNames[i - 1 ] %></h2>
               </div>
             </article>
           </a>
         <% }; %>
       </section>
-<%- include("partials/footer.ejs") %>
+<%- include("partials/footer.ejs") %> 

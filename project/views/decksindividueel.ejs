@@ -85,8 +85,9 @@
         <article id="deckPhotoAndText">
             <figure>
               <img  style="background-image: linear-gradient(to bottom, transparent, #100f15d2),
-              url(/assets/images/deck<%=id%>.webp);">
-              <figcaption>Deck <%=id%></figcaption>
+              url('https://raw.githubusercontent.com/Imrxng/fotosProjectWEB/main/deck<%= id %>.webp');">
+              <% const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"]; %>
+              <figcaption><%= deckNames[id] %> </figcaption>
             </figure>
           </article>
            <div id="iconsrow">

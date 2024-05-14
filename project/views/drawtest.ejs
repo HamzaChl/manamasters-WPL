@@ -1,4 +1,9 @@
 <%- include("partials/header.ejs") %>
+<style>
+  body {
+      display: none;
+  }
+</style>
     <main class="draw-test">
       <section class="decks-container">
         <script src="https://kit.fontawesome.com/ccd4003a42.js" crossorigin="anonymous"></script>
@@ -9,15 +14,15 @@
             <form action="/MagicTheGathering/drawtest" method="post">
               <select name="deck" class="select-deck" id="deck-select">
                 <option disabled <% if (!deckNumber) { %> selected <%} %> >-- Kies een deck --</option>
-                <option value="1" <% if (deckNumber === 1) { %> selected <% }; %> >Deck 01</option>
-                <option value="2" <% if (deckNumber === 2) { %> selected <% }; %> >Deck 02</option>
-                <option value="3" <% if (deckNumber === 3) { %> selected <% }; %> >Deck 03</option>
-                <option value="4" <% if (deckNumber === 4) { %> selected <% }; %> >Deck 04</option>
-                <option value="5" <% if (deckNumber === 5) { %> selected <% }; %> >Deck 05</option>
-                <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Deck 06</option>
+                <option value="1" <% if (deckNumber === 1) { %> selected <% }; %> >Desert Mirage</option>
+                <option value="2" <% if (deckNumber === 2) { %> selected <% }; %> >Shadowed Labyrinth</option>
+                <option value="3" <% if (deckNumber === 3) { %> selected <% }; %> >Inferno Blaze</option>
+                <option value="4" <% if (deckNumber === 4) { %> selected <% }; %> >Mystic Marsh</option>
+                <option value="5" <% if (deckNumber === 5) { %> selected <% }; %> >Verdant Canopy</option>
+                <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Celestial Heights</option>
               </select> 
               <% if (cards) { %>
-                <select name="drawpercentage" class="select-deck card-names-select" id="">
+                <select name="drawpercentage" class="select-deck card-names-select">
                   <% for (const card of cards) { %>
                       <option value="<%= card.id %>"><%= card.name %></option>
                   <% }; %>
@@ -30,8 +35,8 @@
         </article>
         <% if (!error) { %>
             <article id="card-comparaison">
-          <% if (deckNumber) { %>
-            <h1>Deck <%= deckNumber %></h1>
+          <% if (deckName) { %>
+            <h1 id="deckNameDrawtest"><%= deckName %></h1>
           <% }; %>
           <div class="holder-comparaison">
             <% if (!limit60) { %>
@@ -48,7 +53,35 @@
             <div id="draw-button">
               <a href="/MagicTheGathering/drawtest/draw"><button class="track-btn">Draw</button></a>
               <a href="/MagicTheGathering/drawtest/reset"><button class="track-btn">Reset</button></a>
+              <a href="/MagicTheGathering/drawtest/showpreviouscards"><button class="track-btn">Previous</button></a>
             </div>
+            <% let text = ""; %>
+            <% if (cards && popupPreviousCards) { %>
+                <% for (let i = 0; i < index; i++) { %>
+                  
+                  <% text += (i + 1) + ". " + cards[i].name %>
+                  <% if (i < index - 1) { %>
+                    <% text += ", ";
+                  <% }; %>
+                <% }; %>  
+                <div class="login-error">
+                  <section class="login-error-container" >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
+                      <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
+                      <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
+                    </svg>
+                      <p>
+                        <% if (text === "") { %>
+                          Er zijn nog geen vorige kaarten
+                        <% } else { %>
+                          <%=text%>
+                        <% }; %>
+                      </p> 
+                      <a class="login-error-close" href="/MagicTheGathering/drawtest/closeshowpreviouscards" >Sluiten</a>
+                  </section>
+                
+                </div>
+            <% }; %>
             <% if (card) { %>
               <img
               class="compar-img flip-anim"
@@ -69,7 +102,7 @@
           </div>
         </article>
         <% } else if (error === "leeg") { %>
-
+          
         <% } else { %>
           
 
@@ -77,4 +110,9 @@
           
         <% }; %>
       </section>
+      <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.style.display = 'block';
+        });
+    </script>
 <%- include("partials/footer.ejs") %>

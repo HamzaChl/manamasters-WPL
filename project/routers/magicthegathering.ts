@@ -100,12 +100,13 @@ export default function mtgRouter() {
         };
         let alreadyInDecks: { deck: string | undefined }[] = []; 
         const decks = ["1", "2", "3", "4", "5", "6"];
+        const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"]; 
         for (let i = 0; i < 10; i++) {
             alreadyInDecks[i] = { deck: "" };
             for (const deckId of decks) {
                 const deck: boolean = await checkCardExists(deckId, randomResults[i].id, req.session.username!);        
                 if (deck) {
-                    alreadyInDecks[i].deck += deckId + ", ";
+                    alreadyInDecks[i].deck += deckNames[parseInt(deckId)] + ", ";
                 };
             };
             alreadyInDecks[i].deck = alreadyInDecks[i].deck!.substring(0, alreadyInDecks[i].deck!.length - 2);
@@ -138,9 +139,9 @@ export default function mtgRouter() {
     });
 
 
-    router.get("/decks", requireLogin, (req, res) => {
+    router.get("/decks", requireLogin, async (req, res) => {
         res.render("decks", {
-            active:  "Decks"
+            active:  "Decks",
         });
     });
     
@@ -281,11 +282,12 @@ export default function mtgRouter() {
     
         const deck: WithId<Deck> | null = await getDeck(deckNumber, req.session.username!);
         let cards: Card[] = [];
-                
+        const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"];
+        
         if (!deck || deck && deck.cards.length === 0) {
             res.render("drawtest", {
                 active: "Drawtest",
-                error: `Geen kaarten gevonden in deck ${deckNumber}`,
+                error: `Geen kaarten gevonden in deck ${deckNames[parseInt(deckNumber) - 1]}`,
                 deckNumber: parseInt(deckNumber),
                 cards: undefined
             });
@@ -307,7 +309,10 @@ export default function mtgRouter() {
                         active: "Drawtest",
                         deckNumber: parseInt(deckNumber),
                         limit60: "stop",
-                        cards: cards
+                        cards: cards,
+                        deckName: deckNames[parseInt(deckNumber) - 1],
+                        index: index,
+                        popupPreviousCards: req.session.popupPreviousCards
                     });
                     return;
                 } else {
@@ -316,7 +321,10 @@ export default function mtgRouter() {
                         active: "Drawtest",
                         deckNumber: parseInt(deckNumber),
                         card: card,
-                        cards: cards
+                        cards: cards,
+                        deckName: deckNames[parseInt(deckNumber) - 1],
+                        index: index,
+                        popupPreviousCards: req.session.popupPreviousCards
                     });
                     return;
                 };
@@ -324,7 +332,10 @@ export default function mtgRouter() {
                 res.render("drawtest", {
                     active: "Drawtest",
                     deckNumber: parseInt(deckNumber),
-                    cards: cards
+                    cards: cards,
+                    deckName: deckNames[parseInt(deckNumber) - 1],
+                    index: index,
+                    popupPreviousCards: req.session.popupPreviousCards
                 });
                 return;
             };
@@ -338,6 +349,16 @@ export default function mtgRouter() {
         req.session.index = undefined;
         req.session.shuffledCards = undefined;
         res.redirect("/MagicTheGathering/drawtest");
+    });
+    
+    router.get("/drawtest/showpreviouscards", requireLogin, async (req, res) => {
+        req.session.popupPreviousCards = true; 
+        res.redirect("/MagicTheGathering/drawtest#deckNameDrawtest");
+    });
+
+    router.get("/drawtest/closeshowpreviouscards", requireLogin, async (req, res) => {
+        req.session.popupPreviousCards = false; 
+        res.redirect("/MagicTheGathering/drawtest#deckNameDrawtest");
     });
 
     router.get("/drawtest/draw", requireLogin, (req, res) => {

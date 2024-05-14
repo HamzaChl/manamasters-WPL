@@ -942,6 +942,14 @@ footer h4 {
   flex-direction: column;
 }
 
+.exists-deck {
+  margin-top: 15px;
+}
+
+.select-deck-home {
+  min-width: 400px;
+}
+
 .decks-container>h1 {
   margin-top: 50px;
 }
@@ -1334,46 +1342,9 @@ footer h4 {
   border: white solid 1;
 }
 
-.deck1 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck1.webp);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.deck2 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck2.webp);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.deck3 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck3.webp);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.deck4 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck4.webp);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.deck5 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck5.webp);
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.deck6 {
-  background-image: linear-gradient(to bottom, transparent, #100f15d2),
-    url(../assets/images/deck6.webp);
-  background-size: cover;
-  border-radius: 10px;
+#deckNameDrawtest {
+  font-family: popup;
+  margin-bottom: 2rem;
 }
 
 .project h2 {
@@ -1512,6 +1483,10 @@ footer h4 {
     text-align: center;
   }
 
+  .select-deck-home {
+    min-width: auto;
+  }
+
 }
 
 @media only screen and (max-width: 900px) {
@@ -1612,6 +1587,12 @@ footer h4 {
   .project h2 {
     font-size: 3rem;
   }
+
+  .titel-decks h2 {
+    font-size: 2rem;
+    text-align: left;
+  }
+
 }
 
 @media screen and (max-width: 750px) {
