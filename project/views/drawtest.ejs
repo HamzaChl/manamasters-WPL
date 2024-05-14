@@ -55,29 +55,26 @@
               <a href="/MagicTheGathering/drawtest/reset"><button class="track-btn">Reset</button></a>
               <a href="/MagicTheGathering/drawtest/showpreviouscards"><button class="track-btn">Previous</button></a>
             </div>
-            <% let text = ""; %>
-            <% if (cards && popupPreviousCards) { %>
-                <% for (let i = 0; i < index; i++) { %>
-                  
-                  <% text += (i + 1) + ". " + cards[i].name %>
-                  <% if (i < index - 1) { %>
-                    <% text += ", ";
-                  <% }; %>
-                <% }; %>  
+            <% if (cards && popupPreviousCards ) { %>
+               
                 <div class="login-error">
                   <section class="login-error-container" >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
                       <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
                       <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
                     </svg>
-                      <p>
-                        <% if (text === "") { %>
-                          Er zijn nog geen vorige kaarten
-                        <% } else { %>
-                          <%=text%>
-                        <% }; %>
-                      </p> 
-                      <a class="login-error-close" href="/MagicTheGathering/drawtest/closeshowpreviouscards" >Sluiten</a>
+                    
+                    <p>
+                      <% 
+                      if (index === 0) { %> 
+                        Er zijn nog geen vorige kaarten 
+                      <% } else { 
+                        for (let i = 0; i < index; i++) { %> 
+                          <%= (i + 1) + ". " + cards[i].name %> <br> <% 
+                        } 
+                      } %>  
+                    </p> 
+                    <a class="login-error-close" href="/MagicTheGathering/drawtest/closeshowpreviouscards" >Sluiten</a>
                   </section>
                 
                 </div>
