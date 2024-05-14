@@ -120,11 +120,15 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
         );
         return undefined;
       } else {
+        let index: number = 0;
+        if ( typeof response.deck === 'string' && !isNaN(parseInt(response.deck))) {
+            index = parseInt(response.deck);
+        }
         const deck: Deck = {
           id: response.deck,
           cards: [card],
           username: username,
-          deckName: deckNames[parseInt(response.deck)]
+          deckName: deckNames[index]
         };
         await collecionDecks.insertOne(deck);
         return undefined;
