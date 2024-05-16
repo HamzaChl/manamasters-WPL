@@ -118,7 +118,7 @@
                       <input type="text" name="id" value="<%= cards[i].id %>" hidden>
                       <button class="add-deck" id="add-to-deck-btn">+</button>
                   </form>
-                  <% if (alreadyInDecks[i].deck) { %>
+                  <% if (alreadyInDecks && alreadyInDecks[i].deck) { %>
                       <div class="exists-deck">
                         <hr class="solid" />
                         <h4>Zit al in deck(s):</h4>

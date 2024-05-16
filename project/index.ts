@@ -28,6 +28,8 @@ app.use((req, res, next) => {
     res.locals.cards = undefined;
     res.locals.drawPercentage = undefined;
     res.locals.drawPercentageId = undefined;
+    res.locals.alreadyInDecks = undefined;
+
     next();
 })
 
