@@ -43,8 +43,9 @@
 
     }
    }
-   document.addEventListener("keydown", () => {
-    closePopUp();
+   document.addEventListener("keydown", (e) => {
+    if(e.which == 27){
+    closePopUp();}
    });
    const openPopup = (id) => {
     const popup = document.getElementById(`popup${id}`);

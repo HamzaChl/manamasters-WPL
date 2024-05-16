@@ -3,7 +3,18 @@
     <% if (card) { %>
       <div class="info-toggle">
         <article class="wrapper-card">
-          <button class="btn-popup"><span style="font-size: 3rem;"><a href="/MagicTheGathering/deck/<%= id %>" style="all: unset;">ⓧ</a></span></button>
+          <button class="btn-popup">
+            
+            <span style="font-size: 3rem;">
+              <script>
+               document.addEventListener("keydown", (e) => {
+                if(e.which == 27){
+
+                  window.location.href ="/MagicTheGathering/deck/<%= id %>"
+                }
+                })
+              </script>
+              <a href="/MagicTheGathering/deck/<%= id %>" style="all: unset;">ⓧ</a></span></button>
           <div class="popup-wrapper">
             <section class="card-details-holder">
               

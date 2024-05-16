@@ -107,7 +107,7 @@ export default function mtgRouter() {
             for (const deckId of decks) {
                 const deck: boolean = await checkCardExists(deckId, randomResults[i].id, req.session.username!);        
                 if (deck) {
-                    alreadyInDecks[i].deck += deckNames[parseInt(deckId)] + ", ";
+                    alreadyInDecks[i].deck += deckNames[parseInt(deckId) - 1] + ", ";
                 };
             };
             alreadyInDecks[i].deck = alreadyInDecks[i].deck!.substring(0, alreadyInDecks[i].deck!.length - 2);
