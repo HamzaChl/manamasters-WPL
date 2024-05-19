@@ -1137,12 +1137,32 @@ footer h4 {
   border: 1px solid white;
 }
 
+.previous-container {
+  width: 30rem;
+  z-index: 1;
+  height: auto;
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  align-items: left;
+  text-align: left;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.706);
+  box-shadow: 0 8px 32px 0 rgba(135, 31, 31, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 10px;
+  gap: 40px;
+  border: 1px solid white;
+}
+
 .login-error-close {
   background-color: var(--orange);
   padding: 10px;
   padding-left: 30px;
   padding-right: 30px;
   border-radius: 10px;
+  text-align: center;
 }
 
 .login-error-close:hover {

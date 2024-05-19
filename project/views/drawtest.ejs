@@ -62,20 +62,20 @@
             <% if (cards && popupPreviousCards ) { %>
                
                 <div class="login-error">
-                  <section class="login-error-container" >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
+                  <section class="previous-container" >
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
                       <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
                       <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
-                    </svg>
+                    </svg> -->
                     
                     <p>
                       <% 
                       if (index === 0 | !index) { %> 
                         Er zijn nog geen vorige kaarten 
                       <% } else { %>
-                        <ol style="list-style: decimal;">
+                        <ol style="list-style: none;">
                           <% for (let i = 0; i < index; i++) { %> 
-                              <li> <%= cards[i].name %> </li> <% 
+                              <li> -    <%= cards[i].name %> </li> <% 
                           } %>
                         </ol>
                       <% }; %>  
