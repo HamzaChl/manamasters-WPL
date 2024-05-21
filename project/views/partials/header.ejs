@@ -79,9 +79,12 @@
      <a href="/MagicTheGathering/decks">
       <li <% if(active === "Decks" || active === "Deck") { %> class="active" <% } %>>Decks </li>
      </a>
-     <a href="/MagicTheGathering/drawtest">
-      <li <% if(active === "Drawtest") { %> class="active" <% } %>>DrawTest </li>
-     </a>
+    <a href="/MagicTheGathering/drawtest">
+         <li <% if(active === "Drawtest") { %> class="active" <% } %>>DrawTest </li>
+    </a>
+        <a href="/MagicTheGathering/handleiding">
+         <li <% if(active === "Handleiding") { %> class="active" <% } %>>Handleiding </li>
+        </a>
     </ul>
     <ul class="right">
      <form action="/MagicTheGathering/uitloggen" method="post">
@@ -121,6 +124,9 @@
     </section>
     <section class="mobile-item" onclick="location.href='/MagicTheGathering/drawtest'">
      <a href="/MagicTheGathering/drawtest" <% if(active === "Drawtest  ") { %> class="active" <% } %>>drawtest </a>
+    </section>
+    <section class="mobile-item" onclick="location.href='/MagicTheGathering/handleiding'">
+     <a href="/MagicTheGathering/handleiding" <% if(active === "Handleiding") { %> class="active" <% } %>>handleiding </a>
     </section>
     <section class="mobile-item" onclick="location.href='/MagicTheGathering/login'">
      <a href="/MagicTheGathering/uitloggen">logout</a>

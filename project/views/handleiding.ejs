@@ -1,23 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include("partials/header")%>
 <body>
-    Welkom bij onze Magic: The Gathering app! Hier is hoe je het kunt gebruiken:
+    <main class="handleiding-main">
+<section>
+    <h2 class="handleiding-titel ui-hover">
+        Welkom bij de Magic The Gathering App!
+    </h2>
+    <br>
+    <hr class="solid" />
 
-Zoek naar kaarten door de naam in de zoekbalk in te voeren en op "Zoeken" te drukken. Je krijgt een lijst met de eerste 10 kaarten te zien die overeenkomen met je zoekopdracht, met de randkleur die de zeldzaamheid aangeeft: wit voor Commons, blauw voor Uncommons, geel voor Rares, en rood voor Mythic Rares.
+</section>
+    
+<article class="stap1">
+    <br>
+    <h3 class="handleiding-subtitel">
+        Kaartzoeker:
+    </h3>
+    <br>
+    <figure class="handleiding-stap1">
+    </figure>
+    <h3>
+        <br>
+        Zoek naar kaarten door de naam in de zoekbalk in te voeren en op "Zoeken" te drukken. Je krijgt een lijst met de eerste 10 kaarten te zien die overeenkomen met je zoekopdracht, met de randkleur die de zeldzaamheid aangeeft: 
+    </h3>
+    <br>
+    <div class="handleiding-legende">
 
-Klik op een kaart om deze te vergroten op dezelfde pagina, of open een nieuwe pagina voor een grotere weergave. Hier kun je de kaart toevoegen aan een deck dat je lokaal bijhoudt. Bekijk ook enkele eigenschappen van de kaart, inclusief in welke deck(s) het zich bevindt.
+        <%- include("partials/legende")%>
+    </div>
+    <br>
+</article>
+<hr class="solid" />
 
-In DeckChecker kun je decks maken en beheren. Geef elk deck een naam en een achtergrond-URL. Een deck mag maximaal 60 kaarten hebben, met maximaal 4 exemplaren van elke kaart (behalve lands). De gemiddelde manakosten van de kaarten worden weergegeven, zonder de lands mee te rekenen.
+<article class="stap2">
+    <br>
+    <h3 class="handleiding-subtitel">
+        Kaart infos:
+    </h3>
+    <br>
+    <figure class="handleiding-stap2">
+    </figure>
+    <h3>
+        <br>
+        <span class="">Klik op een kaart</span> om deze te vergroten op dezelfde pagina, of open een nieuwe pagina voor een grotere weergave.
+        
+        
+    </h3>
+    <br>
+    <figure class="handleiding-stap3">
+    </figure>
+    <h3>
+        Hier kun je de kaart toevoegen aan een deck dat je lokaal bijhoudt. Bekijk ook enkele eigenschappen van de kaart, inclusief in welke deck(s) het zich bevindt.
+    </h3>
+    <br>
+</article>
+<hr class="solid" />
 
-Bekijk je decks met hun achtergrondafbeeldingen en namen. Verwijder kaarten uit je deck of pas het aantal aan.
+<article class="stap3">
+    <br>
+    <h3 class="handleiding-subtitel">
+        Decks beheren:
+    </h3>
+    <br>
+    <figure class="handleiding-stap4">
+    </figure>
+    
+    <h3>
+        <br>
+        In Decks kun je decks beheren. Geef elk deck een naam en een achtergrond-URL. 
+        Een deck mag maximaal 60 kaarten hebben, met maximaal 4 exemplaren van elke kaart (behalve lands). De gemiddelde manakosten van de kaarten worden weergegeven, zonder de lands mee te rekenen.
+    </h3>
+    
+    <br>
+    <figure class="handleiding-stap4">
+    </figure>
+    
+    <h3>
+        <br>
+        Een deck mag maximaal 60 kaarten hebben, met maximaal 4 exemplaren van elke kaart (behalve lands). De gemiddelde manakosten van de kaarten worden weergegeven, zonder de lands mee te rekenen.
+    </h3>
+    
+    <br>
+</article>
+<hr class="solid" />
 
-In Drawtest kun je een deck testen door kaarten te trekken. Schud eerst alle kaarten en trek vervolgens een nieuwe kaart van de stapel. Je kunt ook de kans berekenen om een specifieke kaart als volgende te trekken.
 
-Dat is alles! Veel plezier met spelen!
+    <br>    
+    In Decks kun je decks beheren. Geef elk deck een naam en een achtergrond-URL. Een deck mag maximaal 60 kaarten hebben, met maximaal 4 exemplaren van elke kaart (behalve lands). De gemiddelde manakosten van de kaarten worden weergegeven, zonder de lands mee te rekenen.
+    
+    Bekijk je decks met hun achtergrondafbeeldingen en namen. Verwijder kaarten uit je deck of pas het aantal aan.
+    
+    In Drawtest kun je een deck testen door kaarten te trekken. Schud eerst alle kaarten en trek vervolgens een nieuwe kaart van de stapel. Je kunt ook de kans berekenen om een specifieke kaart als volgende te trekken.
+    
+    Dat is alles! Veel plezier met spelen!
+    </main>
 </body>
 </html>
+
+<%- include("partials/footer")%>

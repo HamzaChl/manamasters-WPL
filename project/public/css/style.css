@@ -433,6 +433,7 @@ hr.solid {
   margin-bottom: 10px;
 }
 
+
 .wrapper {
   width: 70%;
   max-width: 100%;
@@ -497,14 +498,75 @@ article {
   height: auto;
 }
 
+.ui-hover {
+  font-family: dragon;
+}
+
+
+.handleiding-stap1 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap1.png);
+}
+
+.handleiding-stap2 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap2.jpg);
+}
+
+.handleiding-stap3 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap3.png);
+}
+
+.handleiding-stap4 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap4.png);
+}
+
+.handleiding-legende {
+  display: flex;
+  align-items: left;
+  text-align: left;
+}
+
+.handleiding-main {
+  padding: 40px;
+  text-align: left;
+}
+
+.handleiding-subtitel {
+  font-family: dederon-sans-web, sans-serif;
+  font-size: 1.5rem;
+  color: var(--orange)
+}
+
+.handleiding-main article {
+  text-align: left;
+}
+
+.handleiding-titel {
+  font-family: dederon-sans-web, sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .ui-hover:hover {
   filter: drop-shadow(0 0 0.75rem rgb(255, 55, 0));
   transition: all 0.3s ease-out;
 }
 
-.ui-hover {
-  font-family: dragon;
-}
 
 .card-holder {
   width: 245px;
