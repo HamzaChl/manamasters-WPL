@@ -481,6 +481,13 @@ export default function mtgRouter() {
             });
         };        
     });
+
+    router.get("/handleiding",(req,res)=>{
+        res.render("handleiding", {
+            active:  "Handleiding",
+
+        })
+    })
     
     router.get("/error", (req, res) => {
         if (!req.session.username) {
