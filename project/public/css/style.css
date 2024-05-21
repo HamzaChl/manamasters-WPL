@@ -509,7 +509,10 @@ article {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/images/stap1.png);
+  animation: animate 1s ease-in-out 0.6s 1 forwards;
+
 }
+
 
 .handleiding-stap2 {
   width: auto;
@@ -533,6 +536,22 @@ article {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/images/stap4.png);
+}
+
+.handleiding-stap6 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap-6.png);
+}
+
+.handleiding-stap7 {
+  width: auto;
+  height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../assets/images/stap7.png);
 }
 
 .handleiding-legende {
@@ -1768,6 +1787,16 @@ footer h4 {
     margin-bottom: 23rem;
   }
 
+  .handleiding-stap1,
+  .handleiding-stap2,
+  .handleiding-stap3,
+  .handleiding-stap4,
+  .handleiding-stap5,
+  .handleiding-stap6,
+  .handleiding-stap7 {
+    height: 200px;
+    background-position: center;
+  }
 }
 
 
