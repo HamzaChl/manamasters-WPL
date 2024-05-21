@@ -1,5 +1,5 @@
 import express, { request, response } from "express";
-import {  addUser, checkCardExists, deleteCards, deleteOneCard, findUser, findUserName, get10Cards, getCardById, getDeck, insertCardInDeck } from "../database";
+import {  addUser, changeDeckName, checkCardExists, deleteCards, deleteOneCard, findUser, findUserName, get10Cards, getAllDecks, getCardById, getDeck, insertCardInDeck } from "../database";
 import { AddDeck, Card, Deck, User } from "../types";
 import  { continueLogin, requireLogin } from "../middleware/middleware";
 import { WithId } from "mongodb";
@@ -101,7 +101,11 @@ export default function mtgRouter() {
         };
         let alreadyInDecks: { deck: string | undefined }[] = []; 
         const decks = ["1", "2", "3", "4", "5", "6"];
-        const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"]; 
+        let deckNames: string[] = []; 
+        const allDecks: Deck[] = await getAllDecks(req.session.username!);
+        for (const deck of allDecks) {
+            deckNames.push(deck.deckName);
+        };
         for (let i = 0; i < 10; i++) {
             alreadyInDecks[i] = { deck: "" };
             for (const deckId of decks) {
@@ -119,7 +123,8 @@ export default function mtgRouter() {
         res.render("home", {
             active: "Home",
             cards: randomResults,
-            alreadyInDecks: alreadyInDecks
+            alreadyInDecks: alreadyInDecks,
+            allDecks: allDecks
         });    
     });
 
@@ -130,9 +135,11 @@ export default function mtgRouter() {
        const user: string | undefined = req.session.username;
        const error: string | undefined = await insertCardInDeck(response, user!);
        if (error) {
+        const allDecks: Deck[] = await getAllDecks(req.session.username!);
             res.render("home", {
                 limit60: error,
-                cards: req.session.cards
+                cards: req.session.cards,
+                allDecks: allDecks
             });
             return;
        };
@@ -141,8 +148,10 @@ export default function mtgRouter() {
 
 
     router.get("/decks", requireLogin, async (req, res) => {
+        const decks: Deck[] = await getAllDecks(req.session.username!);
         res.render("decks", {
             active:  "Decks",
+            decks: decks
         });
     });
     
@@ -189,7 +198,8 @@ export default function mtgRouter() {
                 deck: deck,
                 id: id,
                 manaCost: manaCostTotal,
-                totalLandCards: totalLandCards
+                totalLandCards: totalLandCards,
+                popupEdit: req.session.popupEdit
             });   
         };
     });
@@ -239,6 +249,25 @@ export default function mtgRouter() {
         });   
     });
 
+    router.get("/edit/:id", requireLogin, (req, res) => {
+        if (req.session.popupEdit) {
+            req.session.popupEdit = false;
+        } else {
+            req.session.popupEdit = true;
+        };
+        res.redirect("/MagicTheGathering/deck/" + req.params.id)
+    });
+
+    router.post("/edit/:id", requireLogin, async (req, res) => {
+        const username: string | undefined = req.session.username;
+        const id: string = req.params.id;
+        const deckname: string = req.body.name;
+        const url: string = req.body.url;
+        await changeDeckName(username!, id, deckname, url );
+        req.session.popupEdit = false;  
+        res.redirect("/MagicTheGathering/deck/" + req.params.id)
+    });
+
     router.get("/deck/:id/:cardId/min", requireLogin, async (req, res) => {
         const id: string = req.params.id;
         const cardId: string = req.params.cardId;
@@ -272,11 +301,13 @@ export default function mtgRouter() {
         const index: number | undefined = req.session.index;
         const deckNumber: string | undefined = req.session.deckNumber;
         const drawPercentageId: string | undefined = req.session.drawPercentage;
+        const allDecks: Deck[] = await getAllDecks(req.session.username!);
         let shuffledCards: Card[] | undefined = req.session.shuffledCards;
         
         if (!deckNumber) {
             res.render("drawtest", {
                 active: "Drawtest",
+                allDecks: allDecks,
                 error: "leeg"
             });
             return;
@@ -284,14 +315,17 @@ export default function mtgRouter() {
     
         const deck: WithId<Deck> | null = await getDeck(deckNumber, req.session.username!);
         let cards: Card[] = [];
-        const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"];
-        
+        let deckNames: string[] = [];
+        for (const deck of allDecks) {
+            deckNames.push(deck.deckName);
+        };
         if (!deck || deck && deck.cards.length === 0) {
             res.render("drawtest", {
                 active: "Drawtest",
                 error: `Geen kaarten gevonden in deck ${deckNames[parseInt(deckNumber) - 1]}`,
                 deckNumber: parseInt(deckNumber),
-                cards: undefined
+                cards: undefined,
+                allDecks: allDecks
             });
             return;
         } else {
@@ -330,7 +364,8 @@ export default function mtgRouter() {
                         index: index,
                         popupPreviousCards: req.session.popupPreviousCards,
                         drawPercentage: drawPercentage,
-                        drawPercentageId: drawPercentageId
+                        drawPercentageId: drawPercentageId,
+                        allDecks: allDecks
                     });                    
                     return;
                 } else {
@@ -344,7 +379,8 @@ export default function mtgRouter() {
                         index: index,
                         popupPreviousCards: req.session.popupPreviousCards,
                         drawPercentage: drawPercentage,
-                        drawPercentageId: drawPercentageId
+                        drawPercentageId: drawPercentageId,
+                        allDecks: allDecks
                     });
                     return;
                 };
@@ -373,7 +409,8 @@ export default function mtgRouter() {
                     index: index,
                     popupPreviousCards: req.session.popupPreviousCards,
                     drawPercentage: drawPercentage,
-                    drawPercentageId: drawPercentageId
+                    drawPercentageId: drawPercentageId,
+                    allDecks: allDecks
                 });
                 return;
             };

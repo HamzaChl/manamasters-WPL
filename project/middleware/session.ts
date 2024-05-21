@@ -27,6 +27,7 @@ declare module 'express-session' {
         shuffledCards: Card[];
         popupPreviousCards: boolean;
         drawPercentage: string;
+        popupEdit: boolean;
     }
 }
 

@@ -14,12 +14,9 @@
             <form action="/MagicTheGathering/drawtest" method="post">
               <select name="deck" class="select-deck" id="deck-select">
                 <option disabled <% if (!deckNumber) { %> selected <%} %> >-- Kies een deck --</option>
-                <option value="1" <% if (deckNumber === 1) { %> selected <% }; %> >Desert Mirage</option>
-                <option value="2" <% if (deckNumber === 2) { %> selected <% }; %> >Shadowed Labyrinth</option>
-                <option value="3" <% if (deckNumber === 3) { %> selected <% }; %> >Inferno Blaze</option>
-                <option value="4" <% if (deckNumber === 4) { %> selected <% }; %> >Mystic Marsh</option>
-                <option value="5" <% if (deckNumber === 5) { %> selected <% }; %> >Verdant Canopy</option>
-                <option value="6" <% if (deckNumber === 6) { %> selected <% }; %> >Celestial Heights</option>
+                <% for (let i = 0; i < allDecks.length; i++) { %>
+                  <option value="<%= i + 1 %>" <% if (deckNumber === i + 1) { %> selected <% }; %> ><%= allDecks[i].deckName %></option>                  
+                <% }; %>
               </select> 
               <% if (cards) { %>
                 <select name="drawPercentage" class="select-deck card-names-select">

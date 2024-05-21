@@ -47,6 +47,16 @@ async function getAllCards() {
   };
 };
 
+export async function changeDeckName(username: string, id: string, deckname: string, url: string) {
+  const deck: WithId<Deck> | null = await collecionDecks.findOne({$and: [{id: id}, {username: username}] });
+  if (url === "") {
+    url = `https://raw.githubusercontent.com/Imrxng/fotosProjectWEB/main/deck${id}.webp`;
+  } else if(deckname === "") {
+    deckname = deck!.deckName;
+  }
+  await collecionDecks.updateOne({id: id, username: username}, {$set: { deckName: deckname, url: url }});
+};
+
 export async function get10Cards(searchValue?: string): Promise<Card[]> {
   if (searchValue) {
     await collectionCards.dropIndex("*");
@@ -74,6 +84,17 @@ export async function addUser(user: User) {
     password: await bcrypt.hash(user.password, saltRounds)
   };
   await collectionUsers.insertOne(user);
+  const deckNames = ["Deck 01", "Deck 02", "Deck 03", "Deck 04", "Deck 05", "Deck 06"];
+  for (let i = 0; i < deckNames.length; i++) {
+    const deck: Deck = {
+      id: (i + 1).toString(),
+      cards: [],
+      username: user.username,
+      deckName: deckNames[i],
+      url: `https://raw.githubusercontent.com/Imrxng/fotosProjectWEB/main/deck${i + 1}.webp`
+    };
+    await collecionDecks.insertOne(deck);
+  };
 };
 
 export async function findUser(user: User) {
@@ -87,6 +108,10 @@ export async function findUser(user: User) {
   return null;
 };
 
+export async function getAllDecks(username: string) {
+    return await collecionDecks.find({username: username}).toArray();
+};
+
 export async function findUserName(user: User) {
   return await collectionUsers.findOne({ username: user.username });
 }
@@ -95,8 +120,6 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
   const card: WithId<Card> | null = await collectionCards.findOne({
     id: response.id,
   });
-  const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"];
-
   if (card) {
     const deck: Deck | null = await collecionDecks.findOne({
       $and: [{ id: response.deck }, { username: username }],
@@ -110,29 +133,16 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
         };
         
         if (deck.cards.length === 60) {
-          return `Limiet van kaarten op deck ${response.deck} bereikt.`;
+          return `Limiet van kaarten in ${deck.deckName} bereikt.`;
         } else if (cards.length === 4 && !card.type.toLowerCase().includes("land")) {
-          return `Limiet van deze kaart bereikt in deck ${response.deck}.`;
+          return `Limiet van deze kaart bereikt in ${deck.deckName}.`;
         };
         await collecionDecks.updateOne(
           { $and: [{ id: response.deck }, { username: username }] },
           { $push: { cards: card } }
         );
         return undefined;
-      } else {
-        let index: number = 0;
-        if ( typeof response.deck === 'string' && !isNaN(parseInt(response.deck))) {
-            index = parseInt(response.deck);
-        }
-        const deck: Deck = {
-          id: response.deck,
-          cards: [card],
-          username: username,
-          deckName: deckNames[index]
-        };
-        await collecionDecks.insertOne(deck);
-        return undefined;
-    };
+     };
   };
 };
 

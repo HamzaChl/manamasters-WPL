@@ -29,7 +29,7 @@ app.use((req, res, next) => {
     res.locals.drawPercentage = undefined;
     res.locals.drawPercentageId = undefined;
     res.locals.alreadyInDecks = undefined;
-
+    res.locals.popupEdit = false;
     next();
 })
 

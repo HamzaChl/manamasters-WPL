@@ -1,5 +1,24 @@
 <%- include("partials/header.ejs") %>
 
+<% if(popupEdit) { %>
+  <div class="login-error">
+    <section class="login-error-container" >
+      <form action="/MagicTheGathering/edit/<%= id %>" method="post">
+        <label for="name">Deck name: </label>
+        <input type="text" name="name">
+        <label for="name">url name: </label>
+        <input type="text" name="url">
+        <input type="submit" value="Bevestigen" class="login-error-close">
+      </form>
+        <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
+        <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
+      </svg>
+        <p><%=limit60%></p> 
+        <a class="login-error-close" href="/MagicTheGathering/edit/<%= id %>" >annuleren</a>
+    </section>  
+  </div>
+<% } %>
+
     <% if (card) { %>
       <div class="info-toggle">
         <article class="wrapper-card">
@@ -91,20 +110,20 @@
         <button> <a href="/MagicTheGathering/decks" id="decksGaTerug"><img src="/assets/icons/arrowleft.png" width="30px"  alt="arow back"> GO BACK</a></button>
         <a href="/MagicTheGathering/export/<%= id %>" id="exportButton"> EXPORT<img src="/assets/icons/arrowright.png" style="width: 30px; height: 30px;" alt="cardsize"></a>
       </section>
+      
       <section id="sectionDeckCards" class="card-layout">
-        
+        <a href="/MagicTheGathering/edit/<%= id %>"><img src="/assets/icons/edit.svg" style="width: 2rem;" alt="edit"></a>
         <article id="deckPhotoAndText">
             <figure>
               <img  style="background-image: linear-gradient(to bottom, transparent, #100f15d2),
-              url('https://raw.githubusercontent.com/Imrxng/fotosProjectWEB/main/deck<%= id %>.webp');">
-              <% const deckNames = ["Desert Mirage", "Shadowed Labyrinth", "Inferno Blaze", "Mystic Marsh", "Verdant Canopy", "Celestial Heights"]; %>
-              <figcaption><%= deckNames[id] %> </figcaption>
+              url('<%= deck.url %>');">
+              <figcaption><%= deck.deckName %> </figcaption>
             </figure>
           </article>
            <div id="iconsrow">
       <article class="icons first">
         <p><img src="/assets/icons/mana.webp" alt="mana" style="width: 30px; height: 30px;">
-       mana:   
+          mana:   
        <% if (deck) { %>
         <%= manaCost %> 
       <%} else { %>

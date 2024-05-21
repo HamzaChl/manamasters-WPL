@@ -108,12 +108,10 @@
                     <br>
                    <form action="/MagicTheGathering/home" method="post">
                       <select name="deck" class="select-deck select-deck-home" id="pet-select">
-                        <option value="1">Desert Mirage</option>
-                        <option value="2">Shadowed Labyrinth</option>
-                        <option value="3">Inferno Blaze</option>
-                        <option value="4">Mystic Marsh</option>
-                        <option value="5">Verdant Canopy</option>
-                        <option value="6">Celestial Heights</option>
+                        <% for (let i = 0; i < allDecks.length; i++) { %>
+                          <option value="<%= i + 1 %>"><%= allDecks[i].deckName %></option>
+                        <% }; %>
+                    
                       </select>
                       <input type="text" name="id" value="<%= cards[i].id %>" hidden>
                       <button class="add-deck" id="add-to-deck-btn">+</button>

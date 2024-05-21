@@ -9,6 +9,7 @@ export interface Deck {
     id: string;
     username: string;
     deckName: string;
+    url: string;
 };
 
 export interface AddDeck {
