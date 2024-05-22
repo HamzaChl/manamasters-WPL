@@ -508,7 +508,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap1.png);
+  background-image: url(../assets/images/stap1.webp);
   animation: animate 1s ease-in-out 0.6s 1 forwards;
 
 }
@@ -519,7 +519,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap2.jpg);
+  background-image: url(../assets/images/stap2.webp);
 }
 
 .handleiding-stap3 {
@@ -527,7 +527,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap3.png);
+  background-image: url(../assets/images/stap3.webp);
 }
 
 .handleiding-stap4 {
@@ -535,7 +535,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap4.png);
+  background-image: url(../assets/images/stap4.webp);
 }
 
 .handleiding-stap6 {
@@ -543,7 +543,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap-6.png);
+  background-image: url(../assets/images/stap6.webp);
 }
 
 .handleiding-stap7 {
@@ -551,7 +551,7 @@ article {
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(../assets/images/stap7.png);
+  background-image: url(../assets/images/stap7.webp);
 }
 
 .handleiding-legende {
@@ -579,6 +579,37 @@ article {
   font-family: dederon-sans-web, sans-serif;
   font-size: 2rem;
   text-align: center;
+}
+
+.deck-edit {
+  padding: 40px;
+  text-align: center;
+}
+
+#card-rarity {
+  filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.638));
+
+}
+
+.login-error-container>form>label {
+  text-align: left;
+}
+
+.deck-edit-input {
+  color: white;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: rgba(13, 13, 13, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(129, 129, 129, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.855);
+  margin-bottom: 0px;
+  width: 250px;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  text-align: left;
 }
 
 .ui-hover:hover {
@@ -1049,6 +1080,7 @@ footer h4 {
   -webkit-backdrop-filter: blur(14.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.782);
+  width: 1094px;
 }
 
 #exportButton {
@@ -1204,7 +1236,7 @@ footer h4 {
 .login-error-container {
   width: 30rem;
   z-index: 1;
-  height: 25%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1512,12 +1544,17 @@ footer h4 {
   .mobile-nav {
     display: hidden;
   }
+
 }
 
 @media screen and (max-width: 1085px) {
   .mobile-version {
     display: flex;
     align-items: center;
+  }
+
+  #add-deck {
+    width: auto;
   }
 
   .desktop-version {

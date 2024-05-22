@@ -2,19 +2,21 @@
 
 <% if(popupEdit) { %>
   <div class="login-error">
-    <section class="login-error-container" >
+    <section class="login-error-container deck-edit" >
       <form action="/MagicTheGathering/edit/<%= id %>" method="post">
-        <label for="name">Deck name: </label>
-        <input type="text" name="name">
-        <label for="name">url name: </label>
-        <input type="text" name="url">
-        <input type="submit" value="Bevestigen" class="login-error-close">
+        <label for="name">Deck naam: </label><br>
+        <input type="text" class="deck-edit-input" name="name">
+        <br>
+        <label for="name">Url afbeelding: </label><br>
+        <input type="text" class="deck-edit-input" name="url">
+        <br>
+        <input type="submit" value="Bevestigen" class="track-btn">
       </form>
         <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
         <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
       </svg>
         <p><%=limit60%></p> 
-        <a class="login-error-close" href="/MagicTheGathering/edit/<%= id %>" >annuleren</a>
+        <a class="track-btn" href="/MagicTheGathering/edit/<%= id %>" >annuleren</a>
     </section>  
   </div>
 <% } %>
