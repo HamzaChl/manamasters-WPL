@@ -695,6 +695,7 @@ article {
 }
 
 #buttonrow {
+  padding: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1235,6 +1236,7 @@ footer h4 {
 
 .login-error-container {
   width: 30rem;
+  padding: 40px;
   z-index: 1;
   height: auto;
   display: flex;
