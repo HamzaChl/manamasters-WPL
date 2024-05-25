@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export interface ErrorHandlerOptions {
     statusCode: number;
 }
@@ -18,7 +20,7 @@ export interface AddDeck {
 }
 
 export interface Card {
-    _id?: string,
+    _id?: ObjectId,
     name: string;
     manaCost: string;
     type: string;

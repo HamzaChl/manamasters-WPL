@@ -1,4 +1,4 @@
-import { MongoClient, Collection, WithId } from "mongodb";
+import { MongoClient, Collection, WithId, ObjectId } from "mongodb";
 import { AddDeck, ApiCard, Card, Deck, User } from "./types";
 import dotenv from "dotenv";
 import bcrypt from 'bcrypt';
@@ -117,7 +117,7 @@ export async function findUserName(user: User) {
 }
 
 export async function insertCardInDeck(response: AddDeck, username: string) {
-  const card: WithId<Card> | null = await collectionCards.findOne({
+  const card: Card | null = await collectionCards.findOne({
     id: response.id,
   });
   if (card) {
@@ -137,6 +137,10 @@ export async function insertCardInDeck(response: AddDeck, username: string) {
         } else if (cards.length === 4 && !card.type.toLowerCase().includes("land")) {
           return `Limiet van deze kaart bereikt in ${deck.deckName}.`;
         };
+
+        delete card._id;
+        card._id = new ObjectId();
+
         await collecionDecks.updateOne(
           { $and: [{ id: response.deck }, { username: username }] },
           { $push: { cards: card } }

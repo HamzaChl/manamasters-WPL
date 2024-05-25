@@ -21,7 +21,7 @@
               <% if (cards) { %>
                 <select name="drawPercentage" class="select-deck card-names-select">
                   <% for (const card of cards) { %>
-                      <option value="<%= card._id %>" <% if (drawPercentageId === card._id) { %> selected <% } %> ><%= card.name %></option>
+                      <option value="<%= card._id %>" <% if (drawPercentageId === card._id.toString()) { %> selected <% } %> ><%= card.name %></option>
                   <% }; %>
                 </select>
               <% }; %>
@@ -52,9 +52,9 @@
               />
             <% }; %>
             <div id="draw-button">
-              <a href="/MagicTheGathering/drawtest/draw"><button class="track-btn">Draw</button></a>
+              <a href="/MagicTheGathering/drawtest/draw"><button class="track-btn">Trekken</button></a>
               <a href="/MagicTheGathering/drawtest/reset"><button class="track-btn">Reset</button></a>
-              <a href="/MagicTheGathering/drawtest/showpreviouscards"><button class="track-btn">Previous</button></a>
+              <a href="/MagicTheGathering/drawtest/showpreviouscards"><button class="track-btn">Vorige</button></a>
             </div>
             <% if (cards && popupPreviousCards ) { %>
                

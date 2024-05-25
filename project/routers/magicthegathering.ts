@@ -189,18 +189,29 @@ export default function mtgRouter() {
                 if (divide != 0) {
                     manaCostTotal = parseFloat((total / divide).toFixed(2));  
                 };
-                uniqueCards = Array.from(new Set(deck.cards.map(card => JSON.stringify(card)))).map(cardJson => JSON.parse(cardJson));
-            };
-            res.render("decksindividueel", {
-                active:  "Deck",
-                uniqueCards: uniqueCards,
-                cardCounts: cardCounts,
-                deck: deck,
-                id: id,
-                manaCost: manaCostTotal,
-                totalLandCards: totalLandCards,
-                popupEdit: req.session.popupEdit
-            });   
+                const uniqueCards = deck.cards.filter((card => {
+                    const seenIds = new Set();
+                    return card => {
+                      if (seenIds.has(card.id)) {
+                        return false;
+                      } else {
+                        seenIds.add(card.id);
+                        return true;
+                      }
+                    };
+                  })());
+
+                res.render("decksindividueel", {
+                    active:  "Deck",
+                    uniqueCards: uniqueCards,
+                    cardCounts: cardCounts,
+                    deck: deck,
+                    id: id,
+                    manaCost: manaCostTotal,
+                    totalLandCards: totalLandCards,
+                    popupEdit: req.session.popupEdit
+                });  
+            };   
         };
     });
 
@@ -301,6 +312,7 @@ export default function mtgRouter() {
         const index: number | undefined = req.session.index;
         const deckNumber: string | undefined = req.session.deckNumber;
         const drawPercentageId: string | undefined = req.session.drawPercentage;
+        
         const allDecks: Deck[] = await getAllDecks(req.session.username!);
         let shuffledCards: Card[] | undefined = req.session.shuffledCards;
         
@@ -388,12 +400,11 @@ export default function mtgRouter() {
                 let drawPercentage: number | string = 0;
                 for (let i = 0; i < shuffledCards.length; i++) {
                     if (shuffledCards[i]._id?.toString() === drawPercentageId) {
-                        const indexCard: number = i;
                         if (!index) {
-                            if (indexCard === 0) {
+                            if (i === 0) {
                                 drawPercentage = 100;
                             } else {
-                                drawPercentage = parseFloat((100 / (indexCard)).toFixed(2)) ; 
+                                drawPercentage = parseFloat((100 / (i + 1)).toFixed(2)) ; 
                             }
                         }  else {
                             drawPercentage = "0";
@@ -421,12 +432,14 @@ export default function mtgRouter() {
     router.post("/drawtest", requireLogin, (req, res) => {
         const deckNumber: string = req.body.deck;
         const drawPercentage: string = req.body.drawPercentage;
+        
         if (req.session.deckNumber && req.session.deckNumber != req.body.deck) {
             req.session.index = undefined;
             req.session.shuffledCards = undefined;
         }
         req.session.deckNumber = deckNumber;
         req.session.drawPercentage = drawPercentage;
+        
         res.redirect("/MagicTheGathering/drawtest");
     });
     
