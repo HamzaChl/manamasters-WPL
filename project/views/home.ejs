@@ -106,7 +106,7 @@
                     <hr class="solid" />
                     <h4>kaart toevoegen aan deck</h4>
                     <br>
-                   <form action="/MagicTheGathering/home" method="post">
+                   <form action="/MagicTheGathering/home" class="home-container-select" method="post">
                       <select name="deck" class="select-deck select-deck-home" id="pet-select">
                         <% for (let i = 0; i < allDecks.length; i++) { %>
                           <option value="<%= i + 1 %>"><%= allDecks[i].deckName %></option>

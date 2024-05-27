@@ -357,6 +357,7 @@ input::placeholder {
 .wrapper-card>button {
   height: 50px;
   width: 50px;
+  display: contents;
   border-radius: 50%;
   justify-content: right;
   margin-top: 10px;
@@ -632,6 +633,7 @@ article {
 }
 
 #mainDecksIndividueel {
+  padding: 10px;
   padding-top: 4rem;
   max-width: 1300px;
   margin: 0 auto;
@@ -824,6 +826,24 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   height: 38rem;
+}
+
+.home-container-select {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-deck-home {
+  margin: 0;
+}
+
+.logout-a {
+  text-decoration: none;
+  font-family: dederon-sans-web, sans-serif;
+  text-transform: uppercase;
 }
 
 #sectionLogin {
@@ -1209,6 +1229,7 @@ footer h4 {
 }
 
 .login-error {
+  padding: 10px;
   position: absolute;
   width: 100vw;
   height: 120vh;
@@ -1836,13 +1857,24 @@ footer h4 {
   #navLogin>section,
   footer>section {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 3.5rem;
+  }
+
+  #sub-navLogin {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .sub-legende {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+  }
+
+  #navLogin>section {
+    flex-direction: row;
     justify-content: center;
   }
 
