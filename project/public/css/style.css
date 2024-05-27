@@ -89,7 +89,7 @@ ul li {
 }
 
 a:hover,
-nav>ul li:hover {
+nav > ul li:hover {
   transition: all 0.3s ease-in;
   color: var(--orange);
 }
@@ -294,7 +294,7 @@ input::placeholder {
   margin: 2rem;
 }
 
-#popupdecksIndividueelVinkEnVuil>a>img {
+#popupdecksIndividueelVinkEnVuil > a > img {
   height: 35px;
   width: 35px;
 }
@@ -319,7 +319,8 @@ input::placeholder {
   margin-right: 20px;
 }
 
-.card-names-select {}
+.card-names-select {
+}
 
 .infos {
   max-width: 40vw;
@@ -354,7 +355,7 @@ input::placeholder {
   padding-right: 30px;
 }
 
-.wrapper-card>button {
+.wrapper-card > button {
   height: 50px;
   width: 50px;
   display: contents;
@@ -407,7 +408,7 @@ h4 {
   align-items: center;
 }
 
-.card-details-holder>.infos>p {
+.card-details-holder > .infos > p {
   color: #c6c6c6;
   font-size: 14px;
 }
@@ -585,7 +586,7 @@ article {
   filter: drop-shadow(0 0 0.75rem rgba(255, 255, 255, 0.638));
 }
 
-.login-error-container>form>label {
+.login-error-container > form > label {
   text-align: left;
 }
 
@@ -666,7 +667,7 @@ article {
   align-items: center;
 }
 
-#mainDecksInfo>p {
+#mainDecksInfo > p {
   margin-left: 2.2rem;
   color: #fff;
   opacity: 0.8;
@@ -678,7 +679,7 @@ article {
   gap: 1rem;
 }
 
-#deckPhotoAndText>figure>img {
+#deckPhotoAndText > figure > img {
   width: 400px;
   height: 250px;
   border-radius: 10px;
@@ -730,7 +731,7 @@ figcaption {
   flex-direction: row;
 }
 
-#deckPhotoAndText>article {
+#deckPhotoAndText > article {
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -757,8 +758,8 @@ figcaption {
   border-radius: 10px;
 }
 
-#deckPhotoAndText>article>.icons>p,
-#sectionDeckCards>article>p {
+#deckPhotoAndText > article > .icons > p,
+#sectionDeckCards > article > p {
   font-size: 1.5rem;
   font-weight: 400;
   font-family: superior-title;
@@ -815,7 +816,7 @@ figcaption {
   border: #fff 1px solid;
 }
 
-#navLogin>section {
+#navLogin > section {
   display: flex;
   gap: 2rem;
 }
@@ -827,7 +828,6 @@ figcaption {
   justify-content: center;
   height: 38rem;
 }
-
 
 .select-deck-home {
   margin: 0;
@@ -862,8 +862,16 @@ figcaption {
   width: 25vw;
 }
 
+#mainError {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 #decorationButton,
-#loginForm>input,
+#loginForm > input,
 #registerButton {
   padding: 15px;
   border-radius: 10px;
@@ -873,7 +881,7 @@ figcaption {
   font-weight: bolder;
 }
 
-#loginForm>input[type="submit"],
+#loginForm > input[type="submit"],
 #registerButton {
   text-align: center;
   background-color: var(--orange);
@@ -886,7 +894,7 @@ figcaption {
   opacity: 1;
 }
 
-#loginForm>input[type="submit"]:hover,
+#loginForm > input[type="submit"]:hover,
 #registerButton:hover {
   border: 1px var(--orange) solid;
   -webkit-box-shadow: 0 -2px 23px 0 var(--orange);
@@ -895,7 +903,7 @@ figcaption {
   transition-duration: 0.7s;
 }
 
-#sectionLogin>h3 {
+#sectionLogin > h3 {
   font-size: small;
   padding: 1rem;
 }
@@ -969,17 +977,17 @@ footer h4 {
   background-color: transparent;
 }
 
-#footerLogin>section {
+#footerLogin > section {
   padding: 0;
   padding-top: 2rem;
 }
 
-#footerLogin>section {
+#footerLogin > section {
   display: flex;
   justify-content: space-around;
 }
 
-#footerLogin>p {
+#footerLogin > p {
   text-align: center;
   font-weight: bolder;
   margin-top: 1rem;
@@ -990,7 +998,7 @@ footer h4 {
   text-align: center;
 }
 
-.socialsFooter>article {
+.socialsFooter > article {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -999,7 +1007,7 @@ footer h4 {
   font-size: small;
 }
 
-.socialsFooter>h2 {
+.socialsFooter > h2 {
   padding-bottom: 0.5rem;
   font-weight: bolder;
   font-family: natural;
@@ -1064,7 +1072,7 @@ footer h4 {
   min-width: 400px;
 }
 
-.decks-container>h1 {
+.decks-container > h1 {
   margin-top: 50px;
 }
 
@@ -1739,7 +1747,7 @@ footer h4 {
     left: 28%;
   }
 
-  #deckPhotoAndText>figure>img {
+  #deckPhotoAndText > figure > img {
     width: 500px;
     margin-right: 0rem;
   }
@@ -1781,7 +1789,7 @@ footer h4 {
     height: auto;
   }
 
-  footer>p {
+  footer > p {
     padding-top: 1rem;
   }
 
@@ -1855,8 +1863,8 @@ footer h4 {
   }
 
   #navLogin,
-  #navLogin>section,
-  footer>section {
+  #navLogin > section,
+  footer > section {
     flex-direction: column;
     gap: 3.5rem;
   }
@@ -1874,7 +1882,7 @@ footer h4 {
     justify-content: center;
   }
 
-  #navLogin>section {
+  #navLogin > section {
     flex-direction: row;
     justify-content: center;
   }
@@ -1931,11 +1939,10 @@ footer h4 {
 }
 
 @media screen and (max-width: 500px) {
-
   #Gebruikersnaamveld::placeholder,
   #Wachtwoordveld::placeholder,
-  #sectionLogin>h3,
-  footer>p {
+  #sectionLogin > h3,
+  footer > p {
     font-size: 10px;
   }
 
@@ -1994,7 +2001,6 @@ footer h4 {
 }
 
 @-webkit-keyframes wobble-hor-bottom {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
@@ -2030,7 +2036,6 @@ footer h4 {
 }
 
 @keyframes wobble-hor-bottom {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
@@ -2195,7 +2200,8 @@ footer h4 {
 }
 
 .flip-vertical-fwd {
-  -webkit-animation: flip-vertical-fwd 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -webkit-animation: flip-vertical-fwd 1s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: flip-vertical-fwd 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
