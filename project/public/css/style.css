@@ -828,13 +828,6 @@ figcaption {
   height: 38rem;
 }
 
-.home-container-select {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 .select-deck-home {
   margin: 0;
@@ -1837,6 +1830,14 @@ footer h4 {
 @media screen and (max-width: 550px) {
   .hero {
     text-align: center;
+  }
+
+  .home-container-select {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .item .content {
