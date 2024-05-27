@@ -1,15 +1,22 @@
 <%- include("partials/header.ejs") %>
-    <main id="decks-main">
-      <h1 class="ui-hover">Decks</h1>
-      <section id="decks-container">
-        <% for (let i = 0; i < decks.length; i++) { %>
-          <a href="/MagicTheGathering/deck/<%=i + 1%>">
-            <article class="decks-holder">
-              <div class="project titel-decks" style="background-image: linear-gradient(to bottom, transparent, #100f15d2), url('<%= decks[i].url %>');">
-                <h2><%= decks[i].deckName %></h2>
-              </div>
-            </article>
-          </a>
-        <% }; %>
-      </section>
-<%- include("partials/footer.ejs") %> 
+<main id="decks-main">
+  <h1 class="ui-hover">Decks</h1>
+  <section id="decks-container">
+    <% for (let i = 0; i < decks.length; i++) { %>
+    <a href="/MagicTheGathering/deck/<%=i + 1%>">
+      <article class="decks-holder">
+        <div
+          class="project titel-decks"
+          style="
+            background-image: linear-gradient(to bottom, transparent, #100f15d2),
+              url('<%= decks[i].url %>');
+          "
+        >
+          <h2><%= decks[i].deckName %></h2>
+        </div>
+      </article>
+    </a>
+    <% }; %>
+  </section>
+  <%- include("partials/footer.ejs") %>
+</main>

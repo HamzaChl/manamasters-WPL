@@ -1,45 +1,45 @@
-<!DOCTYPE html>
-<html lang="nl-BE">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magic The Gathering | <%=word%></title>
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
-  </head>
-  <body>
-    <header id="headerLogin">
-        <nav id="navLogin">
-          <img src="/assets/images/logo.webp" alt="">
-          <section>
-            <a href="/projects" id="decorationButton"><button>Projects</button></a>
-            <% if (word === "login") { %>
-            <a href="/MagicTheGathering/registreer">
-            <% } else { %>
-            <a href="/MagicTheGathering/login">
-            <% }; %>
-                <button id="registerButton">
-                  <% if (word === "login") { %>
-                    REGISTREER
-                  <% } else { %>
-                    LOGIN
-                  <% }; %>
-                </button>
-            </a>
-          </section>
-        </nav>
-      </header>
-    <main id="mainLogin">
-      <% if(error) { %>
-        <div class="login-error" >
-            <section class="login-error-container" >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
-                <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
-                <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
-              </svg>
-                <p><%=error%></p> 
-                <a class="login-error-close" href="/MagicTheGathering/<%=word%>" >Sluiten</a>
+  <!DOCTYPE html>
+  <html lang="nl-BE">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Magic The Gathering | <%=word%></title>
+      <link rel="stylesheet" href="/css/reset.css" />
+      <link rel="stylesheet" href="/css/style.css" />
+      <link rel="shortcut icon" href="./assets/icons/logofavicon.webp" type="image/x-icon">
+    </head>
+    <body>
+      <header id="headerLogin">
+          <nav id="navLogin">
+            <img src="/assets/images/logo.webp" alt="">
+            <section>
+              <a href="/projects" id="decorationButton"><button>Projects</button></a>
+              <% if (word === "login") { %>
+              <a href="/MagicTheGathering/registreer">
+              <% } else { %>
+              <a href="/MagicTheGathering/login">
+              <% }; %>
+                  <button id="registerButton">
+                    <% if (word === "login") { %>
+                      REGISTREER
+                    <% } else { %>
+                      LOGIN
+                    <% }; %>
+                  </button>
+              </a>
             </section>
-        </div >
-    <% }; %>
+          </nav>
+        </header>
+      <main id="mainLogin">
+        <% if(error) { %>
+          <div class="login-error" >
+              <section class="login-error-container" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" style="width:50px; color:#ec4523;">
+                  <polyline class="arrow" fill="none" stroke="currentColor" points="1 1,6.5 6.5,12 1"/>
+                  <polyline class="arrow" fill="none" stroke="currentColor" points="1 12,6.5 6.5,12 12"/>
+                </svg>
+                  <p><%=error%></p> 
+                  <a class="login-error-close" href="/MagicTheGathering/<%=word%>" >Sluiten</a>
+              </section>
+          </div >
+      <% }; %>

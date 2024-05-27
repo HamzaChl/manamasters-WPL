@@ -1,11 +1,21 @@
 <%- include("partials/headerlogin")%>
-      <section id="sectionLogin">
-          <h1 id="h1Login">Login</h1>
-          <form action="/MagicTheGathering/<%= word %>" method="post" id="loginForm">
-            <input type="text" name="username" id="Gebruikersnaamveld" placeholder="Gebruikersnaam">
-            <input type="password" name="password" id="Wachtwoordveld" placeholder="Wachtwoord">
-            <input type="submit" value="Login" id="loginButton">
-            </form>
-            <h3>&copy; Afbeelding van pgngegg</h3>
-        </section>
+<section id="sectionLogin">
+  <h1 id="h1Login">Login</h1>
+  <form action="/MagicTheGathering/<%= word %>" method="post" id="loginForm">
+    <input
+      type="text"
+      name="username"
+      id="Gebruikersnaamveld"
+      placeholder="Gebruikersnaam"
+    />
+    <input
+      type="password"
+      name="password"
+      id="Wachtwoordveld"
+      placeholder="Wachtwoord"
+    />
+    <input type="submit" value="Login" id="loginButton" />
+  </form>
+  <h3>&copy; Afbeelding van pgngegg</h3>
+</section>
 <%- include("partials/footer") %>

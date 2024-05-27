@@ -6,99 +6,141 @@
     <title>Projecten</title>
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/font.css">
-    <link rel="shortcut icon" href="/assets/icons/logofavicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/font.css" />
+    <link
+      rel="shortcut icon"
+      href="/assets/icons/logofavicon.webp"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-      const projectHolders = document.querySelectorAll(
-        ".content:not(.accepted)"
-      );
+        const projectHolders = document.querySelectorAll(
+          ".content:not(.accepted)"
+        );
 
-      projectHolders.forEach(function (projectHolder) {
-        projectHolder.addEventListener("click", function () {
-          document.getElementById("popup").style.visibility = "visible";
-          document.getElementById("popup").style.opacity = "1";
+        projectHolders.forEach(function (projectHolder) {
+          projectHolder.addEventListener("click", function () {
+            document.getElementById("popup").style.visibility = "visible";
+            document.getElementById("popup").style.opacity = "1";
+          });
+        });
+
+        document.getElementById("close").addEventListener("click", function () {
+          document.getElementById("popup").style.visibility = "hidden";
+          document.getElementById("popup").style.opacity = "0";
         });
       });
 
-      document.getElementById("close").addEventListener("click", function () {
-        document.getElementById("popup").style.visibility = "hidden";
-        document.getElementById("popup").style.opacity = "0";
-      });
-    });
+      // loading page buttons
 
-    // loading page buttons
+      function prev() {
+        let items = document.querySelectorAll(".item");
+        document.querySelector(".slide").prepend(items[items.length - 1]);
+      }
 
-
-
-    function prev() {
-      let items = document.querySelectorAll('.item')
-      document.querySelector('.slide').prepend(items[items.length - 1]) 
-    };
-   
-    function next() {
-      let items = document.querySelectorAll('.item')
-      document.querySelector('.slide').appendChild(items[0])
-    };
-
+      function next() {
+        let items = document.querySelectorAll(".item");
+        document.querySelector(".slide").appendChild(items[0]);
+      }
     </script>
   </head>
   <body id="loading-page">
     <div id="popup" class="popup">
-        <section class="alert">
-          <h3>Je kunt niet op dit project klikken. !</h3>
-          <button id="close">close</button>
-        </section>
-      </div>
+      <section class="alert">
+        <h3>Je kunt niet op dit project klikken. !</h3>
+        <button id="close">close</button>
+      </section>
+    </div>
     <main class="container">
       <section class="slide">
-          <article class="item" style="background-image: url(assets/images/fortnite.webp);">
-              <div class="content">
-                  <h1 class="name">Fortnite</h1>
-                  <p class="des">Fortnite: Battle Royale - overleef, vecht en bouw om als laatste over te blijven</p>
-                  <button>START</button>
-              </div>
-          </article>
-          <article class="item" style="background-image: url(assets/images/magicthegathering.webp);">
-            <div class="content accepted">
-              <h1 class="name">Magic The Gathering</h1>
-              <p class="des">Magic: The Gathering: Kaartspel met spreuken en wezens.</p>
-              <a href="/MagicTheGathering/login"><button>START</button></a>
-            </div>
+        <article
+          class="item"
+          style="background-image: url(assets/images/fortnite.webp)"
+        >
+          <div class="content">
+            <h1 class="name">Fortnite</h1>
+            <p class="des">
+              Fortnite: Battle Royale - overleef, vecht en bouw om als laatste
+              over te blijven
+            </p>
+            <button>START</button>
+          </div>
         </article>
-          <article class="item" style="background-image: url(assets/images/fifa.webp);">
-              <div class="content">
-                 <h1 class="name">Fifa</h1>
-                 <p class="des">FIFA is een populaire voetbalvideogame-serie ontwikkeld door EA Sports.</p>
-                 <button>START</button>
-              </div>
-          </article>
-          <article class="item" style="background-image: url(assets/images/lotg.webp);">
-              <div class="content">
-                <h1 class="name" >Lord Of The Rings</h1>
-                <p class="des">Lord of the Rings: Fantasy van J.R.R. Tolkien, goed versus kwaad.</p>
-                <button>START</button>
-              </div>
-          </article>
-          <article class="item" style="background-image: url(assets/images/pokemon.webp);">
-              <div class="content">
-                  <h1 class="name">Pokemon</h1>
-                  <p class="des">Pokémon: Vang, train, vecht en beleef avonturen in een wereld vol uitdagingen en nieuwe ontdekkingen</p>
-                  <button>START</button>
-              </div>
-          </article>
-          <article class="item" style="background-image: url(assets/images/lego.webp);">
-              <div class="content">
-                 <h1 class="name">Lego Masters</h1>
-                 <p class="des">Lego Masters: Teams bouwen met Lego.</p>
-                 <button>START</button>
-              </div>
-          </article>
+        <article
+          class="item"
+          style="background-image: url(assets/images/magicthegathering.webp)"
+        >
+          <div class="content accepted">
+            <h1 class="name">Magic The Gathering</h1>
+            <p class="des">
+              Magic: The Gathering: Kaartspel met spreuken en wezens.
+            </p>
+            <a href="/MagicTheGathering/login"><button>START</button></a>
+          </div>
+        </article>
+        <article
+          class="item"
+          style="background-image: url(assets/images/fifa.webp)"
+        >
+          <div class="content">
+            <h1 class="name">Fifa</h1>
+            <p class="des">
+              FIFA is een populaire voetbalvideogame-serie ontwikkeld door EA
+              Sports.
+            </p>
+            <button>START</button>
+          </div>
+        </article>
+        <article
+          class="item"
+          style="background-image: url(assets/images/lotg.webp)"
+        >
+          <div class="content">
+            <h1 class="name">Lord Of The Rings</h1>
+            <p class="des">
+              Lord of the Rings: Fantasy van J.R.R. Tolkien, goed versus kwaad.
+            </p>
+            <button>START</button>
+          </div>
+        </article>
+        <article
+          class="item"
+          style="background-image: url(assets/images/pokemon.webp)"
+        >
+          <div class="content">
+            <h1 class="name">Pokemon</h1>
+            <p class="des">
+              Pokémon: Vang, train, vecht en beleef avonturen in een wereld vol
+              uitdagingen en nieuwe ontdekkingen
+            </p>
+            <button>START</button>
+          </div>
+        </article>
+        <article
+          class="item"
+          style="background-image: url(assets/images/lego.webp)"
+        >
+          <div class="content">
+            <h1 class="name">Lego Masters</h1>
+            <p class="des">Lego Masters: Teams bouwen met Lego.</p>
+            <button>START</button>
+          </div>
+        </article>
       </section>
       <div class="button">
-          <button id="prev" onclick="prev()"><i class="fa-solid fa-arrow-left"></i></button>
-          <button id="next" onclick="next()"><i class="fa-solid fa-arrow-right"></i></button>
+        <button id="prev" onclick="prev()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button id="next" onclick="next()">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </main>
   </body>

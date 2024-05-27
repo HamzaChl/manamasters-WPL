@@ -1,19 +1,19 @@
 @font-face {
-    font-family: dragon;
-    src: url("../assets/fonts/EG_Dragon_Caps.ttf");
+  font-family: dragon;
+  src: url("../assets/fonts/EG_Dragon_Caps.ttf");
 }
 
 @font-face {
-    font-family: loadingpage;
-    src: url("../assets/fonts/Whocats.ttf");
+  font-family: loadingpage;
+  src: url("../assets/fonts/Whocats.ttf");
 }
 
 @font-face {
-    font-family: popup;
-    src: url("../assets/fonts/PERFORMANCE.ttf");
+  font-family: popup;
+  src: url("../assets/fonts/PERFORMANCE.ttf");
 }
 
 @font-face {
-    font-family: natural;
-    src: url("../assets/fonts/LEMONMILK-Bold.otf");
+  font-family: natural;
+  src: url("../assets/fonts/LEMONMILK-Bold.otf");
 }

@@ -6,15 +6,21 @@
     <title>Error</title>
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/font.css">
-    <link rel="shortcut icon" href="/assets/icons/logofavicon.webp" type="image/x-icon"/>
-</head>
-<body style="height: 100vh;">
-  <main style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    <img src="/assets/icons/roboterror.webp" alt="error">
-    <h1 class="error-title">Er heeft zich een error voorgedaan.</h1>
-    <p style="padding-bottom: 1rem;"><%= message %> (<%=status%>)</p>
-    <a href="/MagicTheGathering/error" style="color: #ec4523;"><p>Ga terug!</p></a>
-  </main>
-</body>
+    <link rel="stylesheet" href="/css/font.css" />
+    <link
+      rel="shortcut icon"
+      href="/assets/icons/logofavicon.webp"
+      type="image/x-icon"
+    />
+  </head>
+  <body style="height: 100vh">
+    <main id="mainError">
+      <img src="/assets/icons/roboterror.webp" alt="error" />
+      <h1 class="error-title">Er heeft zich een error voorgedaan.</h1>
+      <p style="padding-bottom: 1rem"><%= message %> (<%=status%>)</p>
+      <a href="/MagicTheGathering/error" style="color: #ec4523"
+        ><p>Ga terug!</p></a
+      >
+    </main>
+  </body>
 </html>
