@@ -178,6 +178,11 @@ h3 {
   color: #fff;
 }
 
+.active {
+  color: var(--orange);
+  color: #ec4523;
+}
+
 .card-finder {
   min-height: 100vh;
   margin-bottom: 100px;
@@ -217,12 +222,20 @@ input:focus {
   outline: 2px solid #fff;
 }
 
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .search-form {
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: dederon-sans-web, sans-serif;
+}
+
+.svg-icon {
+  width: 25px;
 }
 
 .info-toggle {
@@ -258,6 +271,19 @@ input:focus {
   padding-top: 20px;
 }
 
+#buttonClosePopUpIndividueel {
+  position: relative;
+  left: 30rem;
+}
+
+#popupdecksIndividueelEigenschappen {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 4rem;
+  max-width: 20vw;
+}
+
 #popupdecksIndividueelVinkEnVuil {
   display: flex;
   justify-content: start;
@@ -271,6 +297,11 @@ input:focus {
 #popupdecksIndividueelVinkEnVuil > a > img {
   height: 35px;
   width: 35px;
+}
+
+#picturePopUpIndividueel {
+  height: 310px;
+  margin: 4rem;
 }
 
 .select-deck {
@@ -346,6 +377,10 @@ input:focus {
   width: 300px;
   border-radius: 15px;
   margin-right: 40px;
+}
+
+.rarity {
+  color: #fff;
 }
 
 h4 {
@@ -608,18 +643,30 @@ article {
   font-family: natural;
 }
 
+#mainDecksInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#buttonspage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#mainDecksInfo > p {
+  margin-left: 2.2rem;
+  color: #fff;
+  opacity: 0.8;
+}
+
 #iconsrow {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-
-#mainError {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 #deckPhotoAndText > figure > img {
@@ -662,12 +709,31 @@ figcaption {
   justify-content: space-between;
 }
 
-#deckPhotoAndText {
+#mainDecksIndividueelTop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 3rem;
+}
+
+#deckPhotoAndText,
+#mainDecksIndividueelTop {
   flex-direction: row;
+}
+
+#deckPhotoAndText > article {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 #deckPhotoAndText {
   gap: 4rem;
+}
+
+#mainDecksIndividueelTop {
+  align-items: start;
 }
 
 #sectionDeckCards {
@@ -682,6 +748,7 @@ figcaption {
   border-radius: 10px;
 }
 
+#deckPhotoAndText > article > .icons > p,
 #sectionDeckCards > article > p {
   font-size: 1.5rem;
   font-weight: 400;
@@ -817,6 +884,8 @@ figcaption {
   margin-top: 1rem;
 }
 
+#Gebruikersnaamveld::placeholder,
+#Wachtwoordveld::placeholder,
 #decorationButton {
   color: #0b0e15;
   opacity: 0.8;
@@ -836,11 +905,36 @@ footer article {
   align-items: center;
 }
 
+footer article ul {
+  gap: 0.5rem;
+}
+
 footer {
   color: #fff;
   font-size: 0.8rem;
   padding: 60px 0 20px;
   background-color: #000;
+}
+
+footer article p {
+  line-height: 1.4rem;
+  font-family: Poppins, sans-serif;
+  font-family: natural;
+}
+
+footer h4 {
+  border-bottom: 3px solid var(--orange);
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  font-family: natural;
 }
 
 #footerLogin {
@@ -1000,6 +1094,15 @@ footer {
   gap: 20px;
 }
 
+.input-deck {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  color: #000;
+  padding: 10px;
+  text-align: left;
+  font-family: dederon-sans-web, sans-serif;
+}
+
 .track-btn {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
@@ -1015,6 +1118,10 @@ footer {
   filter: drop-shadow(0 0 0.75rem rgb(255, 55, 0));
   transition: all 0.3s ease-out;
   color: white;
+}
+
+.input-deck::placeholder {
+  color: rgba(0, 0, 0, 0.55);
 }
 
 .popup {
@@ -1344,6 +1451,10 @@ footer {
   font-family: popup;
 }
 
+#textpage {
+  border: white solid 1;
+}
+
 #deckNameDrawtest {
   font-family: popup;
   margin-bottom: 2rem;
@@ -1435,8 +1546,15 @@ footer {
     gap: 30px;
   }
 
-  #deckPhotoAndText {
+  #deckPhotoAndText,
+  #mainDecksIndividueelTop,
+  #sectionDeckCards #mainDecksInfo {
     justify-content: center;
+  }
+
+  #mainDecksIndividueelTop,
+  #mainDecksInfo {
+    flex-direction: row;
   }
 
   #popupdecksIndividueelVinkEnVuil {
@@ -1444,6 +1562,20 @@ footer {
     gap: 1.5rem;
     padding-bottom: 2rem;
     padding-top: 0;
+  }
+
+  #picturePopUpIndividueel {
+    height: 300px;
+    margin: 0;
+    margin: 2rem 4rem 0 4rem;
+  }
+
+  #popupdecksIndividueelEigenschappen {
+    margin: 2rem;
+  }
+
+  #buttonClosePopUpIndividueel {
+    left: 0;
   }
 
   .holder-comparaison {
@@ -1572,6 +1704,12 @@ footer {
 }
 
 @media screen and (max-width: 750px) {
+  .right a {
+    opacity: 0;
+    display: none;
+    transition: ease all 0.5s;
+  }
+
   .popup-wrapper {
     flex-direction: column;
   }
@@ -1660,6 +1798,7 @@ footer {
   .handleiding-stap2,
   .handleiding-stap3,
   .handleiding-stap4,
+  .handleiding-stap5,
   .handleiding-stap6,
   .handleiding-stap7 {
     height: 200px;
@@ -1752,6 +1891,8 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  #Gebruikersnaamveld::placeholder,
+  #Wachtwoordveld::placeholder,
   #sectionLogin > h3,
   footer > p {
     font-size: 10px;
@@ -1761,12 +1902,6 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
-  }
-  
-  .select-deck {
-    padding: 0px;
-    padding: 10px;
-    width: 200px;
   }
 }
 
@@ -1815,6 +1950,80 @@ footer {
   .content .name {
     margin-bottom: 20rem;
   }
+}
+
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+.rarity {
+  color: #fff;
 }
 
 .bounce-top {
@@ -1939,6 +2148,36 @@ footer {
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
     opacity: 1;
+  }
+}
+
+.flip-vertical-fwd {
+  -webkit-animation: flip-vertical-fwd 1s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: flip-vertical-fwd 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes flip-vertical-fwd {
+  0% {
+    -webkit-transform: perspective(800px) rotateY(0);
+    transform: perspective(800px) rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: perspective(800px) rotateY(0);
+    transform: perspective(800px) rotateY(0);
+  }
+}
+
+@keyframes flip-vertical-fwd {
+  0% {
+    -webkit-transform: perspective(800px) rotateY(0);
+    transform: perspective(800px) translateX(-500px) rotateY(0);
+  }
+
+  100% {
+    -webkit-transform: perspective(800px) rotateY(0);
+    transform: perspective(800px) translateX(0) rotateY(0);
   }
 }
 
