@@ -9,12 +9,11 @@ Gemeenschappelijk is een Express/Node.js applicatie met MongoDB als database. De
 ## Functionaliteiten
 
 - **Landing Page:** Gebruikers zien een overzicht van alle beschikbare projecten, inclusief naam en afbeelding.
-- **Inloggen:** Gebruikers moeten inloggen om toegang te krijgen tot de projectdetails.
 - **Project Selectie:** Gebruikers kunnen een project kiezen, mits ze zijn ingelogd.
+- **Inloggen:** Gebruikers moeten inloggen om toegang te krijgen tot de projectdetails.
 - **Kaarten Zoeken:** Gebruikers kunnen kaarten zoeken via een zoekbalk, waarbij de eerste 10 kaarten met de zoekterm worden getoond.
-- **Paged Resultaten:** (BONUS) Alle kaarten met de zoekterm worden gepaged weergegeven.
-- **Kaart Eigenschappen:** (BONUS) Verschillende randen voor Commons, Uncommons, Rares en Mythic Rares.
-- **Kaart Vergroten:** (BONUS) Kaarten vergroten wanneer je erover hovert.
+- **Kaart Eigenschappen:** Verschillende randen voor Commons, Uncommons, Rares en Mythic Rares.
+- **Kaart Vergroten:** Kaarten vergroten wanneer je erover hovert.
 - **Kaart Toevoegen:** Gebruikers kunnen kaarten in hun decks toevoegen.
 - **Deck Overzicht:** Gebruikers kunnen hun decks beheren, inclusief het toevoegen en verwijderen van kaarten.
 - **Drawtest:** Gebruikers kunnen een drawtest uitvoeren om te zien hoe een deck presteert bij het trekken van kaarten.
