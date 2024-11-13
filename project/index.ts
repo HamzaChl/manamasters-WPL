@@ -6,6 +6,7 @@ import { errorHandler } from "./middleware/middleware";
 import { error } from "console";
 import { connect } from "./database";
 import session from "./middleware/session";
+import { pingWebsites } from "./function";
 
 dotenv.config();
 
@@ -49,22 +50,11 @@ app
   .use(errorHandler(403, "Verboden. Toegang geweigerd."))
   .use(errorHandler(400, "Foute aanvraag. Ongeldige syntaxis."));
 
-const url = `https://wpl-project.onrender.com`; 
-const interval = 30000; 
 
-function reloadWebsite() {
-  axios.get(url)
-    .then(response => {
-      console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
-    })
-    .catch(error => {
-      console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
-    });
-}
-
-setInterval(reloadWebsite, interval);
+setInterval(pingWebsites, 600000); 
 
 app.listen(app.get("port"), async () => {
   await connect();
+  pingWebsites();
   console.log("Server started on http://localhost:" + app.get("port"));
 });
